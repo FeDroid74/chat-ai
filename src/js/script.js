@@ -1,14 +1,15 @@
 async function sendMessage() {
     const input = document.getElementById("user-input").value;
-    const messagesDiv = document.getElementById("messages");
+    const chatBox = document.getElementById("chat-box");
 
     if (!input) return;
 
-    // Добавляем сообщение пользователя
-    messagesDiv.innerHTML += `<p><b>Вы:</b> ${input}</p>`;
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    // Показать сообщение пользователя
+    chatBox.innerHTML += `<p><b>Вы:</b> ${input}</p>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
 
     try {
+        // Запрос к api.php в папке src
         const response = await fetch('/api/api.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -21,14 +22,16 @@ async function sendMessage() {
 
         const data = await response.json();
         
-        // Добавляем ответ ИИ с классом ai-message
-        messagesDiv.innerHTML += `<p class="ai-message"><b>ИИ:</b> ${data.reply}</p>`;
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        // Показать ответ ИИ
+        chatBox.innerHTML += `<p><b>ИИ:</b> ${data.reply}</p>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
     } catch (error) {
-        messagesDiv.innerHTML += `<p><b>Ошибка:</b> ${error.message}</p>`;
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        // Показать ошибку пользователю
+        chatBox.innerHTML += `<p><b>Ошибка:</b> ${error.message}</p>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
         console.error('Ошибка:', error);
     }
 
+    // Очистить поле ввода
     document.getElementById("user-input").value = '';
 }
