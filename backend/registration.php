@@ -1,5 +1,5 @@
 <?php
-require_once './backend/db.php';
+require_once 'db.php';
 
 header('Content-Type: application/json');
 
@@ -17,12 +17,20 @@ if (empty($username) || empty($email) || empty($password)) {
     exit;
 }
 
+// Проверка на уникальность username и email
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM user WHERE username = :username OR email = :email");
+$stmt->execute(['username' => $username, 'email' => $email]);
+if ($stmt->fetchColumn() > 0) {
+    echo json_encode(['error' => 'Имя пользователя или email уже заняты']);
+    exit;
+}
+
 try {
     $stmt = $pdo->prepare("INSERT INTO user (username, email, password) VALUES (:username, :email, :password)");
     $stmt->execute([
         'username' => $username,
         'email' => $email,
-        'password' => password_hash($password, PASSWORD_DEFAULT)
+        'password' => $password
     ]);
     echo json_encode(['message' => 'Регистрация успешна!']);
 } catch (PDOException $e) {

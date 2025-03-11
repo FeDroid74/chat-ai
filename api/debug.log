@@ -16,3 +16,220 @@ Raw response: [{"generated_text":"<s>[INST] Ты — экспертный ИИ, 
 Raw response: [{"generated_text":"<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке на вопрос: \"Сколько численность населения в Москве?\" [/INST] На данный момент точная цифра численности населения города Москвы может несколько различаться, однако согласно официальным данным Росстата (Федеральной службы государственной статистики Российской Федерации), по состоянию на начало 2021 года население столицы оценивается примерно в 12,6 миллиона человек. Это включает как постоянных жителей, так и временное население, таких как студенты или гости города.\n\nОднако следует учитывать, что эти данные непрерывно обновляются, а значит, скорее всего, к моменту вашего чтения этой анwsербота будет уже другая цифра. Для получения более свежих данных рекомендую обращаться к официальному сайту Роcстата либо другим надёжным источникам информации."}]
 Raw response: [{"generated_text":"<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке на вопрос: \"Всё работает?\" [/INST] Да, в данный момент я функционирую корректно. Если у вас есть какие-либо вопросы или задачи, пожалуйста, не стесняйтесь меня спрашивать! Я готов помочь вам в различных областях, включая программирование, машинное обучение, естественные языковые процессинговые системы, а также предоставлять информацию о широком круге тем. Надеюсь, что наша коммуникация будет плодотворной и полезной для вас."}]
 Raw response: [{"generated_text":"<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке на вопрос: \"Дай мне понятие слова \"Дизоринтированный\"\" [/INST] Рада помочь вам раскрыть значение термина «дизорIENTIROVANNYЙ»! Это слово происходит из области психологии и означает состояние путаницы или дезориентации в собственном восприятии окружающего мира. Обычно оно используется для описания когнитивных расстройств, связанных с неспособностью правильно интерпретировать ситуацию или обрабатывать полученную информацию.\n\nНапример, человек может испытывать дизорientirovannost' после переживания стресса, шока или при заболевании нервной системы. В таком случае он может чувствовать себя утрачивающим контроль над реальностью, иметь трудности с распознаванием обычного окружения или даже теряться в местах, которые ему хорошо известны. Кроме того, дизорIENTIROVANНОСТЬ также может возникать как побочные эффекты алкоголя или других веществ, способствующих обездвиживанию мозга.\n\nВ общем, дизорIENTIROVANНЫЙ - это тот, кто находится в состоянии путаницы или дезориентации, что выражается в его когнитивных функциях и способностях к оценке окружающей среды."}]
+Raw response: [{"generated_text":"<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке на вопрос: \"Дай мне ответ, сколько будет 40 + 50\" [/INST] Здравствуйте! Я рада помочь вам с вычислениями.\n\nЧтобы посчитать суму чисел 40 и 50, просто сложите эти два числа вместе:\n\n40 + 50 = 90\n\nПоэтому, если вы спрашиваете «Сколько будет 40 + 50», то я могу ответить, что результатом этого условия является число 90. Этого можете быть убеждены, поскольку я являюсь специализированным ИИ-моделью, предназначенной для решения различных задач, включая арифметические расчеты. Надеюсь, это был интересен или полезен для вас! Есть ли другие вопросы, которые я могла бы вам оказаться?"}]
+API Error: <!DOCTYPE html>
+<html class="" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <meta
+            name="description"
+            content="We're on a journey to advance and democratize artificial intelligence through open source and open science."
+    />
+    <meta property="fb:app_id" content="1321688464574422" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@huggingface" />
+    <meta
+            property="og:title"
+            content="Hugging Face - The AI community building the future."
+    />
+    <meta property="og:type" content="website" />
+
+    <title>Hugging Face - The AI community building the future.</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        main {
+            background-color: white;
+            min-height: 100vh;
+            padding: 7rem 1rem 8rem 1rem;
+            text-align: center;
+            font-family: Source Sans Pro, ui-sans-serif, system-ui, -apple-system,
+            BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+            sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+            Noto Color Emoji;
+        }
+
+        img {
+            width: 6rem;
+            height: 6rem;
+            margin: 0 auto 1rem;
+        }
+
+        h1 {
+            font-size: 3.75rem;
+            line-height: 1;
+            color: rgba(31, 41, 55, 1);
+            font-weight: 700;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        p, a {
+            color: rgba(107, 114, 128, 1);
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            max-width: 28rem;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        .dark main {
+            background-color: rgb(11, 15, 25);
+        }
+        .dark h1 {
+            color: rgb(209, 213, 219);
+        }
+        .dark p, .dark a {
+            color: rgb(156, 163, 175);
+        }
+    </style>
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        const key = "_tb_global_settings";
+        let theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        try {
+            const storageTheme = JSON.parse(window.localStorage.getItem(key)).theme;
+            if (storageTheme) {
+                theme = storageTheme === "dark" ? "dark" : "light";
+            }
+        } catch (e) {}
+        if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+    </script>
+</head>
+
+<body>
+<main>
+    <img
+            src="https://cdn-media.huggingface.co/assets/huggingface_logo.svg"
+            alt=""
+    />
+    <div>
+        <h1>503</h1>
+        <p>Service Unavailable</p>
+    </div>
+</main>
+</body>
+</html>
+API Error: {"error":"Model mistralai/Mixtral-7B-Instruct-v0.2 does not exist"}
+API Error: {"error":"Model mistralai/Mixtral-7B-Instruct-v0.1 does not exist"}
+API Error: {"error":"Model mistralai/Mixtral-8x7B-Instruct-v0.2 does not exist"}
+API Error: <!DOCTYPE html>
+<html class="" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <meta
+            name="description"
+            content="We're on a journey to advance and democratize artificial intelligence through open source and open science."
+    />
+    <meta property="fb:app_id" content="1321688464574422" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@huggingface" />
+    <meta
+            property="og:title"
+            content="Hugging Face - The AI community building the future."
+    />
+    <meta property="og:type" content="website" />
+
+    <title>Hugging Face - The AI community building the future.</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        main {
+            background-color: white;
+            min-height: 100vh;
+            padding: 7rem 1rem 8rem 1rem;
+            text-align: center;
+            font-family: Source Sans Pro, ui-sans-serif, system-ui, -apple-system,
+            BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+            sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+            Noto Color Emoji;
+        }
+
+        img {
+            width: 6rem;
+            height: 6rem;
+            margin: 0 auto 1rem;
+        }
+
+        h1 {
+            font-size: 3.75rem;
+            line-height: 1;
+            color: rgba(31, 41, 55, 1);
+            font-weight: 700;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        p, a {
+            color: rgba(107, 114, 128, 1);
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            max-width: 28rem;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        .dark main {
+            background-color: rgb(11, 15, 25);
+        }
+        .dark h1 {
+            color: rgb(209, 213, 219);
+        }
+        .dark p, .dark a {
+            color: rgb(156, 163, 175);
+        }
+    </style>
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        const key = "_tb_global_settings";
+        let theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        try {
+            const storageTheme = JSON.parse(window.localStorage.getItem(key)).theme;
+            if (storageTheme) {
+                theme = storageTheme === "dark" ? "dark" : "light";
+            }
+        } catch (e) {}
+        if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+    </script>
+</head>
+
+<body>
+<main>
+    <img
+            src="https://cdn-media.huggingface.co/assets/huggingface_logo.svg"
+            alt=""
+    />
+    <div>
+        <h1>503</h1>
+        <p>Service Unavailable</p>
+    </div>
+</main>
+</body>
+</html>
+API Error: {"error":"You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly allowance."}
+API Error: {"error":"You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly allowance."}
+API Error: {"error":"You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly allowance."}

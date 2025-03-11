@@ -6,11 +6,23 @@
     <link rel="stylesheet" href="/src/css/style.css">
 </head>
 <body>
-    <div class="container chat-container">
-        <div id="chat-box"></div>
-        <div class="input-group">
-            <input type="text" id="user-input" placeholder="Введите сообщение..." onkeypress="if(event.key === 'Enter') sendMessage();">
-            <button onclick="sendMessage()">Отправить</button>
+    <div class="user-info" id="user-info"></div>
+    <div class="chat-layout">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="sidebar-menu" id="sidebar-menu">
+            <div class="sidebar-header">
+                <button onclick="createChat()" class="new-chat-btn">Новый чат</button>
+                <button onclick="toggleMenu()" class="close-menu"><span>✕</span></button>
+            </div>
+            <div id="chat-list"></div>
+        </div>
+        <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+        <div class="chat-main">
+            <div id="messages"></div>
+            <div class="input-form">
+                <input type="text" id="user-input" placeholder="Введите сообщение..." onkeypress="if(event.key === 'Enter') sendMessage();">
+                <button onclick="sendMessage()">Отправить</button>
+            </div>
         </div>
     </div>
     <script src="/src/js/script.js"></script>
