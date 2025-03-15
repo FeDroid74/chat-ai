@@ -1,5 +1,5 @@
 let currentChatId = null;
-let selectedModel = 'mistralai/Mixtral-8x7B-Instruct-v0.1'; // По умолчанию Mixtral
+let selectedModel = 'mixtral'; // По умолчанию Mixtral
 
 async function loadUserInfo() {
     const response = await fetch('/api/api.php', {
@@ -10,7 +10,7 @@ async function loadUserInfo() {
     const data = await response.json();
     const userInfoDiv = document.getElementById('user-info');
     if (data.username) {
-        userInfoDiv.textContent = `Привет, ${data.username}!`;
+        userInfoDiv.innerHTML = `Привет, ${data.username}! <button onclick="logout()" class="logout-btn">Выйти</button>`;
     } else {
         userInfoDiv.textContent = 'Не авторизован';
         window.location.href = '/login.html';
@@ -91,7 +91,7 @@ async function sendMessage() {
                 action: 'send_message',
                 message: input,
                 chat_id: currentChatId,
-                model: selectedModel // Передаём полное название модели
+                model: selectedModel
             })
         });
 
@@ -118,19 +118,32 @@ async function sendMessage() {
     document.getElementById('user-input').value = '';
 }
 
-// Обновление выбранной модели
 function updateModel() {
     const modelSelect = document.getElementById('model-select');
     selectedModel = modelSelect.value;
     console.log('Выбрана модель:', selectedModel);
 }
 
-// Функция для открытия/закрытия меню
 function toggleMenu() {
     const sidebarMenu = document.getElementById('sidebar-menu');
     const overlay = document.getElementById('overlay');
     sidebarMenu.classList.toggle('active');
     overlay.classList.toggle('active');
+}
+
+async function logout() {
+    if (confirm('Вы уверены, что хотите выйти?')) {
+        const response = await fetch('./backend/logout.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        });
+        
+        if (response.ok) {
+            window.location.href = '/login.html';
+        } else {
+            alert('Ошибка при выходе из системы');
+        }
+    }
 }
 
 window.onload = () => {

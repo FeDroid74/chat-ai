@@ -1,0 +1,84 @@
+/* Контейнер для форм и сообщений */
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+/* Стили для форм */
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #3498db;
+}
+
+.form-group input::placeholder {
+    color: #7f8c8d;
+}
+
+/* Ссылка для переключения между регистрацией и авторизацией */
+.switch-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.switch-link a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.switch-link a:hover {
+    text-decoration: underline;
+}
+
+/* Кнопки */
+button {
+    padding: 12px 20px;
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3498db;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .switch-link {
+        text-align: center;
+    }
+}
