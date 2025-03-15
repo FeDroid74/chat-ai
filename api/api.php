@@ -9,9 +9,57 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-$apiToken = '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';
-$apiUrl = 'https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1';
 $user_id = $_SESSION['user_id'];
+
+// Настройки API
+$hfApiToken = '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'; // Токен Hugging Face
+$yandexOauthToken = 'y0__xCJ1_BSGMHdEyCxz-vDEtCYuETMtlqsa5Q9V3Dzf1AfCxDa'; // OAuth-токен Yandex
+$yandexFolderId = 'b1gm2isg5drni42fle6b'; // Folder ID Yandex
+$yandexApiUrl = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion';
+$yandexOperationApiUrl = 'https://operation.api.cloud.yandex.net/operations/';
+
+// Массив доступных моделей
+$models = [
+    'mixtral' => [
+        'type' => 'huggingface',
+        'url' => 'https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1',
+        'display_name' => 'Mixtral'
+    ],
+    'meta-llama/Llama-3-8B' => [ // Пример другой модели Hugging Face (замени на реальную модель, если хочешь)
+        'type' => 'huggingface',
+        'url' => 'https://api-inference.huggingface.co/models/meta-llama/Llama-3-8B',
+        'display_name' => 'Llama 3'
+    ],
+    'yandexgpt' => [
+        'type' => 'yandexgpt',
+        'display_name' => 'YandexGPT'
+    ]
+];
+
+// Получение IAM-токена для YandexGPT
+function getIamToken($oauthToken) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, 'https://iam.api.cloud.yandex.net/iam/v1/tokens');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['yandexPassportOauthToken' => $oauthToken]));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+    
+    $response = curl_exec($ch);
+    if ($response === false) {
+        file_put_contents('debug.log', "cURL Error (IAM Token): " . curl_error($ch) . "\n", FILE_APPEND);
+        return false;
+    }
+    curl_close($ch);
+
+    $result = json_decode($response, true);
+    if (isset($result['iamToken'])) {
+        return $result['iamToken'];
+    } else {
+        file_put_contents('debug.log', "IAM Token Error: " . print_r($response, true) . "\n", FILE_APPEND);
+        return false;
+    }
+}
 
 $input = json_decode(file_get_contents('php://input'), true);
 $action = $input['action'] ?? 'send_message';
@@ -66,9 +114,16 @@ if ($action === 'get_history') {
 if ($action === 'send_message') {
     $message = trim($input['message'] ?? '');
     $chat_id = $input['chat_id'] ?? 0;
+    $model = $input['model'] ?? 'mistralai/Mixtral-8x7B-Instruct-v0.1'; // По умолчанию Mixtral
 
     if (empty($message)) {
         echo json_encode(['error' => 'Сообщение пустое']);
+        exit;
+    }
+
+    // Проверяем, существует ли модель
+    if (!isset($models[$model])) {
+        echo json_encode(['error' => 'Неизвестная модель: ' . $model]);
         exit;
     }
 
@@ -83,49 +138,176 @@ if ($action === 'send_message') {
     $stmt = $pdo->prepare("INSERT INTO messages (chat_id, user_id, message) VALUES (:chat_id, :user_id, :message)");
     $stmt->execute(['chat_id' => $chat_id, 'user_id' => $user_id, 'message' => $message]);
 
-    // Уточнённая инструкция для ИИ
-    $formatted_message = "<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке на вопрос: \"$message\" [/INST]";
+    $reply = null;
+    $modelInfo = $models[$model];
+    $displayName = $modelInfo['display_name'];
 
-    $payload = [
-        'inputs' => $formatted_message,
-        'parameters' => [
-            'max_new_tokens' => 50, // Ограничиваем новые токены, а не общую длину
-            'temperature' => 0.1,   // Уменьшаем случайность для точных ответов
-            'top_k' => 20,          // Уменьшаем разнообразие
-            'top_p' => 0.7,         // Более строгий фильтр
-            'repetition_penalty' => 1.1, // Меньше повторов
-            'do_sample' => false    // Отключаем случайную выборку для точности
-        ]
-    ];
+    if ($modelInfo['type'] === 'huggingface') {
+        // Hugging Face API
+        $formatted_message = "<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке на вопрос: \"$message\" [/INST]";
 
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $apiUrl);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Authorization: Bearer ' . $apiToken,
-        'Content-Type: application/json'
-    ]);
+        $payload = [
+            'inputs' => $formatted_message,
+            'parameters' => [
+                'max_new_tokens' => 50,
+                'temperature' => 0.1,
+                'top_k' => 20,
+                'top_p' => 0.7,
+                'repetition_penalty' => 1.1,
+                'do_sample' => false
+            ]
+        ];
 
-    $response = curl_exec($ch);
-    curl_close($ch);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $modelInfo['url']);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Authorization: Bearer ' . $hfApiToken,
+            'Content-Type: application/json'
+        ]);
 
-    $result = json_decode($response, true);
-    if (isset($result[0]['generated_text'])) {
-        $reply = trim(str_replace($formatted_message, '', $result[0]['generated_text']));
-        if (empty($reply) || strlen($reply) < 5) { // Уменьшил порог до 5
-            $reply = 'Не могу дать точный ответ, уточните вопрос.';
+        $response = curl_exec($ch);
+        if ($response === false) {
+            file_put_contents('debug.log', "cURL Error (Hugging Face - {$model}): " . curl_error($ch) . "\n", FILE_APPEND);
+            echo json_encode(['error' => 'Ошибка генерации текста: ' . curl_error($ch)]);
+            exit;
         }
-        // Сохраняем ответ ИИ
-        $stmt = $pdo->prepare("INSERT INTO messages (chat_id, user_id, message) VALUES (:chat_id, :user_id, :message)");
-        $stmt->execute(['chat_id' => $chat_id, 'user_id' => 0, 'message' => $reply]);
-        echo json_encode(['reply' => $reply, 'chat_id' => $chat_id]);
-    } else {
-        // Для отладки: логируем ошибку
-        file_put_contents('debug.log', "API Error: " . print_r($response, true) . "\n", FILE_APPEND);
-        echo json_encode(['error' => 'Ошибка генерации текста']);
+        curl_close($ch);
+
+        file_put_contents('debug.log', "Hugging Face Response ({$model}): " . $response . "\n", FILE_APPEND);
+
+        $result = json_decode($response, true);
+        if (isset($result[0]['generated_text'])) {
+            $reply = trim(str_replace($formatted_message, '', $result[0]['generated_text']));
+        } else {
+            file_put_contents('debug.log', "Hugging Face Error ({$model}): " . print_r($response, true) . "\n", FILE_APPEND);
+            echo json_encode(['error' => 'Ошибка генерации текста']);
+            exit;
+        }
+    } elseif ($modelInfo['type'] === 'yandexgpt') {
+        // YandexGPT API
+        $iamToken = getIamToken($yandexOauthToken);
+        if (!$iamToken) {
+            echo json_encode(['error' => 'Ошибка получения IAM-токена']);
+            exit;
+        }
+
+        $formatted_message = "Ответь кратко на русском: \"$message\"";
+        $payload = [
+            'modelUri' => "gpt://$yandexFolderId/yandexgpt-lite",
+            'completionOptions' => [
+                'stream' => false,
+                'temperature' => 0.1,
+                'maxTokens' => 50
+            ],
+            'messages' => [
+                [
+                    'role' => 'user',
+                    'text' => $formatted_message
+                ]
+            ]
+        ];
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $yandexApiUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Authorization: Bearer ' . $iamToken,
+            'Content-Type: application/json',
+            'x-folder-id: ' . $yandexFolderId
+        ]);
+
+        $response = curl_exec($ch);
+        if ($response === false) {
+            file_put_contents('debug.log', "cURL Error (YandexGPT): " . curl_error($ch) . "\n", FILE_APPEND);
+            echo json_encode(['error' => 'Ошибка генерации текста: ' . curl_error($ch)]);
+            exit;
+        }
+        curl_close($ch);
+
+        file_put_contents('debug.log', "YandexGPT Response: " . $response . "\n", FILE_APPEND);
+
+        $result = json_decode($response, true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            file_put_contents('debug.log', "JSON Decode Error: " . json_last_error_msg() . "\nResponse: " . $response . "\n", FILE_APPEND);
+            echo json_encode(['error' => 'Ошибка парсинга ответа от API']);
+            exit;
+        }
+
+        if (isset($result['result'])) {
+            if (isset($result['result']['alternatives'][0]['message']['text'])) {
+                $reply = trim($result['result']['alternatives'][0]['message']['text']);
+            } else {
+                file_put_contents('debug.log', "YandexGPT Error: No text found in sync response. Response: " . print_r($result, true) . "\n", FILE_APPEND);
+                echo json_encode(['error' => 'Ошибка генерации текста: пустой ответ']);
+                exit;
+            }
+        } elseif (isset($result['id'])) {
+            $operationId = $result['id'];
+            $maxAttempts = 30;
+            $attempt = 0;
+
+            while ($attempt < $maxAttempts) {
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $yandexOperationApiUrl . $operationId);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                    'Authorization: Bearer ' . $iamToken
+                ]);
+
+                $operationResponse = curl_exec($ch);
+                if ($operationResponse === false) {
+                    file_put_contents('debug.log', "cURL Error (Operation Check): " . curl_error($ch) . "\n", FILE_APPEND);
+                    echo json_encode(['error' => 'Ошибка проверки операции']);
+                    exit;
+                }
+                curl_close($ch);
+
+                $operationResult = json_decode($operationResponse, true);
+                if (json_last_error() !== JSON_ERROR_NONE) {
+                    file_put_contents('debug.log', "JSON Decode Error (Operation): " . json_last_error_msg() . "\nResponse: " . $operationResponse . "\n", FILE_APPEND);
+                    echo json_encode(['error' => 'Ошибка парсинга статуса операции']);
+                    exit;
+                }
+
+                if (isset($operationResult['done']) && $operationResult['done']) {
+                    if (isset($operationResult['response']['alternatives'][0]['message']['text'])) {
+                        $reply = trim($operationResult['response']['alternatives'][0]['message']['text']);
+                        break;
+                    } else {
+                        file_put_contents('debug.log', "Operation Error: No text found. Response: " . print_r($operationResult, true) . "\n", FILE_APPEND);
+                        echo json_encode(['error' => 'Ошибка генерации текста: пустой ответ']);
+                        exit;
+                    }
+                }
+
+                $attempt++;
+                sleep(1);
+            }
+
+            if ($reply === null) {
+                echo json_encode(['error' => 'Операция не завершилась вовремя']);
+                exit;
+            }
+        } else {
+            file_put_contents('debug.log', "YandexGPT Error: Neither result nor operation_id found. Response: " . print_r($result, true) . "\n", FILE_APPEND);
+            echo json_encode(['error' => 'Ошибка генерации текста: нет ни результата, ни operation_id']);
+            exit;
+        }
     }
+
+    if (empty($reply) || strlen($reply) < 5) {
+        $reply = 'Не могу дать точный ответ, уточните вопрос.';
+    }
+
+    // Сохраняем ответ ИИ
+    $stmt = $pdo->prepare("INSERT INTO messages (chat_id, user_id, message) VALUES (:chat_id, :user_id, :message)");
+    $stmt->execute(['chat_id' => $chat_id, 'user_id' => 0, 'message' => $reply]);
+    echo json_encode(['reply' => $reply, 'chat_id' => $chat_id, 'model' => $displayName]);
     exit;
 }
 

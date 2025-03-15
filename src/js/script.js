@@ -1,4 +1,5 @@
 let currentChatId = null;
+let selectedModel = 'mistralai/Mixtral-8x7B-Instruct-v0.1'; // По умолчанию Mixtral
 
 async function loadUserInfo() {
     const response = await fetch('/api/api.php', {
@@ -86,7 +87,12 @@ async function sendMessage() {
         const response = await fetch('/api/api.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ action: 'send_message', message: input, chat_id: currentChatId })
+            body: JSON.stringify({
+                action: 'send_message',
+                message: input,
+                chat_id: currentChatId,
+                model: selectedModel // Передаём полное название модели
+            })
         });
 
         if (!response.ok) {
@@ -94,13 +100,13 @@ async function sendMessage() {
         }
 
         const text = await response.text();
-        console.log('Raw response:', text); // Отладка в консоли
+        console.log('Raw response:', text);
         const data = JSON.parse(text);
 
         if (data.error) {
             messagesDiv.innerHTML += `<p><b>Ошибка:</b> ${data.error}</p>`;
         } else {
-            messagesDiv.innerHTML += `<p class="ai-message"><b>ИИ:</b> ${data.reply}</p>`;
+            messagesDiv.innerHTML += `<p class="ai-message"><b>ИИ (${data.model}):</b> ${data.reply}</p>`;
             currentChatId = data.chat_id;
             loadChats();
         }
@@ -110,6 +116,13 @@ async function sendMessage() {
     }
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
     document.getElementById('user-input').value = '';
+}
+
+// Обновление выбранной модели
+function updateModel() {
+    const modelSelect = document.getElementById('model-select');
+    selectedModel = modelSelect.value;
+    console.log('Выбрана модель:', selectedModel);
 }
 
 // Функция для открытия/закрытия меню

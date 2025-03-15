@@ -233,3 +233,21 @@ API Error: <!DOCTYPE html>
 API Error: {"error":"You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly allowance."}
 API Error: {"error":"You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly allowance."}
 API Error: {"error":"You have exceeded your monthly included credits for Inference Providers. Subscribe to PRO to get 20x more monthly allowance."}
+YandexGPT Error: {"result":{"alternatives":[{"message":{"role":"assistant","text":"Привет! Да, я здесь. Чем могу помочь?"},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"22","completionTokens":"11","totalTokens":"33","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
+
+YandexGPT Error: {"error":{"grpcCode":7,"httpCode":403,"message":"Permission denied","httpStatus":"Forbidden","details":[]}}
+Ошибка API: {"error":"HfApiJson(Deserialize(Error(\"unknown variant `vllm`, expected one of `text-generation-inference`, `transformers`, `allennlp`, `flair`, `espnet`, `asteroid`, `speechbrain`, `timm`, `sentence-transformers`, `spacy`, `sklearn`, `stanza`, `adapter-transformers`, `fasttext`, `fairseq`, `pyannote-audio`, `doctr`, `nemo`, `fastai`, `k2`, `diffusers`, `paddlenlp`, `mindspore`, `open_clip`, `span-marker`, `bertopic`, `peft`, `setfit`\", line: 1, column: 153)))"}
+Ошибка API: {"error":"Task not found for this model"}
+Ошибка API: {"error":"Task not found for this model"}
+YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"Привет! Да, я здесь. Чем могу помочь?"},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"22","completionTokens":"11","totalTokens":"33","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
+
+YandexGPT Error: No operation_id found. Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"Привет! Да, я здесь. Чем могу помочь?"},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"22","completionTokens":"11","totalTokens":"33","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
+
+YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"Привет! Да, я здесь. Чем могу помочь?"},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"22","completionTokens":"11","totalTokens":"33","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
+
+YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"210"},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"29","completionTokens":"4","totalTokens":"33","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
+
+Hugging Face Response: [{"generated_text":"<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке на вопрос: \"Что ты за нейросеть?\" [/INST] Спасибо за ваш вопрос! Я являюсь примером развитого чат-бота, который использует технологии естественного языка для общения с людьми. Я не явля"}]
+Hugging Face Response: [{"generated_text":"<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке на вопрос: \"Какое название твоей нейросети?\" [/INST] Спасибо за ваш вопрос! Я не имею собственного названия или нейронной сети, поскольку я не являюсь нейронной сетью в традиционном"}]
+YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"Я — нейросеть YandexGPT."},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"28","completionTokens":"7","totalTokens":"35","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
+

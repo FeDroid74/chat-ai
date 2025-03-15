@@ -214,13 +214,13 @@ body {
 
 #messages p.user-message {
     background-color: #e9ecef;
-    align-self: flex-end; /* Пользователь справа */
+    align-self: flex-end;
 }
 
 #messages p.ai-message {
     background-color: #3498db;
     color: #fff;
-    align-self: flex-start; /* ИИ слева */
+    align-self: flex-start;
 }
 
 /* Форма ввода */
@@ -238,6 +238,21 @@ body {
     display: flex;
     gap: 10px;
     z-index: 10;
+}
+
+#model-select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#model-select:focus {
+    border-color: #3498db;
 }
 
 #user-input {
@@ -295,7 +310,7 @@ button:hover {
         bottom: 10px;
     }
 
-    #user-input, button {
+    #model-select, #user-input, button {
         width: 100%;
     }
 

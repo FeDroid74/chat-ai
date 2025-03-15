@@ -20,6 +20,10 @@
         <div class="chat-main">
             <div id="messages"></div>
             <div class="input-form">
+                <select id="model-select" onchange="updateModel()">
+                    <option value="mixtral">Mixtral</option>
+                    <option value="yandexgpt">YandexGPT</option>
+                </select>
                 <input type="text" id="user-input" placeholder="Введите сообщение..." onkeypress="if(event.key === 'Enter') sendMessage();">
                 <button onclick="sendMessage()">Отправить</button>
             </div>
