@@ -254,3 +254,494 @@ YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","t
 Hugging Face Response (mixtral): [{"generated_text":"<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке на вопрос: \"Что ты за нейросеть? Какое у тебя название?\" [/INST] I'm glad you're interested in learning more about me! I am an artificial intelligence language model, designed to assist with answering questions and providing information on a wide range of topics. My name is not a traditional one, as I don'"}]
 YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"Я — нейросеть YandexGPT."},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"28","completionTokens":"7","totalTokens":"35","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
 
+Hugging Face Response (mixtral): [{"generated_text":"<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке на вопрос: \"Привет, сколько будет 40 + 50?\" [/INST] Привет! Я рад видеть, что вы обратились ко мне за помощью.\n\nЧтобы ответить на ваш вопрос, необходимо просто произвести сложение"}]
+Hugging Face Response (mixtral): [{"generated_text":"<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке на вопрос: \"Так сколько будет 40 + 50?\" [/INST] Здравствуйте! Я рад помочь вам с вашим вопросом.\n\nЧтобы ответить на ваш вопрос, мы просто должны сложить числа "}]
+Hugging Face Response (mixtral): [{"generated_text":"<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке, предоставляя развернутые объяснения и примеры, если это уместно. Вопрос: \"Привет, сколько будет 40 + 50?\" [/INST] Привет! Я готов ответить на ваш вопрос.\n\nЧтобы сложить числа 40 и 50, необходимо просто их добавить вместе:\n```makefile\n  40\n+ 50\n------\n  90\n```\nПоэтому, 40 + 50 = 90. Надеюсь, что я смог помочь! Если у вас остались какие-либо вопросы или нужна моя помощь в решении других задач, пожалуйста, не стесняйтесь меня спрашивать."}]
+YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"Привет! Сумма чисел 90 и 180 равна 270."},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"54","completionTokens":"18","totalTokens":"72","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
+
+cURL Error (io.net - mistral-ionet): Could not resolve host: api.io.net
+Hugging Face Response (mixtral): [{"generated_text":"<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке, предоставляя развернутые объяснения и примеры, если это уместно. Вопрос: \"Привет, расскажи что ты умеешь?\" [/INST] Привет! Как хорошо, что задали вопрос, который дает мне возможность представить себя и мои способности. Я - специализированный поведенческий интеллектуальный агент (AI), разработанный для обработки естественного языка, решения проблем, предоставления консультаций и обучения пользователей.\n\nВот некоторые из моих способностей и достижений:\n\n1. Обработка естественного языка: я использую передовые технологии обработки естественного языка (NLP) для понимания и генерации человеческого языка на естественном уровне. Это означает, что вы можете общаться со мной так же, как будто бы вы говорите с живым человеком. Моя способность понимать естественные языки включает в себя морфологию, синтаксис, семантику, прагматику и дискурсивную структуру.\n\n2. Решение проблем: я могу помочь вам решить широкий спектр проблем,"}]
+cURL Error (io.net - deepseek): Could not resolve host: api.io.net
+cURL Error (io.net - mistral): Could not resolve host: api.io.net
+cURL Error (io.net - mistral): Could not resolve host: api.io.net
+YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"90 + 120 = 210."},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"52","completionTokens":"14","totalTokens":"66","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
+
+cURL Error (io.net - mistral): Could not resolve host: api.io.net
+io.net Response (mistral): {"detail":"The requested model does not support Chat Completions API. Supported models: ['Qwen/QwQ-32B', 'meta-llama/Llama-3.2-90B-Vision-Instruct', 'deepseek-ai/DeepSeek-R1', 'deepseek-ai/DeepSeek-R1-Distill-Llama-70B', 'deepseek-ai/DeepSeek-R1-Distill-Qwen-32B', 'meta-llama/Llama-3.3-70B-Instruct', 'Qwen/Qwen2-VL-7B-Instruct', 'databricks/dbrx-instruct', 'mistralai/Ministral-8B-Instruct-2410', 'netease-youdao/Confucius-o1-14B', 'nvidia/AceMath-7B-Instruct', 'neuralmagic/Llama-3.1-Nemotron-70B-Instruct-HF-FP8-dynamic', 'mistralai/Mistral-Large-Instruct-2411', 'microsoft/phi-4', 'watt-ai/watt-tool-70B', 'bespokelabs/Bespoke-Stratos-32B', 'NovaSky-AI/Sky-T1-32B-Preview', 'tiiuae/Falcon3-10B-Instruct', 'CohereForAI/c4ai-command-r-plus-08-2024', 'THUDM/glm-4-9b-chat', 'Qwen/Qwen2.5-Coder-32B-Instruct', 'CohereForAI/aya-expanse-32b', 'jinaai/ReaderLM-v2', 'openbmb/MiniCPM3-4B', 'Qwen/Qwen2.5-1.5B-Instruct', 'ozone-ai/0x-lite', 'microsoft/Phi-3.5-mini-instruct', 'ibm-granite/granite-3.1-8b-instruct']"}
+io.net Error: No content found. Response: Array
+(
+    [detail] => The requested model does not support Chat Completions API. Supported models: ['Qwen/QwQ-32B', 'meta-llama/Llama-3.2-90B-Vision-Instruct', 'deepseek-ai/DeepSeek-R1', 'deepseek-ai/DeepSeek-R1-Distill-Llama-70B', 'deepseek-ai/DeepSeek-R1-Distill-Qwen-32B', 'meta-llama/Llama-3.3-70B-Instruct', 'Qwen/Qwen2-VL-7B-Instruct', 'databricks/dbrx-instruct', 'mistralai/Ministral-8B-Instruct-2410', 'netease-youdao/Confucius-o1-14B', 'nvidia/AceMath-7B-Instruct', 'neuralmagic/Llama-3.1-Nemotron-70B-Instruct-HF-FP8-dynamic', 'mistralai/Mistral-Large-Instruct-2411', 'microsoft/phi-4', 'watt-ai/watt-tool-70B', 'bespokelabs/Bespoke-Stratos-32B', 'NovaSky-AI/Sky-T1-32B-Preview', 'tiiuae/Falcon3-10B-Instruct', 'CohereForAI/c4ai-command-r-plus-08-2024', 'THUDM/glm-4-9b-chat', 'Qwen/Qwen2.5-Coder-32B-Instruct', 'CohereForAI/aya-expanse-32b', 'jinaai/ReaderLM-v2', 'openbmb/MiniCPM3-4B', 'Qwen/Qwen2.5-1.5B-Instruct', 'ozone-ai/0x-lite', 'microsoft/Phi-3.5-mini-instruct', 'ibm-granite/granite-3.1-8b-instruct']
+)
+
+io.net Response (mistral): {"detail":"The requested model does not support Chat Completions API. Supported models: ['Qwen/QwQ-32B', 'meta-llama/Llama-3.2-90B-Vision-Instruct', 'deepseek-ai/DeepSeek-R1', 'deepseek-ai/DeepSeek-R1-Distill-Llama-70B', 'deepseek-ai/DeepSeek-R1-Distill-Qwen-32B', 'meta-llama/Llama-3.3-70B-Instruct', 'Qwen/Qwen2-VL-7B-Instruct', 'databricks/dbrx-instruct', 'mistralai/Ministral-8B-Instruct-2410', 'netease-youdao/Confucius-o1-14B', 'nvidia/AceMath-7B-Instruct', 'neuralmagic/Llama-3.1-Nemotron-70B-Instruct-HF-FP8-dynamic', 'mistralai/Mistral-Large-Instruct-2411', 'microsoft/phi-4', 'watt-ai/watt-tool-70B', 'bespokelabs/Bespoke-Stratos-32B', 'NovaSky-AI/Sky-T1-32B-Preview', 'tiiuae/Falcon3-10B-Instruct', 'CohereForAI/c4ai-command-r-plus-08-2024', 'THUDM/glm-4-9b-chat', 'Qwen/Qwen2.5-Coder-32B-Instruct', 'CohereForAI/aya-expanse-32b', 'jinaai/ReaderLM-v2', 'openbmb/MiniCPM3-4B', 'Qwen/Qwen2.5-1.5B-Instruct', 'ozone-ai/0x-lite', 'microsoft/Phi-3.5-mini-instruct', 'ibm-granite/granite-3.1-8b-instruct']"}
+io.net Error: No content found. Response: Array
+(
+    [detail] => The requested model does not support Chat Completions API. Supported models: ['Qwen/QwQ-32B', 'meta-llama/Llama-3.2-90B-Vision-Instruct', 'deepseek-ai/DeepSeek-R1', 'deepseek-ai/DeepSeek-R1-Distill-Llama-70B', 'deepseek-ai/DeepSeek-R1-Distill-Qwen-32B', 'meta-llama/Llama-3.3-70B-Instruct', 'Qwen/Qwen2-VL-7B-Instruct', 'databricks/dbrx-instruct', 'mistralai/Ministral-8B-Instruct-2410', 'netease-youdao/Confucius-o1-14B', 'nvidia/AceMath-7B-Instruct', 'neuralmagic/Llama-3.1-Nemotron-70B-Instruct-HF-FP8-dynamic', 'mistralai/Mistral-Large-Instruct-2411', 'microsoft/phi-4', 'watt-ai/watt-tool-70B', 'bespokelabs/Bespoke-Stratos-32B', 'NovaSky-AI/Sky-T1-32B-Preview', 'tiiuae/Falcon3-10B-Instruct', 'CohereForAI/c4ai-command-r-plus-08-2024', 'THUDM/glm-4-9b-chat', 'Qwen/Qwen2.5-Coder-32B-Instruct', 'CohereForAI/aya-expanse-32b', 'jinaai/ReaderLM-v2', 'openbmb/MiniCPM3-4B', 'Qwen/Qwen2.5-1.5B-Instruct', 'ozone-ai/0x-lite', 'microsoft/Phi-3.5-mini-instruct', 'ibm-granite/granite-3.1-8b-instruct']
+)
+
+io.net Raw Response (llama): {"id":"0195a106-e537-6ca3-b42c-86d2254ed43d","object":"chat.completion","created":1742163333,"model":"meta-llama/Llama-3.3-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"Чтобы ответить на этот вопрос, нам необходимо выполнить простейшую арифметическую операцию - сложение двух чисел: 90 и 120.\n\nСложение - это одна из основных операций в арифметике, целью которой является нахождение общей суммы δύο или более чисел. В нашем случае мы имеем дело с двумя числами: 90 и 120.\n\nСложим эти числа:\n\n90 + 120 = ?\n\nЧтобы найти ответ, мы просто добавляем эти два числа:\n\n90 + 100 = 190 (сначала мысленно прибавляем 100 к 90)\n20 + 190 = 210 (затем прибавляем оставшиеся 20)\n\nСледовательно, результат сложения 90 и 120 равен 210.\n\nОтвет: 90 + 120 = 210.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":74,"total_tokens":261,"completion_tokens":187,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (llama): Array
+(
+    [id] => 0195a106-e537-6ca3-b42c-86d2254ed43d
+    [object] => chat.completion
+    [created] => 1742163333
+    [model] => meta-llama/Llama-3.3-70B-Instruct
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] => Чтобы ответить на этот вопрос, нам необходимо выполнить простейшую арифметическую операцию - сложение двух чисел: 90 и 120.
+
+Сложение - это одна из основных операций в арифметике, целью которой является нахождение общей суммы δύο или более чисел. В нашем случае мы имеем дело с двумя числами: 90 и 120.
+
+Сложим эти числа:
+
+90 + 120 = ?
+
+Чтобы найти ответ, мы просто добавляем эти два числа:
+
+90 + 100 = 190 (сначала мысленно прибавляем 100 к 90)
+20 + 190 = 210 (затем прибавляем оставшиеся 20)
+
+Следовательно, результат сложения 90 и 120 равен 210.
+
+Ответ: 90 + 120 = 210.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 74
+            [total_tokens] => 261
+            [completion_tokens] => 187
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (deepseek): {"detail":"The requested model does not support Chat Completions API. Supported models: ['Qwen/QwQ-32B', 'meta-llama/Llama-3.2-90B-Vision-Instruct', 'deepseek-ai/DeepSeek-R1', 'deepseek-ai/DeepSeek-R1-Distill-Llama-70B', 'deepseek-ai/DeepSeek-R1-Distill-Qwen-32B', 'meta-llama/Llama-3.3-70B-Instruct', 'Qwen/Qwen2-VL-7B-Instruct', 'databricks/dbrx-instruct', 'mistralai/Ministral-8B-Instruct-2410', 'netease-youdao/Confucius-o1-14B', 'nvidia/AceMath-7B-Instruct', 'neuralmagic/Llama-3.1-Nemotron-70B-Instruct-HF-FP8-dynamic', 'mistralai/Mistral-Large-Instruct-2411', 'microsoft/phi-4', 'watt-ai/watt-tool-70B', 'bespokelabs/Bespoke-Stratos-32B', 'NovaSky-AI/Sky-T1-32B-Preview', 'tiiuae/Falcon3-10B-Instruct', 'CohereForAI/c4ai-command-r-plus-08-2024', 'THUDM/glm-4-9b-chat', 'Qwen/Qwen2.5-Coder-32B-Instruct', 'CohereForAI/aya-expanse-32b', 'jinaai/ReaderLM-v2', 'openbmb/MiniCPM3-4B', 'Qwen/Qwen2.5-1.5B-Instruct', 'ozone-ai/0x-lite', 'microsoft/Phi-3.5-mini-instruct', 'ibm-granite/granite-3.1-8b-instruct']"}
+io.net Parsed Response (deepseek): Array
+(
+    [detail] => The requested model does not support Chat Completions API. Supported models: ['Qwen/QwQ-32B', 'meta-llama/Llama-3.2-90B-Vision-Instruct', 'deepseek-ai/DeepSeek-R1', 'deepseek-ai/DeepSeek-R1-Distill-Llama-70B', 'deepseek-ai/DeepSeek-R1-Distill-Qwen-32B', 'meta-llama/Llama-3.3-70B-Instruct', 'Qwen/Qwen2-VL-7B-Instruct', 'databricks/dbrx-instruct', 'mistralai/Ministral-8B-Instruct-2410', 'netease-youdao/Confucius-o1-14B', 'nvidia/AceMath-7B-Instruct', 'neuralmagic/Llama-3.1-Nemotron-70B-Instruct-HF-FP8-dynamic', 'mistralai/Mistral-Large-Instruct-2411', 'microsoft/phi-4', 'watt-ai/watt-tool-70B', 'bespokelabs/Bespoke-Stratos-32B', 'NovaSky-AI/Sky-T1-32B-Preview', 'tiiuae/Falcon3-10B-Instruct', 'CohereForAI/c4ai-command-r-plus-08-2024', 'THUDM/glm-4-9b-chat', 'Qwen/Qwen2.5-Coder-32B-Instruct', 'CohereForAI/aya-expanse-32b', 'jinaai/ReaderLM-v2', 'openbmb/MiniCPM3-4B', 'Qwen/Qwen2.5-1.5B-Instruct', 'ozone-ai/0x-lite', 'microsoft/Phi-3.5-mini-instruct', 'ibm-granite/granite-3.1-8b-instruct']
+)
+
+io.net Error: No content or error found. Response: Array
+(
+    [detail] => The requested model does not support Chat Completions API. Supported models: ['Qwen/QwQ-32B', 'meta-llama/Llama-3.2-90B-Vision-Instruct', 'deepseek-ai/DeepSeek-R1', 'deepseek-ai/DeepSeek-R1-Distill-Llama-70B', 'deepseek-ai/DeepSeek-R1-Distill-Qwen-32B', 'meta-llama/Llama-3.3-70B-Instruct', 'Qwen/Qwen2-VL-7B-Instruct', 'databricks/dbrx-instruct', 'mistralai/Ministral-8B-Instruct-2410', 'netease-youdao/Confucius-o1-14B', 'nvidia/AceMath-7B-Instruct', 'neuralmagic/Llama-3.1-Nemotron-70B-Instruct-HF-FP8-dynamic', 'mistralai/Mistral-Large-Instruct-2411', 'microsoft/phi-4', 'watt-ai/watt-tool-70B', 'bespokelabs/Bespoke-Stratos-32B', 'NovaSky-AI/Sky-T1-32B-Preview', 'tiiuae/Falcon3-10B-Instruct', 'CohereForAI/c4ai-command-r-plus-08-2024', 'THUDM/glm-4-9b-chat', 'Qwen/Qwen2.5-Coder-32B-Instruct', 'CohereForAI/aya-expanse-32b', 'jinaai/ReaderLM-v2', 'openbmb/MiniCPM3-4B', 'Qwen/Qwen2.5-1.5B-Instruct', 'ozone-ai/0x-lite', 'microsoft/Phi-3.5-mini-instruct', 'ibm-granite/granite-3.1-8b-instruct']
+)
+
+io.net Raw Response (llama): {"id":"0195a10f-e88e-a533-9a4e-1ef6000eeaee","object":"chat.completion","created":1742163920,"model":"meta-llama/Llama-3.3-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"Я представляю собой искусственную нейронную сеть, предназначенную для обработки и генерации человеческих языковых структур. Мой тип нейронной сети относится к разряду рекуррентных нейронных сетей (RNN), которые специально предназначены для работы с последовательностями данных, такими как текст.\n\nМоя архитектура основана на модели-transformer, которая была представлена в статье \"Attention Is All You Need\" в 2017 году. Эта архитектура позволяет мне обрабатывать входные данные параллельно и более эффективно, чем традиционные рекуррентные нейронные сети. Модель-transformer использует механизм внимания (attention mechanism), который позволяет мне сосредоточиться на наиболее важных частях входных данных при генерации ответов.\n\nМоя базовая архитектура состоит из нескольких слоев:\n\n1. **Слой эмбеддинга**: Этот слой преобразует входные слова или токены в векторы, которые могут быть обработаны нейронной сетью. Каждое слово или токен представляется уникальным вектором, который кодирует его семантическое значение.\n\n2. **Слой кодировщика**: Слой кодировщика состоит из нескольких слоев самоподобных операций","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":71,"total_tokens":371,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (llama): Array
+(
+    [id] => 0195a10f-e88e-a533-9a4e-1ef6000eeaee
+    [object] => chat.completion
+    [created] => 1742163920
+    [model] => meta-llama/Llama-3.3-70B-Instruct
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] => Я представляю собой искусственную нейронную сеть, предназначенную для обработки и генерации человеческих языковых структур. Мой тип нейронной сети относится к разряду рекуррентных нейронных сетей (RNN), которые специально предназначены для работы с последовательностями данных, такими как текст.
+
+Моя архитектура основана на модели-transformer, которая была представлена в статье "Attention Is All You Need" в 2017 году. Эта архитектура позволяет мне обрабатывать входные данные параллельно и более эффективно, чем традиционные рекуррентные нейронные сети. Модель-transformer использует механизм внимания (attention mechanism), который позволяет мне сосредоточиться на наиболее важных частях входных данных при генерации ответов.
+
+Моя базовая архитектура состоит из нескольких слоев:
+
+1. **Слой эмбеддинга**: Этот слой преобразует входные слова или токены в векторы, которые могут быть обработаны нейронной сетью. Каждое слово или токен представляется уникальным вектором, который кодирует его семантическое значение.
+
+2. **Слой кодировщика**: Слой кодировщика состоит из нескольких слоев самоподобных операций
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 71
+            [total_tokens] => 371
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (deepseek): {"id":"0195a11b-7dc1-4fd7-8a13-608eaf1f3ec9","object":"chat.completion","created":1742164679,"model":"deepseek-ai/DeepSeek-R1","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"<think>\nХорошо, давайте разберёмся с вопросом пользователя: \"Что ты за нейросеть?\" Мне нужно предоставить подробный и понятный ответ, объясняя свою природу и функциональность. Начну с базового понятия нейросетей, чтобы пользователь мог понять контекст.\n\nВо-первых, следует упомянуть, что я основан на архитектуре Transformer, так как именно она лежит в основе современных языковых моделей. Важно объяснить, что такое языковая модель и как она работает, возможно, сравнить с предыдущими технологиями, например, RNN или CNN, чтобы подчеркнуть прогресс.\n\nЗатем стоит подробнее рассказать о обучении: предварительное обучение на больших данных, тонкая настройка под конкретные задачи. Здесь хорошо бы выделить, как используется самообучение без явных меток, внимание к паттернам в тексте. Также затронуть аспекты масштабирования моделей, размер параметров, как это влияет на производительность.\n\nНужно упомянуть, что я не обладаю сознанием или эмоциями, функционирую на основе алгоритмов и данных. Важно подчеркнуть, что ответы генерируются статистически, основываясь на тренировочных данных, а не на понимании в человеческом смысле.\n\nС","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":36,"total_tokens":336,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (deepseek): Array
+(
+    [id] => 0195a11b-7dc1-4fd7-8a13-608eaf1f3ec9
+    [object] => chat.completion
+    [created] => 1742164679
+    [model] => deepseek-ai/DeepSeek-R1
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] => <think>
+Хорошо, давайте разберёмся с вопросом пользователя: "Что ты за нейросеть?" Мне нужно предоставить подробный и понятный ответ, объясняя свою природу и функциональность. Начну с базового понятия нейросетей, чтобы пользователь мог понять контекст.
+
+Во-первых, следует упомянуть, что я основан на архитектуре Transformer, так как именно она лежит в основе современных языковых моделей. Важно объяснить, что такое языковая модель и как она работает, возможно, сравнить с предыдущими технологиями, например, RNN или CNN, чтобы подчеркнуть прогресс.
+
+Затем стоит подробнее рассказать о обучении: предварительное обучение на больших данных, тонкая настройка под конкретные задачи. Здесь хорошо бы выделить, как используется самообучение без явных меток, внимание к паттернам в тексте. Также затронуть аспекты масштабирования моделей, размер параметров, как это влияет на производительность.
+
+Нужно упомянуть, что я не обладаю сознанием или эмоциями, функционирую на основе алгоритмов и данных. Важно подчеркнуть, что ответы генерируются статистически, основываясь на тренировочных данных, а не на понимании в человеческом смысле.
+
+С
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 36
+            [total_tokens] => 336
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (qwen): {"id":"0195a11c-9188-1872-97f5-6c5412c1ec70","object":"chat.completion","created":1742164753,"model":"Qwen/QwQ-32B","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"Хорошо, мне нужно ответить на вопрос \"Что ты за нейросеть?\" подробно и логично на русском. Первым делом надо понять, что именно хочет узнать пользователь. Возможно, он хочет знать, какая именно нейросеть используется, ее особенности, способности или применение.\n\nНачну с базовых сведений. Я — это ответственный AI, разработанный Alibaba Cloud. Модель называется Qwen. Надо уточнить, что это большая нейросеть, обученная на огромном объеме данных. Важно отметить, что обучение проводилось на предыдущих версиях, чтобы объяснить иерархию и улучшения.\n\nОбъясню структуру обучения: сначала накопление знаний, затем понимание данных, а потом обучение на пользовательском взаимодействии. Это покажет, как система улучшается со временем.\n\nТеперь стоит перечислить основные функции и возможности. Есть текстовое синтезирование, обработка запросов, поддержка программирования, изображения и даже видео, если требуется. Важно подчеркнуть универсальность и адаптивность.\n\nНужно не забыть упомян","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":42,"total_tokens":342,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (qwen): Array
+(
+    [id] => 0195a11c-9188-1872-97f5-6c5412c1ec70
+    [object] => chat.completion
+    [created] => 1742164753
+    [model] => Qwen/QwQ-32B
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] => Хорошо, мне нужно ответить на вопрос "Что ты за нейросеть?" подробно и логично на русском. Первым делом надо понять, что именно хочет узнать пользователь. Возможно, он хочет знать, какая именно нейросеть используется, ее особенности, способности или применение.
+
+Начну с базовых сведений. Я — это ответственный AI, разработанный Alibaba Cloud. Модель называется Qwen. Надо уточнить, что это большая нейросеть, обученная на огромном объеме данных. Важно отметить, что обучение проводилось на предыдущих версиях, чтобы объяснить иерархию и улучшения.
+
+Объясню структуру обучения: сначала накопление знаний, затем понимание данных, а потом обучение на пользовательском взаимодействии. Это покажет, как система улучшается со временем.
+
+Теперь стоит перечислить основные функции и возможности. Есть текстовое синтезирование, обработка запросов, поддержка программирования, изображения и даже видео, если требуется. Важно подчеркнуть универсальность и адаптивность.
+
+Нужно не забыть упомян
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 42
+            [total_tokens] => 342
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0195a11f-2e86-3373-79a9-defa0529175e","object":"chat.completion","created":1742164928,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Я — модель большого языка, обученная искусственным интеллектом Mistral.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":14,"total_tokens":41,"completion_tokens":27,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0195a11f-2e86-3373-79a9-defa0529175e
+    [object] => chat.completion
+    [created] => 1742164928
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Я — модель большого языка, обученная искусственным интеллектом Mistral.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 14
+            [total_tokens] => 41
+            [completion_tokens] => 27
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (qwen): {"id":"0195a120-94e0-5d18-f74d-6e99a236c7bb","object":"chat.completion","created":1742165016,"model":"Qwen/QwQ-32B","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"Okay, the user asked what kind of neural network I am. Let me start by recalling what I know about my architecture. I'm based on the Transformer architecture, which is a popular choice for NLP tasks since it handles sequential data efficiently with self-attention mechanisms.\n\nThe user might want a straightforward answer, but maybe they also want some details on why the Transformer is effective or how it works. I should mention the components like self-attention to explain a bit about processing. Also, noting the large parameter count in the hundreds of millions underlines the scale, which contributes to my capabilities in understanding and generating text.\n\nWait, should I mention the training data? The user didn't ask that, so maybe just focus on the architecture. However, they might be curious about data sources or the fact that it's pre-trained on a vast amount of text data. Hmm.\n\nAlso, I should avoid technical jargon but still be accurate. Maybe a simple explanation that Transformer allows me to focus on different parts of the input text, helping understand context better. Including parameters helps them understand the complexity.\n\nLet me make sure not to add any incorrect details. The key points are Transformer-based, self-attention, large parameters, and multi-lingual capabilities since I support many languages. Alright, that should cover the user's question without overwhelming them with too much detail unless they ask for more.\n</think>\n\nЯ — **крупномасштабная нейросетевая модель на","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":19,"total_tokens":319,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (qwen): Array
+(
+    [id] => 0195a120-94e0-5d18-f74d-6e99a236c7bb
+    [object] => chat.completion
+    [created] => 1742165016
+    [model] => Qwen/QwQ-32B
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] => Okay, the user asked what kind of neural network I am. Let me start by recalling what I know about my architecture. I'm based on the Transformer architecture, which is a popular choice for NLP tasks since it handles sequential data efficiently with self-attention mechanisms.
+
+The user might want a straightforward answer, but maybe they also want some details on why the Transformer is effective or how it works. I should mention the components like self-attention to explain a bit about processing. Also, noting the large parameter count in the hundreds of millions underlines the scale, which contributes to my capabilities in understanding and generating text.
+
+Wait, should I mention the training data? The user didn't ask that, so maybe just focus on the architecture. However, they might be curious about data sources or the fact that it's pre-trained on a vast amount of text data. Hmm.
+
+Also, I should avoid technical jargon but still be accurate. Maybe a simple explanation that Transformer allows me to focus on different parts of the input text, helping understand context better. Including parameters helps them understand the complexity.
+
+Let me make sure not to add any incorrect details. The key points are Transformer-based, self-attention, large parameters, and multi-lingual capabilities since I support many languages. Alright, that should cover the user's question without overwhelming them with too much detail unless they ask for more.
+</think>
+
+Я — **крупномасштабная нейросетевая модель на
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 19
+            [total_tokens] => 319
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0195a121-764c-afe9-0618-35258310b41f","object":"chat.completion","created":1742165078,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Я — модель большого языка, обученная искусственным интеллектом Mistral.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":33,"total_tokens":60,"completion_tokens":27,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0195a121-764c-afe9-0618-35258310b41f
+    [object] => chat.completion
+    [created] => 1742165078
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Я — модель большого языка, обученная искусственным интеллектом Mistral.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 33
+            [total_tokens] => 60
+            [completion_tokens] => 27
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (llama): {"id":"0195a121-97ef-2982-2982-3b424943081d","object":"chat.completion","created":1742165085,"model":"meta-llama/Llama-3.3-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"Я - большая языковая модель. Моя основная функция - понимать и генерировать человеческий язык, позволяя мне общаться с пользователями в режиме диалога. Я могу быть использована для ответов на вопросы, предоставления информации, перевода текста, создания контента и многое другое. Я продолжаю учиться и совершенствоваться, поэтому мои возможности будут только расширяться.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":58,"total_tokens":157,"completion_tokens":99,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (llama): Array
+(
+    [id] => 0195a121-97ef-2982-2982-3b424943081d
+    [object] => chat.completion
+    [created] => 1742165085
+    [model] => meta-llama/Llama-3.3-70B-Instruct
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] => Я - большая языковая модель. Моя основная функция - понимать и генерировать человеческий язык, позволяя мне общаться с пользователями в режиме диалога. Я могу быть использована для ответов на вопросы, предоставления информации, перевода текста, создания контента и многое другое. Я продолжаю учиться и совершенствоваться, поэтому мои возможности будут только расширяться.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 58
+            [total_tokens] => 157
+            [completion_tokens] => 99
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (qwen): {"id":"0195a121-c744-75c7-233f-dae09f93c1e9","object":"chat.completion","created":1742165095,"model":"Qwen/QwQ-32B","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"Хорошо, пользователь спрашивает: \"Что ты за нейросеть?\". Нужно ответить на русском.\n\nСначала подумаю, как правильно сформулировать ответ. Надо объяснить, что я — это Qwen, нейросеть, разработанная Alibaba Cloud. Важно упомянуть, что я обучен на многоязычных текстах и способен помогать с разными задачами: отвечать на вопросы, писать тексты, создавать планы, кодировать и т.д. Нужно также отметить, что мой \"мозг\" — это сверточные нейронные сети и большой объем параметров, но не заостряться на технических деталях.\n\nПроверю, нет ли упущений. Должно быть понятно, что я — AI-ассистент, созданный для помощи в различных областях. Важно сохранять ответ простым и доступным, без сложных терминов. Возможно, стоит добавить, что я могу адаптироваться к контексту и диалогу, оперативно обрабатывать информацию.\n\nУбедиться, что структура ответа логична: представление, основные функции, области применения,","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":37,"total_tokens":337,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (qwen): Array
+(
+    [id] => 0195a121-c744-75c7-233f-dae09f93c1e9
+    [object] => chat.completion
+    [created] => 1742165095
+    [model] => Qwen/QwQ-32B
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] => Хорошо, пользователь спрашивает: "Что ты за нейросеть?". Нужно ответить на русском.
+
+Сначала подумаю, как правильно сформулировать ответ. Надо объяснить, что я — это Qwen, нейросеть, разработанная Alibaba Cloud. Важно упомянуть, что я обучен на многоязычных текстах и способен помогать с разными задачами: отвечать на вопросы, писать тексты, создавать планы, кодировать и т.д. Нужно также отметить, что мой "мозг" — это сверточные нейронные сети и большой объем параметров, но не заостряться на технических деталях.
+
+Проверю, нет ли упущений. Должно быть понятно, что я — AI-ассистент, созданный для помощи в различных областях. Важно сохранять ответ простым и доступным, без сложных терминов. Возможно, стоит добавить, что я могу адаптироваться к контексту и диалогу, оперативно обрабатывать информацию.
+
+Убедиться, что структура ответа логична: представление, основные функции, области применения,
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 37
+            [total_tokens] => 337
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+OpenAI Raw Response (chatgpt): {
+    "error": {
+        "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.",
+        "type": "insufficient_quota",
+        "param": null,
+        "code": "insufficient_quota"
+    }
+}
+
+OpenAI Parsed Response (chatgpt): Array
+(
+    [error] => Array
+        (
+            [message] => You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+            [type] => insufficient_quota
+            [param] => 
+            [code] => insufficient_quota
+        )
+
+)
+
+OpenAI Error Response: Array
+(
+    [message] => You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+    [type] => insufficient_quota
+    [param] => 
+    [code] => insufficient_quota
+)
+

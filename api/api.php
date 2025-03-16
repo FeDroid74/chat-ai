@@ -17,6 +17,7 @@ $yandexOauthToken = 'y0__xCJ1_BSGMHdEyCxz-vDEtCYuETMtlqsa5Q9V3Dzf1AfCxDa'; // OA
 $yandexFolderId = 'b1gm2isg5drni42fle6b'; // Folder ID Yandex
 $yandexApiUrl = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion';
 $yandexOperationApiUrl = 'https://operation.api.cloud.yandex.net/operations/';
+$ioNetApiKey = 'io-v2-eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJvd25lciI6IjBlOTBmMWEzLTJmMzEtNDkwMy1hYTNiLWMxZjQyY2MyZDlkOSIsImV4cCI6NDg5NTc2MTE5Mn0.OPlYgcT87Mj2YI-I-UfrNsRWkKqWeSTHLbxZjaf3-bFk9svoAhX6ER5J1uSkCh9q12wGTzG2euLzdnlQ_3v1Dg'; // API-ключ io.net
 
 // Массив доступных моделей
 $models = [
@@ -25,14 +26,29 @@ $models = [
         'url' => 'https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1',
         'display_name' => 'Mixtral'
     ],
-    'meta-llama/Llama-3-8B' => [ // Пример другой модели Hugging Face (замени на реальную модель, если хочешь)
-        'type' => 'huggingface',
-        'url' => 'https://api-inference.huggingface.co/models/meta-llama/Llama-3-8B',
-        'display_name' => 'Llama 3'
-    ],
     'yandexgpt' => [
         'type' => 'yandexgpt',
         'display_name' => 'YandexGPT'
+    ],
+    'llama' => [
+        'type' => 'ionet',
+        'model_name' => 'meta-llama/Llama-3.3-70B-Instruct',
+        'display_name' => 'Llama'
+    ],
+    'deepseek' => [
+        'type' => 'ionet',
+        'model_name' => 'deepseek-ai/DeepSeek-R1',
+        'display_name' => 'DeepSeek'
+    ],
+    'mistral' => [
+        'type' => 'ionet',
+        'model_name' => 'mistralai/Mistral-Large-Instruct-2411',
+        'display_name' => 'Mistral'
+    ],
+    'qwen' => [
+        'type' => 'ionet',
+        'model_name' => 'Qwen/QwQ-32B',
+        'display_name' => 'Qwen'
     ]
 ];
 
@@ -114,7 +130,7 @@ if ($action === 'get_history') {
 if ($action === 'send_message') {
     $message = trim($input['message'] ?? '');
     $chat_id = $input['chat_id'] ?? 0;
-    $model = $input['model'] ?? 'mistralai/Mixtral-8x7B-Instruct-v0.1'; // По умолчанию Mixtral
+    $model = $input['model'] ?? 'mixtral'; // По умолчанию Mixtral
 
     if (empty($message)) {
         echo json_encode(['error' => 'Сообщение пустое']);
@@ -144,17 +160,17 @@ if ($action === 'send_message') {
 
     if ($modelInfo['type'] === 'huggingface') {
         // Hugging Face API
-        $formatted_message = "<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке на вопрос: \"$message\" [/INST]";
+        $formatted_message = "<s>[INST] Ты — экспертный ИИ, отвечай подробно, логично и на русском языке, предоставляя развернутые объяснения и примеры, если это уместно. Вопрос: \"$message\" [/INST]";
 
         $payload = [
             'inputs' => $formatted_message,
             'parameters' => [
-                'max_new_tokens' => 50,
-                'temperature' => 0.1,
-                'top_k' => 20,
-                'top_p' => 0.7,
-                'repetition_penalty' => 1.1,
-                'do_sample' => false
+                'max_new_tokens' => 300,
+                'temperature' => 0.7,
+                'top_k' => 50,
+                'top_p' => 0.9,
+                'repetition_penalty' => 1.2,
+                'do_sample' => true
             ]
         ];
 
@@ -194,13 +210,13 @@ if ($action === 'send_message') {
             exit;
         }
 
-        $formatted_message = "Ответь кратко на русском: \"$message\"";
+        $formatted_message = "Ты — экспертный ИИ. Отвечай подробно, логично и на русском языке, предоставляя развернутые объяснения и примеры, если это уместно. Вопрос: \"$message\"";
         $payload = [
             'modelUri' => "gpt://$yandexFolderId/yandexgpt-lite",
             'completionOptions' => [
                 'stream' => false,
-                'temperature' => 0.1,
-                'maxTokens' => 50
+                'temperature' => 0.7,
+                'maxTokens' => 300
             ],
             'messages' => [
                 [
@@ -298,10 +314,64 @@ if ($action === 'send_message') {
             echo json_encode(['error' => 'Ошибка генерации текста: нет ни результата, ни operation_id']);
             exit;
         }
+    } elseif ($modelInfo['type'] === 'ionet') {
+        // io.net API
+        $formatted_message = "Отвечай на русском языке на вопрос. Вопрос: \"$message\"";
+        $payload = [
+            'model' => $modelInfo['model_name'],
+            'messages' => [
+                [
+                    'role' => 'user',
+                    'content' => $formatted_message
+                ]
+            ],
+            'max_completion_tokens' => 300
+        ];
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.intelligence.io.solutions/api/v1/chat/completions');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Authorization: Bearer ' . $ioNetApiKey,
+            'Content-Type: application/json'
+        ]);
+
+        $response = curl_exec($ch);
+        if ($response === false) {
+            file_put_contents('debug.log', "cURL Error (io.net - {$model}): " . curl_error($ch) . "\n", FILE_APPEND);
+            echo json_encode(['error' => 'Ошибка генерации текста: ' . curl_error($ch)]);
+            exit;
+        }
+        curl_close($ch);
+
+        file_put_contents('debug.log', "io.net Raw Response ({$model}): " . $response . "\n", FILE_APPEND);
+
+        $result = json_decode($response, true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            file_put_contents('debug.log', "JSON Decode Error (io.net): " . json_last_error_msg() . "\nResponse: " . $response . "\n", FILE_APPEND);
+            echo json_encode(['error' => 'Ошибка парсинга ответа от API io.net']);
+            exit;
+        }
+
+        file_put_contents('debug.log', "io.net Parsed Response ({$model}): " . print_r($result, true) . "\n", FILE_APPEND);
+
+        if (isset($result['choices'][0]['message']['content'])) {
+            $reply = trim($result['choices'][0]['message']['content']);
+        } elseif (isset($result['error'])) {
+            file_put_contents('debug.log', "io.net Error Response: " . print_r($result['error'], true) . "\n", FILE_APPEND);
+            echo json_encode(['error' => 'Ошибка io.net: ' . ($result['error']['message'] ?? 'Неизвестная ошибка')]);
+            exit;
+        } else {
+            file_put_contents('debug.log', "io.net Error: No content or error found. Response: " . print_r($result, true) . "\n", FILE_APPEND);
+            echo json_encode(['error' => 'Ошибка генерации текста: пустой ответ от io.net']);
+            exit;
+        }
     }
 
-    if (empty($reply) || strlen($reply) < 5) {
-        $reply = 'Не могу дать точный ответ, уточните вопрос.';
+    if (empty($reply) || strlen($reply) < 10) {
+        $reply = 'К сожалению, я не смог дать подробный ответ на ваш вопрос. Пожалуйста, уточните его или задайте другой вопрос, и я постараюсь помочь вам более детально!';
     }
 
     // Сохраняем ответ ИИ

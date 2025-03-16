@@ -1,5 +1,5 @@
 let currentChatId = null;
-let selectedModel = 'mixtral'; // По умолчанию Mixtral
+let selectedModel = 'mistral'; // По умолчанию Mistral
 
 async function loadUserInfo() {
     const response = await fetch('/api/api.php', {
