@@ -747,3 +747,126 @@ OpenAI Error Response: Array
 
 YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"Население Москвы постоянно меняется из-за миграции, естественного прироста и других факторов. Чтобы получить актуальную информацию, рекомендуется обратиться к официальным источникам, например, к данным Росстата или мэрии Москвы.\n\nПо последней переписи населения, которая проводилась в 2010 году, население Москвы составляло более 11 миллионов человек. Однако с тех пор численность населения могла измениться."},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"48","completionTokens":"72","totalTokens":"120","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
 
+io.net Raw Response (mistral): {"id":"0195ae48-1820-24bb-49eb-3782a2aca74c","object":"chat.completion","created":1742385714,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Привет! Да, я здесь.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":32,"total_tokens":43,"completion_tokens":11,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0195ae48-1820-24bb-49eb-3782a2aca74c
+    [object] => chat.completion
+    [created] => 1742385714
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Привет! Да, я здесь.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 32
+            [total_tokens] => 43
+            [completion_tokens] => 11
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0195ae58-ee11-acfa-f9e3-707fc26bcc97","object":"chat.completion","created":1742386809,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Когда ты кладёшь растворимую таблетку в воду, происходит процесс растворения. Таблетка постепенно распадается на более мелкие частицы и растворяется в воде. Это происходит потому, что частицы таблетки притягиваются к молекулам воды. В конечном итоге получается однородный раствор, в котором компоненты таблетки равномерно распределены в воде. Этот процесс может сопровождаться образованием пузырьков газа, если в таблетке присутствуют вещества, которые реагируют с водой, например, вещества, которые выделяют углекислый газ.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":55,"total_tokens":259,"completion_tokens":204,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0195ae58-ee11-acfa-f9e3-707fc26bcc97
+    [object] => chat.completion
+    [created] => 1742386809
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Когда ты кладёшь растворимую таблетку в воду, происходит процесс растворения. Таблетка постепенно распадается на более мелкие частицы и растворяется в воде. Это происходит потому, что частицы таблетки притягиваются к молекулам воды. В конечном итоге получается однородный раствор, в котором компоненты таблетки равномерно распределены в воде. Этот процесс может сопровождаться образованием пузырьков газа, если в таблетке присутствуют вещества, которые реагируют с водой, например, вещества, которые выделяют углекислый газ.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 55
+            [total_tokens] => 259
+            [completion_tokens] => 204
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0195ae5d-50fa-192d-91ce-83afaeed0e4d","object":"chat.completion","created":1742387095,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Когда вы кладете растворимую таблетку в воду, происходит процесс растворения. Таблетка начинает распадаться на более мелкие частицы, которые затем взаимодействуют с молекулами воды. В результате этого взаимодействия вещества, из которых состоит таблетка, равномерно распределяются в воде, образуя гомогенный раствор. Этот процесс может сопровождаться выделением газов (например, углекислого газа), если таблетка содержит компоненты, которые реагируют с водой и образуют пузырьки. В конечном итоге вода становится раствором, в котором растворимое вещество таблетки равномерно распределено.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":55,"total_tokens":280,"completion_tokens":225,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0195ae5d-50fa-192d-91ce-83afaeed0e4d
+    [object] => chat.completion
+    [created] => 1742387095
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Когда вы кладете растворимую таблетку в воду, происходит процесс растворения. Таблетка начинает распадаться на более мелкие частицы, которые затем взаимодействуют с молекулами воды. В результате этого взаимодействия вещества, из которых состоит таблетка, равномерно распределяются в воде, образуя гомогенный раствор. Этот процесс может сопровождаться выделением газов (например, углекислого газа), если таблетка содержит компоненты, которые реагируют с водой и образуют пузырьки. В конечном итоге вода становится раствором, в котором растворимое вещество таблетки равномерно распределено.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 55
+            [total_tokens] => 280
+            [completion_tokens] => 225
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+

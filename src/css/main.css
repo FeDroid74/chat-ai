@@ -167,6 +167,42 @@
     align-self: flex-start;
 }
 
+/* Индикатор загрузки */
+.loading-message {
+    align-self: flex-start;
+    padding: 12px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    max-width: 70%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #2c3e50;
+}
+
+.loading-message .dots::after {
+    content: '...';
+    display: inline-block;
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+/* Эффект печати текста */
+.ai-message.typing {
+    opacity: 0;
+    animation: typing 1s forwards;
+}
+
+@keyframes typing {
+    0% { opacity: 0; transform: translateY(5px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
 /* Форма ввода */
 .input-form {
     position: fixed;

@@ -1,19 +1,33 @@
 let currentChatId = null;
 let selectedModel = 'mistral'; // По умолчанию Mistral
 
+// Функция для сброса выбора модели на Mistral
+function resetModelSelection() {
+    selectedModel = 'mistral';
+    const modelSelect = document.getElementById('model-select');
+    modelSelect.value = 'mistral'; // Сбрасываем <select> на Mistral
+}
+
 async function loadUserInfo() {
     const response = await fetch('/api/api.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'get_user_info' })
     });
-    const data = await response.json();
-    const userInfoDiv = document.getElementById('user-info');
-    if (data.username) {
-        userInfoDiv.innerHTML = `Привет, ${data.username}! <button onclick="logout()" class="logout-btn">Выйти</button>`;
-    } else {
-        userInfoDiv.textContent = 'Не авторизован';
-        window.location.href = '/login.html';
+    const text = await response.text();
+    console.log('Raw response from loadUserInfo:', text);
+    try {
+        const data = JSON.parse(text);
+        const userInfoDiv = document.getElementById('user-info');
+        if (data.username) {
+            userInfoDiv.innerHTML = `Привет, ${data.username}! <button onclick="logout()" class="logout-btn">Выйти</button>`;
+        } else {
+            userInfoDiv.textContent = 'Не авторизован';
+            window.location.href = '/login.html';
+        }
+    } catch (error) {
+        console.error('Ошибка парсинга JSON в loadUserInfo:', error, 'Raw response:', text);
+        throw error;
     }
 }
 
@@ -23,20 +37,27 @@ async function loadChats() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'get_chats' })
     });
-    const data = await response.json();
-    const chatList = document.getElementById('chat-list');
-    chatList.innerHTML = '';
-    if (data.chats) {
-        data.chats.forEach(chat => {
-            const div = document.createElement('div');
-            div.textContent = chat.title;
-            div.className = 'chat-item';
-            div.onclick = () => {
-                loadHistory(chat.id);
-                toggleMenu();
-            };
-            chatList.appendChild(div);
-        });
+    const text = await response.text();
+    console.log('Raw response from loadChats:', text);
+    try {
+        const data = JSON.parse(text);
+        const chatList = document.getElementById('chat-list');
+        chatList.innerHTML = '';
+        if (data.chats) {
+            data.chats.forEach(chat => {
+                const div = document.createElement('div');
+                div.textContent = chat.title;
+                div.className = 'chat-item';
+                div.onclick = () => {
+                    loadHistory(chat.id);
+                    toggleMenu();
+                };
+                chatList.appendChild(div);
+            });
+        }
+    } catch (error) {
+        console.error('Ошибка парсинга JSON в loadChats:', error, 'Raw response:', text);
+        throw error;
     }
 }
 
@@ -47,16 +68,23 @@ async function loadHistory(chatId) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'get_history', chat_id: chatId })
     });
-    const data = await response.json();
-    const messagesDiv = document.getElementById('messages');
-    messagesDiv.innerHTML = '';
-    if (data.messages) {
-        data.messages.forEach(msg => {
-            const className = msg.user_id === 0 ? 'ai-message' : 'user-message';
-            messagesDiv.innerHTML += `<p class="${className}"><b>${msg.user_id === 0 ? 'ИИ' : 'Вы'}:</b> ${msg.message}</p>`;
-        });
+    const text = await response.text();
+    console.log('Raw response from loadHistory:', text);
+    try {
+        const data = JSON.parse(text);
+        const messagesDiv = document.getElementById('messages');
+        messagesDiv.innerHTML = '';
+        if (data.messages) {
+            data.messages.forEach(msg => {
+                const className = msg.user_id === 0 ? 'ai-message' : 'user-message';
+                messagesDiv.innerHTML += `<p class="${className}"><b>${msg.user_id === 0 ? 'ИИ' : 'Вы'}:</b> ${msg.message}</p>`;
+            });
+        }
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    } catch (error) {
+        console.error('Ошибка парсинга JSON в loadHistory:', error, 'Raw response:', text);
+        throw error;
     }
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
 async function createChat() {
@@ -66,11 +94,18 @@ async function createChat() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'create_chat', title: title })
     });
-    const data = await response.json();
-    if (data.chat_id) {
-        loadChats();
-        loadHistory(data.chat_id);
-        toggleMenu();
+    const text = await response.text();
+    console.log('Raw response from createChat:', text);
+    try {
+        const data = JSON.parse(text);
+        if (data.chat_id) {
+            loadChats();
+            loadHistory(data.chat_id);
+            toggleMenu();
+        }
+    } catch (error) {
+        console.error('Ошибка парсинга JSON в createChat:', error, 'Raw response:', text);
+        throw error;
     }
 }
 
@@ -80,7 +115,15 @@ async function sendMessage() {
 
     if (!input) return;
 
+    // Показываем сообщение пользователя
     messagesDiv.innerHTML += `<p class="user-message"><b>Вы:</b> ${input}</p>`;
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+    // Добавляем индикатор загрузки
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'loading-message';
+    loadingDiv.innerHTML = `<b>ИИ (${selectedModel}):</b> Генерируется <span class="dots"></span>`;
+    messagesDiv.appendChild(loadingDiv);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
     try {
@@ -100,17 +143,26 @@ async function sendMessage() {
         }
 
         const text = await response.text();
-        console.log('Raw response:', text);
+        console.log('Raw response from sendMessage:', text);
         const data = JSON.parse(text);
+
+        // Удаляем индикатор загрузки
+        messagesDiv.removeChild(loadingDiv);
 
         if (data.error) {
             messagesDiv.innerHTML += `<p><b>Ошибка:</b> ${data.error}</p>`;
         } else {
-            messagesDiv.innerHTML += `<p class="ai-message"><b>ИИ (${data.model}):</b> ${data.reply}</p>`;
+            // Добавляем ответ ИИ с эффектом печати
+            const replyDiv = document.createElement('p');
+            replyDiv.className = 'ai-message typing';
+            replyDiv.innerHTML = `<b>ИИ (${data.model}):</b> ${data.reply}`;
+            messagesDiv.appendChild(replyDiv);
             currentChatId = data.chat_id;
             loadChats();
         }
     } catch (error) {
+        // Удаляем индикатор загрузки в случае ошибки
+        messagesDiv.removeChild(loadingDiv);
         messagesDiv.innerHTML += `<p><b>Ошибка:</b> ${error.message}</p>`;
         console.error('Ошибка в sendMessage:', error);
     }
@@ -147,6 +199,8 @@ async function logout() {
 }
 
 window.onload = () => {
+    // Сбрасываем выбор модели на Mistral при загрузке страницы
+    resetModelSelection();
     loadUserInfo();
     loadChats();
     if (currentChatId) loadHistory(currentChatId);
