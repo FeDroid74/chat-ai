@@ -870,3 +870,71 @@ io.net Parsed Response (mistral): Array
     [prompt_logprobs] => 
 )
 
+io.net Raw Response (gemma): {"detail":"The requested model does not support Chat Completions API. Supported models: ['Qwen/QwQ-32B', 'meta-llama/Llama-3.2-90B-Vision-Instruct', 'deepseek-ai/DeepSeek-R1', 'deepseek-ai/DeepSeek-R1-Distill-Llama-70B', 'deepseek-ai/DeepSeek-R1-Distill-Qwen-32B', 'meta-llama/Llama-3.3-70B-Instruct', 'Qwen/Qwen2-VL-7B-Instruct', 'databricks/dbrx-instruct', 'mistralai/Ministral-8B-Instruct-2410', 'netease-youdao/Confucius-o1-14B', 'nvidia/AceMath-7B-Instruct', 'neuralmagic/Llama-3.1-Nemotron-70B-Instruct-HF-FP8-dynamic', 'mistralai/Mistral-Large-Instruct-2411', 'microsoft/phi-4', 'watt-ai/watt-tool-70B', 'bespokelabs/Bespoke-Stratos-32B', 'NovaSky-AI/Sky-T1-32B-Preview', 'tiiuae/Falcon3-10B-Instruct', 'CohereForAI/c4ai-command-r-plus-08-2024', 'THUDM/glm-4-9b-chat', 'Qwen/Qwen2.5-Coder-32B-Instruct', 'CohereForAI/aya-expanse-32b', 'jinaai/ReaderLM-v2', 'openbmb/MiniCPM3-4B', 'Qwen/Qwen2.5-1.5B-Instruct', 'ozone-ai/0x-lite', 'microsoft/Phi-3.5-mini-instruct', 'ibm-granite/granite-3.1-8b-instruct']"}
+io.net Parsed Response (gemma): Array
+(
+    [detail] => The requested model does not support Chat Completions API. Supported models: ['Qwen/QwQ-32B', 'meta-llama/Llama-3.2-90B-Vision-Instruct', 'deepseek-ai/DeepSeek-R1', 'deepseek-ai/DeepSeek-R1-Distill-Llama-70B', 'deepseek-ai/DeepSeek-R1-Distill-Qwen-32B', 'meta-llama/Llama-3.3-70B-Instruct', 'Qwen/Qwen2-VL-7B-Instruct', 'databricks/dbrx-instruct', 'mistralai/Ministral-8B-Instruct-2410', 'netease-youdao/Confucius-o1-14B', 'nvidia/AceMath-7B-Instruct', 'neuralmagic/Llama-3.1-Nemotron-70B-Instruct-HF-FP8-dynamic', 'mistralai/Mistral-Large-Instruct-2411', 'microsoft/phi-4', 'watt-ai/watt-tool-70B', 'bespokelabs/Bespoke-Stratos-32B', 'NovaSky-AI/Sky-T1-32B-Preview', 'tiiuae/Falcon3-10B-Instruct', 'CohereForAI/c4ai-command-r-plus-08-2024', 'THUDM/glm-4-9b-chat', 'Qwen/Qwen2.5-Coder-32B-Instruct', 'CohereForAI/aya-expanse-32b', 'jinaai/ReaderLM-v2', 'openbmb/MiniCPM3-4B', 'Qwen/Qwen2.5-1.5B-Instruct', 'ozone-ai/0x-lite', 'microsoft/Phi-3.5-mini-instruct', 'ibm-granite/granite-3.1-8b-instruct']
+)
+
+io.net Error: No content or error found. Response: Array
+(
+    [detail] => The requested model does not support Chat Completions API. Supported models: ['Qwen/QwQ-32B', 'meta-llama/Llama-3.2-90B-Vision-Instruct', 'deepseek-ai/DeepSeek-R1', 'deepseek-ai/DeepSeek-R1-Distill-Llama-70B', 'deepseek-ai/DeepSeek-R1-Distill-Qwen-32B', 'meta-llama/Llama-3.3-70B-Instruct', 'Qwen/Qwen2-VL-7B-Instruct', 'databricks/dbrx-instruct', 'mistralai/Ministral-8B-Instruct-2410', 'netease-youdao/Confucius-o1-14B', 'nvidia/AceMath-7B-Instruct', 'neuralmagic/Llama-3.1-Nemotron-70B-Instruct-HF-FP8-dynamic', 'mistralai/Mistral-Large-Instruct-2411', 'microsoft/phi-4', 'watt-ai/watt-tool-70B', 'bespokelabs/Bespoke-Stratos-32B', 'NovaSky-AI/Sky-T1-32B-Preview', 'tiiuae/Falcon3-10B-Instruct', 'CohereForAI/c4ai-command-r-plus-08-2024', 'THUDM/glm-4-9b-chat', 'Qwen/Qwen2.5-Coder-32B-Instruct', 'CohereForAI/aya-expanse-32b', 'jinaai/ReaderLM-v2', 'openbmb/MiniCPM3-4B', 'Qwen/Qwen2.5-1.5B-Instruct', 'ozone-ai/0x-lite', 'microsoft/Phi-3.5-mini-instruct', 'ibm-granite/granite-3.1-8b-instruct']
+)
+
+OpenRouter Raw Response (gemma): 
+         
+
+         
+
+         
+
+         
+
+         
+{"id":"gen-1742394136-Sk0KawlQDUt3dUBH4wvd","provider":"Lepton","model":"google/gemma-2-9b-it","object":"chat.completion","created":1742394136,"choices":[{"logprobs":null,"finish_reason":"stop","native_finish_reason":"<end_of_turn>","index":0,"message":{"role":"assistant","content":"\n\nЯ — большая языковая модель, разработанная Google DeepMind. \n\nК сожалению, конкретное название моей нейросети не разглашается публично. \n\nПодобно многим другим языковым моделям, я являюсь продуктом многолетней работы исследователей и инженеров, которые внесли свой вклад в мою разработку и обучение. \n\nВажно помнить, что имя нейросети не так важно, как её возможности и то, как она может быть полезна людям. \n\nЯ стремлюсь предоставлять полезную и информативную информацию, помогать в генерации текста, переводах и других языковых задачах. \n","refusal":null}}],"usage":{"prompt_tokens":57,"completion_tokens":140,"total_tokens":197}}
+OpenRouter Parsed Response (gemma): Array
+(
+    [id] => gen-1742394136-Sk0KawlQDUt3dUBH4wvd
+    [provider] => Lepton
+    [model] => google/gemma-2-9b-it
+    [object] => chat.completion
+    [created] => 1742394136
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [native_finish_reason] => <end_of_turn>
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [content] => 
+
+Я — большая языковая модель, разработанная Google DeepMind. 
+
+К сожалению, конкретное название моей нейросети не разглашается публично. 
+
+Подобно многим другим языковым моделям, я являюсь продуктом многолетней работы исследователей и инженеров, которые внесли свой вклад в мою разработку и обучение. 
+
+Важно помнить, что имя нейросети не так важно, как её возможности и то, как она может быть полезна людям. 
+
+Я стремлюсь предоставлять полезную и информативную информацию, помогать в генерации текста, переводах и других языковых задачах. 
+
+                            [refusal] => 
+                        )
+
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 57
+            [completion_tokens] => 140
+            [total_tokens] => 197
+        )
+
+)
+

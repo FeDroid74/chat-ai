@@ -3,7 +3,7 @@ require_once 'db.php';
 require_once '../api/config.php';
 require_once '../api/utils.php';
 
-function handleMessageAction($action, $user_id, $input, $pdo, $models, $hfApiToken, $yandexOauthToken, $yandexApiUrl, $yandexOperationApiUrl, $yandexFolderId, $ioNetApiKey) {
+function handleMessageAction($action, $user_id, $input, $pdo, $models, $hfApiToken, $yandexOauthToken, $yandexApiUrl, $yandexOperationApiUrl, $yandexFolderId, $ioNetApiKey, $openRouterApiKey) {
     header('Content-Type: application/json');
 
     if ($action === 'send_message') {
@@ -245,6 +245,63 @@ function handleMessageAction($action, $user_id, $input, $pdo, $models, $hfApiTok
             } else {
                 file_put_contents('debug.log', "io.net Error: No content or error found. Response: " . print_r($result, true) . "\n", FILE_APPEND);
                 echo json_encode(['error' => 'Ошибка генерации текста: пустой ответ от io.net']);
+                exit;
+            }
+        } elseif ($modelInfo['type'] === 'openrouter') {
+            // OpenRouter API
+            $formatted_message = "Ты — экспертный ИИ. Отвечай подробно, логично и на русском языке, предоставляя развернутые объяснения и примеры, если это уместно. Вопрос: \"$message\"";
+            $payload = [
+                'model' => $modelInfo['model_name'],
+                'messages' => [
+                    [
+                        'role' => 'user',
+                        'content' => $formatted_message
+                    ]
+                ],
+                'max_tokens' => 300,
+                'temperature' => 0.7
+            ];
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, 'https://openrouter.ai/api/v1/chat/completions'); // Исправляем URL
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Authorization: Bearer ' . $openRouterApiKey,
+                'Content-Type: application/json',
+                'HTTP-Referer: http://localhost:8000', // OpenRouter требует этот заголовок
+                'X-Title: Chat App' // Рекомендуется для идентификации приложения
+            ]);
+
+            $response = curl_exec($ch);
+            if ($response === false) {
+                file_put_contents('debug.log', "cURL Error (OpenRouter - {$model}): " . curl_error($ch) . "\n", FILE_APPEND);
+                echo json_encode(['error' => 'Ошибка генерации текста: ' . curl_error($ch)]);
+                exit;
+            }
+            curl_close($ch);
+
+            file_put_contents('debug.log', "OpenRouter Raw Response ({$model}): " . $response . "\n", FILE_APPEND);
+
+            $result = json_decode($response, true);
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                file_put_contents('debug.log', "JSON Decode Error (OpenRouter): " . json_last_error_msg() . "\nResponse: " . $response . "\n", FILE_APPEND);
+                echo json_encode(['error' => 'Ошибка парсинга ответа от API OpenRouter']);
+                exit;
+            }
+
+            file_put_contents('debug.log', "OpenRouter Parsed Response ({$model}): " . print_r($result, true) . "\n", FILE_APPEND);
+
+            if (isset($result['choices'][0]['message']['content'])) {
+                $reply = trim($result['choices'][0]['message']['content']);
+            } elseif (isset($result['error'])) {
+                file_put_contents('debug.log', "OpenRouter Error Response: " . print_r($result['error'], true) . "\n", FILE_APPEND);
+                echo json_encode(['error' => 'Ошибка OpenRouter: ' . ($result['error']['message'] ?? 'Неизвестная ошибка')]);
+                exit;
+            } else {
+                file_put_contents('debug.log', "OpenRouter Error: No content or error found. Response: " . print_r($result, true) . "\n", FILE_APPEND);
+                echo json_encode(['error' => 'Ошибка генерации текста: пустой ответ от OpenRouter']);
                 exit;
             }
         }

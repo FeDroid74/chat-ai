@@ -29,6 +29,7 @@
                     <option value="deepseek">DeepSeek</option>
                     <option value="qwen">Qwen QwQ</option>
                     <option value="llama">Llama</option>
+                    <option value="gemma">Gemma</option>
                 </select>
                 <input type="text" id="user-input" placeholder="Введите сообщение..." onkeypress="if(event.key === 'Enter') sendMessage();">
                 <button onclick="sendMessage()">Отправить</button>

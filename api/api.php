@@ -23,7 +23,7 @@ if (in_array($action, ['get_user_info'])) {
 } elseif (in_array($action, ['get_chats', 'create_chat', 'get_history'])) {
     handleChatAction($action, $user_id, $input, $pdo);
 } elseif (in_array($action, ['send_message'])) {
-    handleMessageAction($action, $user_id, $input, $pdo, $models, $hfApiToken, $yandexOauthToken, $yandexApiUrl, $yandexOperationApiUrl, $yandexFolderId, $ioNetApiKey);
+    handleMessageAction($action, $user_id, $input, $pdo, $models, $hfApiToken, $yandexOauthToken, $yandexApiUrl, $yandexOperationApiUrl, $yandexFolderId, $ioNetApiKey, $openRouterApiKey);
 } else {
     echo json_encode(['error' => 'Неизвестное действие']);
     exit;

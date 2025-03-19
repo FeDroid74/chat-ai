@@ -3,9 +3,10 @@
 
 /* Пользовательская информация */
 .user-info {
-    position: absolute;
+    position: fixed;
     top: 10px;
     right: 20px;
+    width: 200px;
     padding: 10px 20px;
     background-color: #fff;
     border-radius: 5px;
@@ -13,7 +14,8 @@
     font-size: 16px;
     font-weight: 500;
     color: #2c3e50;
-    z-index: 10;
+    z-index: 1;
+    text-align: center;
 }
 
 /* Layout для чата */
@@ -42,7 +44,7 @@
 }
 
 .menu-toggle:hover {
-    color: #3498db;
+    background-color: #3498db;
 }
 
 /* Выдвижное меню */
@@ -79,15 +81,15 @@
 
 .close-menu {
     background-color: transparent;
-    color: #2c3e50;
-    font-size: 20px;
+    color: #FFF;
+    font-size: 24px;
     padding: 5px 10px;
-    border: none;
+    background-color: #2c3e50;
     cursor: pointer;
 }
 
 .close-menu:hover {
-    background-color: #3498db;
+    background-color: red;
 }
 
 #chat-list {
@@ -217,7 +219,7 @@
     border-radius: 5px;
     display: flex;
     gap: 10px;
-    z-index: 10;
+    z-index: 2;
 }
 
 #model-select {
@@ -265,6 +267,14 @@ button:hover {
     background-color: #3498db;
 }
 
+.logout-btn {
+    margin-top: 10px;
+}
+
+.logout-btn:hover {
+    background-color: red;
+}
+
 /* Адаптивность */
 @media (max-width: 600px) {
     .container {
@@ -274,6 +284,7 @@ button:hover {
 
     .chat-layout {
         flex-direction: column;
+        padding-right: 0; /* Убираем отступ на маленьких экранах */
     }
 
     .sidebar-menu {
@@ -288,6 +299,7 @@ button:hover {
         width: 90%;
         flex-direction: column;
         bottom: 10px;
+        margin-right: 0; /* Убираем отступ на маленьких экранах */
     }
 
     #model-select, #user-input, button {
@@ -303,5 +315,9 @@ button:hover {
 
     .menu-toggle {
         top: 60px;
+    }
+
+    .chat-main {
+        margin-right: 0; /* Убираем отступ на маленьких экранах */
     }
 }
