@@ -35,6 +35,6 @@
             </div>
         </div>
     </div>
-    <script src="/src/js/script.js"></script>
+    <script type="module" src="/src/js/script.js"></script>
 </body>
 </html>
