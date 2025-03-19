@@ -71,6 +71,23 @@ button:hover {
     background-color: #3498db;
 }
 
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+}
+
+.success-message {
+    color: green;
+    font-size: 1em;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 10px;
+    background-color: #e6ffe6;
+    border-radius: 5px;
+}
+
 /* Адаптивность */
 @media (max-width: 600px) {
     .container {

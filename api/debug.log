@@ -745,3 +745,5 @@ OpenAI Error Response: Array
     [code] => insufficient_quota
 )
 
+YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"Население Москвы постоянно меняется из-за миграции, естественного прироста и других факторов. Чтобы получить актуальную информацию, рекомендуется обратиться к официальным источникам, например, к данным Росстата или мэрии Москвы.\n\nПо последней переписи населения, которая проводилась в 2010 году, население Москвы составляло более 11 миллионов человек. Однако с тех пор численность населения могла измениться."},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"48","completionTokens":"72","totalTokens":"120","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
+

@@ -18,15 +18,25 @@ if (empty($email) || empty($password)) {
 }
 
 try {
-    $stmt = $pdo->prepare("SELECT * FROM user WHERE email = :email");
+    $stmt = $pdo->prepare("SELECT id, password, email_verified FROM users WHERE email = :email");
     $stmt->execute(['email' => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && $user['password'] === $password) {
-        $_SESSION['user_id'] = $user['id'];
-        echo json_encode(['message' => 'Вход успешен!']);
+    if ($user) {
+        // Проверка, подтверждён ли email
+        if (!$user['email_verified']) {
+            echo json_encode(['error' => 'Пожалуйста, подтвердите Ваш адрес электронной почты, чтобы войти.']);
+            exit;
+        }
+
+        if ($user && $user['password'] === $password) {
+            $_SESSION['user_id'] = $user['id'];
+            echo json_encode(['message' => 'Вход успешен!']);
+        } else {
+            echo json_encode(['error' => 'Неверный адрес электронной почты или пароль']);
+        }
     } else {
-        echo json_encode(['error' => 'Неверный email или пароль']);
+        echo json_encode(['error' => 'Неверный адрес электронной почты или пароль']);
     }
 } catch (PDOException $e) {
     echo json_encode(['error' => 'Ошибка: ' . $e->getMessage()]);

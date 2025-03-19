@@ -82,7 +82,7 @@ $action = $input['action'] ?? 'send_message';
 
 // Получение информации о пользователе
 if ($action === 'get_user_info') {
-    $stmt = $pdo->prepare("SELECT username FROM user WHERE id = :user_id");
+    $stmt = $pdo->prepare("SELECT username FROM users WHERE id = :user_id");
     $stmt->execute(['user_id' => $user_id]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($user) {

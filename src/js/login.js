@@ -7,5 +7,17 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     });
     const result = await response.json();
     alert(result.message || result.error);
-    if (result.message) window.location.href = '/index.html';
+    if (result.message) {
+        window.location.href = '/index.html';
+    }
+});
+
+// Проверяем параметр verified в URL
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('verified') === 'true') {
+        const successMessage = document.getElementById('success-message');
+        successMessage.textContent = 'Электронная почта успешно подтверждена!';
+        successMessage.style.display = 'block';
+    }
 });

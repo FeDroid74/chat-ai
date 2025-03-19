@@ -10,13 +10,20 @@
         <h2>Регистрация</h2>
         <form id="registerForm">
             <div class="form-group">
-                <input type="text" name="username" placeholder="Имя пользователя" required>
+                <input type="text" name="username" id="username" placeholder="Имя пользователя" required>
+                <span class="error" id="username-error"></span>
             </div>
             <div class="form-group">
-                <input type="email" name="email" placeholder="Email" required>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+                <span class="error" id="email-error"></span>
             </div>
             <div class="form-group">
-                <input type="password" name="password" placeholder="Пароль" required>
+                <input type="password" name="password" id="password" placeholder="Пароль" required>
+                <span class="error" id="password-error"></span>
+            </div>
+            <div class="form-group">
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Повторите пароль" required>
+                <span class="error" id="confirm-password-error"></span>
             </div>
             <button type="submit">Зарегистрироваться</button>
             <div class="switch-link">
