@@ -13,8 +13,8 @@
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         <div class="sidebar-menu" id="sidebar-menu">
             <div class="sidebar-header">
+                <button onclick="toggleMenu()" class="close-menu"><span>🡠</span></button>
                 <button onclick="createChat()" class="new-chat-btn">Новый чат</button>
-                <button onclick="toggleMenu()" class="close-menu"><span>✕</span></button>
             </div>
             <div id="chat-list"></div>
         </div>

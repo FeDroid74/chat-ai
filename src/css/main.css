@@ -76,7 +76,7 @@
 
 .new-chat-btn {
     flex: 1;
-    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .close-menu {
@@ -98,20 +98,44 @@
 }
 
 .chat-item {
+    display: flex;
+    align-items: center;
     padding: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     background-color: #e9ecef;
     border-radius: 5px;
-    cursor: pointer;
     transition: background-color 0.3s;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .chat-item:hover {
     background-color: #3498db;
     color: #fff;
+}
+
+.chat-content {
+    flex: 1;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.edit-chat-btn, .delete-chat-btn {
+    background-color: transparent;
+    color: #2c3e50;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 5px;
+    transition: color 0.3s;
+}
+
+.edit-chat-btn:hover,
+.delete-chat-btn:hover {
+    background-color: transparent;
+    color: #FFF;
 }
 
 /* Затемняющий фон */

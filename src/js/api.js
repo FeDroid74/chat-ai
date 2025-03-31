@@ -40,12 +40,40 @@ async function loadChats() {
         if (data.chats) {
             data.chats.forEach(chat => {
                 const div = document.createElement('div');
-                div.textContent = chat.title;
                 div.className = 'chat-item';
-                div.onclick = () => {
+
+                // Создаём контейнер для названия и кнопок
+                const chatContent = document.createElement('div');
+                chatContent.className = 'chat-content';
+                chatContent.textContent = chat.title;
+                chatContent.onclick = () => {
                     loadHistory(chat.id);
                     toggleMenu();
                 };
+
+                // Кнопка редактирования
+                const editBtn = document.createElement('button');
+                editBtn.className = 'edit-chat-btn';
+                editBtn.textContent = '✎';
+                editBtn.onclick = (e) => {
+                    e.stopPropagation(); // Предотвращаем вызов loadHistory
+                    renameChat(chat.id, chat.title);
+                };
+
+                // Кнопка удаления
+                const deleteBtn = document.createElement('button');
+                deleteBtn.className = 'delete-chat-btn';
+                deleteBtn.textContent = '✖';
+                deleteBtn.onclick = (e) => {
+                    e.stopPropagation(); // Предотвращаем вызов loadHistory
+                    if (confirm('Вы уверены, что хотите удалить этот чат?')) {
+                        deleteChat(chat.id);
+                    }
+                };
+
+                div.appendChild(chatContent);
+                div.appendChild(editBtn);
+                div.appendChild(deleteBtn);
                 chatList.appendChild(div);
             });
         }
@@ -164,4 +192,62 @@ async function sendMessage() {
     document.getElementById('user-input').value = '';
 }
 
-export { currentChatId, loadUserInfo, loadChats, loadHistory, createChat, sendMessage };
+// Новая функция: переименование чата
+async function renameChat(chatId, currentTitle) {
+    const newTitle = prompt('Введите новое название чата:', currentTitle);
+    if (!newTitle || newTitle === currentTitle) return;
+
+    const response = await fetch('/api/api.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            action: 'rename_chat',
+            chat_id: chatId,
+            new_title: newTitle
+        })
+    });
+    const text = await response.text();
+    console.log('Raw response from renameChat:', text);
+    try {
+        const data = JSON.parse(text);
+        if (data.success) {
+            loadChats(); // Обновляем список чатов
+        } else {
+            alert(data.error || 'Ошибка при переименовании чата');
+        }
+    } catch (error) {
+        console.error('Ошибка парсинга JSON в renameChat:', error, 'Raw response:', text);
+        alert('Ошибка при переименовании чата');
+    }
+}
+
+// Новая функция: удаление чата
+async function deleteChat(chatId) {
+    const response = await fetch('/api/api.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            action: 'delete_chat',
+            chat_id: chatId
+        })
+    });
+    const text = await response.text();
+    console.log('Raw response from deleteChat:', text);
+    try {
+        const data = JSON.parse(text);
+        if (data.success) {
+            loadChats(); // Обновляем список чатов
+            if (currentChatId === chatId) {
+                currentChatId = null; // Сбрасываем текущий чат
+                document.getElementById('messages').innerHTML = ''; // Очищаем сообщения
+            }
+        } else {
+            alert(data.error || 'Ошибка при удалении чата');
+        }
+    } catch (error) {
+        console.error('Ошибка парсинга JSON в deleteChat:', error, 'Raw response:', text);
+        alert('Ошибка при удалении чата');
+    }
+}
+
+export { currentChatId, loadUserInfo, loadChats, loadHistory, createChat, sendMessage, renameChat, deleteChat };

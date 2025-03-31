@@ -938,3 +938,337 @@ OpenRouter Parsed Response (gemma): Array
 
 )
 
+cURL Error (IAM Token): Could not resolve host: iam.api.cloud.yandex.net
+cURL Error (io.net - deepseek): Could not resolve host: api.intelligence.io.solutions
+cURL Error (io.net - mistral): Could not resolve host: api.intelligence.io.solutions
+cURL Error (Hugging Face - mixtral): Could not resolve host: api-inference.huggingface.co
+cURL Error (io.net - mistral): Could not resolve host: api.intelligence.io.solutions
+cURL Error (IAM Token): Could not resolve host: iam.api.cloud.yandex.net
+io.net Raw Response (mistral): {"id":"0195b298-a960-184d-5f93-ce0ab5621e84","object":"chat.completion","created":1742458103,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Привет! Как я могу помочь?","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":26,"total_tokens":39,"completion_tokens":13,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0195b298-a960-184d-5f93-ce0ab5621e84
+    [object] => chat.completion
+    [created] => 1742458103
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Привет! Как я могу помочь?
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 26
+            [total_tokens] => 39
+            [completion_tokens] => 13
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (deepseek): {"id":"0195b298-d816-035a-89e5-ec927ae9027f","object":"chat.completion","created":1742458112,"model":"deepseek-ai/DeepSeek-R1","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"<think>\nOkay, the user sent \"Привет\", which is \"Hello\" in Russian. I need to respond in Russian as instructed.\n\nI should start with a friendly greeting back. Maybe \"Привет! Как я могу тебе помочь?\" which means \"Hello! How can I help you?\"\n\nThat's straightforward and opens the conversation for them to ask anything. Don't need to complicate it. Just keep it simple and welcoming.\n</think>\n\nПривет! Как я могу тебе помочь?","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":20,"total_tokens":121,"completion_tokens":101,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (deepseek): Array
+(
+    [id] => 0195b298-d816-035a-89e5-ec927ae9027f
+    [object] => chat.completion
+    [created] => 1742458112
+    [model] => deepseek-ai/DeepSeek-R1
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] => <think>
+Okay, the user sent "Привет", which is "Hello" in Russian. I need to respond in Russian as instructed.
+
+I should start with a friendly greeting back. Maybe "Привет! Как я могу тебе помочь?" which means "Hello! How can I help you?"
+
+That's straightforward and opens the conversation for them to ask anything. Don't need to complicate it. Just keep it simple and welcoming.
+</think>
+
+Привет! Как я могу тебе помочь?
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 20
+            [total_tokens] => 121
+            [completion_tokens] => 101
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+OpenRouter Raw Response (gemma): 
+         
+
+         
+
+         
+{"id":"gen-1742458125-v1o3jzpyug29691UDKFm","provider":"Chutes","model":"google/gemma-2-9b-it","object":"chat.completion","created":1742458125,"choices":[{"logprobs":null,"finish_reason":"stop","native_finish_reason":"stop","index":0,"message":{"role":"assistant","content":"\n\nПривет! 👋 \n\nРад приветствовать тебя. \n\nЧто я могу для тебя сделать? 😊  \n\nСпроси, если у тебя есть вопросы или задачи.  Я постараюсь ответить максимально точно и понятно.\n","refusal":null}}],"usage":{"prompt_tokens":50,"completion_tokens":50,"total_tokens":100,"cost":0,"prompt_tokens_details":{"cached_tokens":0},"completion_tokens_details":{"reasoning_tokens":0}}}
+OpenRouter Parsed Response (gemma): Array
+(
+    [id] => gen-1742458125-v1o3jzpyug29691UDKFm
+    [provider] => Chutes
+    [model] => google/gemma-2-9b-it
+    [object] => chat.completion
+    [created] => 1742458125
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [native_finish_reason] => stop
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [content] => 
+
+Привет! 👋 
+
+Рад приветствовать тебя. 
+
+Что я могу для тебя сделать? 😊  
+
+Спроси, если у тебя есть вопросы или задачи.  Я постараюсь ответить максимально точно и понятно.
+
+                            [refusal] => 
+                        )
+
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 50
+            [completion_tokens] => 50
+            [total_tokens] => 100
+            [cost] => 0
+            [prompt_tokens_details] => Array
+                (
+                    [cached_tokens] => 0
+                )
+
+            [completion_tokens_details] => Array
+                (
+                    [reasoning_tokens] => 0
+                )
+
+        )
+
+)
+
+io.net Raw Response (qwen): {"id":"0195b299-5717-5e9e-f53a-410b56d96f6a","object":"chat.completion","created":1742458146,"model":"Qwen/QwQ-32B","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"Okay, the user just said \"Привет\", which means \"Hello\" in Russian. I need to respond politely in Russian. Let me think of a friendly greeting. Maybe \"Привет!\" back, but perhaps add a bit more. How about \"Привет! Как дела?\" to ask how they are. That should be appropriate and keep the conversation going. I should make sure the response is natural and matches the user's language. No need for any extra information unless they ask for more. Keep it simple and friendly.\n</think>\n\nПривет! Как дела? 😊","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":32,"total_tokens":153,"completion_tokens":121,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (qwen): Array
+(
+    [id] => 0195b299-5717-5e9e-f53a-410b56d96f6a
+    [object] => chat.completion
+    [created] => 1742458146
+    [model] => Qwen/QwQ-32B
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] => Okay, the user just said "Привет", which means "Hello" in Russian. I need to respond politely in Russian. Let me think of a friendly greeting. Maybe "Привет!" back, but perhaps add a bit more. How about "Привет! Как дела?" to ask how they are. That should be appropriate and keep the conversation going. I should make sure the response is natural and matches the user's language. No need for any extra information unless they ask for more. Keep it simple and friendly.
+</think>
+
+Привет! Как дела? 😊
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 32
+            [total_tokens] => 153
+            [completion_tokens] => 121
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (llama): {"id":"0195b299-7db9-e16d-ea68-c76293df7793","object":"chat.completion","created":1742458157,"model":"meta-llama/Llama-3.3-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"Здравствуйте! Как у вас дела? Могу ли я вам помочь с чем-то или просто пообщаться?","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":55,"total_tokens":83,"completion_tokens":28,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (llama): Array
+(
+    [id] => 0195b299-7db9-e16d-ea68-c76293df7793
+    [object] => chat.completion
+    [created] => 1742458157
+    [model] => meta-llama/Llama-3.3-70B-Instruct
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] => Здравствуйте! Как у вас дела? Могу ли я вам помочь с чем-то или просто пообщаться?
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 55
+            [total_tokens] => 83
+            [completion_tokens] => 28
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"Привет! Чем могу помочь?"},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"43","completionTokens":"6","totalTokens":"49","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
+
+io.net Raw Response (mistral): {"id":"0195b29a-6bcc-b2d9-2316-d9a0124bbf02","object":"chat.completion","created":1742458211,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" PHP (рекурсивный акроним от \"PHP: Hypertext Preprocessor\") — это серверный язык программирования, который используется для создания веб-приложений и веб-сайтов. Он был разработан Расмусом Лердорфом в 1994 году и первоначально назывался \"Personal Home Page Tools\". PHP позволяет встраивать код непосредственно в HTML, что делает его популярным для динамических веб-страниц. Основные особенности PHP включают поддержку баз данных, работу с файлами, аутентификацию пользователей и многое другое.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":28,"total_tokens":204,"completion_tokens":176,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0195b29a-6bcc-b2d9-2316-d9a0124bbf02
+    [object] => chat.completion
+    [created] => 1742458211
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  PHP (рекурсивный акроним от "PHP: Hypertext Preprocessor") — это серверный язык программирования, который используется для создания веб-приложений и веб-сайтов. Он был разработан Расмусом Лердорфом в 1994 году и первоначально назывался "Personal Home Page Tools". PHP позволяет встраивать код непосредственно в HTML, что делает его популярным для динамических веб-страниц. Основные особенности PHP включают поддержку баз данных, работу с файлами, аутентификацию пользователей и многое другое.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 28
+            [total_tokens] => 204
+            [completion_tokens] => 176
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0195b29a-d6cf-a153-9dd7-d1bc23bd6b68","object":"chat.completion","created":1742458233,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Go — это современный язык программирования, разработанный в компании Google. Он был создан Робертом Гризмером, Робом Пайком и Кеном Томпсоном и официально представлен в 2009 году. Go предназначен для создания эффективных, надежных и легко поддерживаемых программ, особенно в области системного программирования, сетевых сервисов и облачных вычислений.\n\nОсновные характеристики Go включают:\n- Статическая типизация: Все переменные имеют фиксированный тип.\n- Автоматическое управление памятью: В Go используется сборщик мусора для автоматического освобождения памяти.\n- Простота и лаконичность: Язык предлагает минималистичный синтаксис и небольшое количество ключевых слов.\n- Встроенная поддержка параллелизма: Go предоставляет модель параллелизма, основанную на горутинах (goroutines) и каналах (channels).\n-","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":28,"total_tokens":328,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0195b29a-d6cf-a153-9dd7-d1bc23bd6b68
+    [object] => chat.completion
+    [created] => 1742458233
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Go — это современный язык программирования, разработанный в компании Google. Он был создан Робертом Гризмером, Робом Пайком и Кеном Томпсоном и официально представлен в 2009 году. Go предназначен для создания эффективных, надежных и легко поддерживаемых программ, особенно в области системного программирования, сетевых сервисов и облачных вычислений.
+
+Основные характеристики Go включают:
+- Статическая типизация: Все переменные имеют фиксированный тип.
+- Автоматическое управление памятью: В Go используется сборщик мусора для автоматического освобождения памяти.
+- Простота и лаконичность: Язык предлагает минималистичный синтаксис и небольшое количество ключевых слов.
+- Встроенная поддержка параллелизма: Go предоставляет модель параллелизма, основанную на горутинах (goroutines) и каналах (channels).
+-
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 28
+            [total_tokens] => 328
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+

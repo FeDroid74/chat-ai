@@ -20,7 +20,7 @@ $action = $input['action'] ?? 'send_message';
 // Маршрутизация запросов
 if (in_array($action, ['get_user_info'])) {
     handleUserAction($action, $user_id, $pdo);
-} elseif (in_array($action, ['get_chats', 'create_chat', 'get_history'])) {
+} elseif (in_array($action, ['get_chats', 'create_chat', 'get_history', 'rename_chat', 'delete_chat'])) {
     handleChatAction($action, $user_id, $input, $pdo);
 } elseif (in_array($action, ['send_message'])) {
     handleMessageAction($action, $user_id, $input, $pdo, $models, $hfApiToken, $yandexOauthToken, $yandexApiUrl, $yandexOperationApiUrl, $yandexFolderId, $ioNetApiKey, $openRouterApiKey);

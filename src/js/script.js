@@ -1,4 +1,4 @@
-import { loadUserInfo, loadChats, loadHistory, currentChatId, createChat, sendMessage } from './api.js';
+import { loadUserInfo, loadChats, loadHistory, currentChatId, createChat, sendMessage, renameChat, deleteChat } from './api.js';
 import { resetModelSelection, updateModel, toggleMenu } from './ui.js';
 import { logout } from './logout.js';
 
@@ -8,6 +8,8 @@ window.toggleMenu = toggleMenu;
 window.createChat = createChat;
 window.sendMessage = sendMessage;
 window.updateModel = updateModel;
+window.renameChat = renameChat;
+window.deleteChat = deleteChat;
 
 window.onload = () => {
     resetModelSelection();
