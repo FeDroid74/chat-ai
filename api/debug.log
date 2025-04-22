@@ -1272,3 +1272,289 @@ io.net Parsed Response (mistral): Array
     [prompt_logprobs] => 
 )
 
+io.net Raw Response (mistral): {"id":"0195ebf7-8bf8-bd9f-0d06-db4794ba110c","object":"chat.completion","created":1743420623,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Привет! Как я могу помочь?","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":26,"total_tokens":39,"completion_tokens":13,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0195ebf7-8bf8-bd9f-0d06-db4794ba110c
+    [object] => chat.completion
+    [created] => 1743420623
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Привет! Как я могу помочь?
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 26
+            [total_tokens] => 39
+            [completion_tokens] => 13
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"PHP (Hypertext Preprocessor) — это широко используемый язык программирования, который применяется для создания динамических веб-сайтов и веб-приложений. Он особенно популярен в сфере веб-разработки и часто используется в сочетании с базами данных и веб-серверами для создания функциональных и интерактивных веб-сайтов.\n\n**Основные характеристики PHP:**\n\n1. **Скриптинг на стороне сервера:** PHP-код выполняется на сервере, а не в браузере пользователя. Это позволяет генерировать динамический контент и взаимодействовать с базами данных.\n2. **Простота изучения:** PHP имеет относительно простой синтаксис, что делает его доступным для начинающих разработчиков.\n3. **Широкая поддержка и большое сообщество:** PHP пользуется большой популярностью, что обеспечивает наличие множества библиотек, фреймворков и ресурсов для обучения.\n4. **Интеграция с базами данных:** PHP легко интегрируется с различными системами управления базами данных (например, MySQL, PostgreSQL), что делает его идеальным для создания приложений, работающих с данными.\n5. **Создание веб-приложений:** с помощью PHP можно разрабатывать разнообразные веб-приложения, включая интернет-магазины, системы управления контентом (CMS), форумы и многое другое.\n\n**Примеры использования PHP:**\n\n- **Создание веб-сайта:** используя PHP, можно создать динамический веб-сайт, который будет адаптироваться к различным устройствам и предоставлять персонализированный контент.\n- **Разработка интернет-магазина:** PHP позволяет создать функциональный интернет-магазин с возможностью добавления"},"status":"ALTERNATIVE_STATUS_TRUNCATED_FINAL"}],"usage":{"inputTextTokens":"48","completionTokens":"300","totalTokens":"348","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
+
+io.net Raw Response (mistral): {"id":"0195ebf8-b713-6e3c-2fb0-57c463c82ae5","object":"chat.completion","created":1743420699,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Привет! Как я могу помочь?","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":26,"total_tokens":39,"completion_tokens":13,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0195ebf8-b713-6e3c-2fb0-57c463c82ae5
+    [object] => chat.completion
+    [created] => 1743420699
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Привет! Как я могу помочь?
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 26
+            [total_tokens] => 39
+            [completion_tokens] => 13
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"PHP (Hypertext Preprocessor) — это язык программирования, который широко используется для разработки веб-приложений и сайтов. Он работает на стороне сервера и генерирует HTML-код, который затем отправляется в браузер пользователя.\n\nОсновные особенности PHP:\n1. **Простота и доступность.** PHP имеет относительно простой синтаксис, что делает его лёгким для изучения и использования.\n2. **Интеграция с HTML.** PHP позволяет вставлять код прямо в HTML-страницы, что упрощает взаимодействие с базами данных и обработку форм.\n3. **Работа с базами данных.** PHP обладает широкими возможностями для работы с различными базами данных, такими как MySQL, PostgreSQL, Oracle и другими.\n4. **Обработка форм.** С помощью PHP можно легко обрабатывать данные, отправленные через формы на веб-страницах.\n5. **Создание динамических сайтов.** Благодаря своей гибкости и возможностям обработки данных, PHP идеально подходит для создания динамических веб-сайтов.\n\nПример использования PHP:\n```php\n\u003c?php\n    // Пример вывода приветствия\n    echo \"Привет, мир!\";\n?\u003e\n```\nВ этом примере PHP-код выводит на экран фразу «Привет, мир!»."},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"49","completionTokens":"238","totalTokens":"287","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
+
+io.net Raw Response (mistral): {"id":"0195ebfa-25c8-4ad1-5d94-0d09a44bee7e","object":"chat.completion","created":1743420793,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Привет! Как я могу помочь?","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":26,"total_tokens":39,"completion_tokens":13,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0195ebfa-25c8-4ad1-5d94-0d09a44bee7e
+    [object] => chat.completion
+    [created] => 1743420793
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Привет! Как я могу помочь?
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 26
+            [total_tokens] => 39
+            [completion_tokens] => 13
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+OpenRouter Raw Response (gemma): 
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+{"id":"gen-1743420807-DGnHu3I2XZISWOU1BtIh","provider":"Lepton","model":"google/gemma-2-9b-it","object":"chat.completion","created":1743420807,"choices":[{"logprobs":null,"finish_reason":"length","native_finish_reason":"length","index":0,"message":{"role":"assistant","content":"\n\nPHP (Hypertext Preprocessor) - это широко используемый сценарийный язык программирования, который специализируется на создании динамических веб-страниц. \n\n**Вот краткий обзор PHP:**\n\n* **Сценарийный язык:** PHP код исполняется серверной стороной, то есть он обрабатывается веб-сервером перед отправкой результата пользователю. \n* **Динамические веб-страницы:** PHP позволяет генерировать контент веб-страниц динамически, основываясь на данных из базы данных, пользовательских запросах и других переменных. \n* **Открытый исходный код:** PHP доступен бесплатно для использования, модификации и распространения. \n* **Широкая поддержка:** PHP поддерживается многими веб-серверами, операционными системами и базами данных. \n* **Большое сообщество:** PHP имеет огромное сообщество разработчиков, что означает наличие большого количества ресурсов, документации, библиотек и инструментов. \n\n**Как работает PHP:**\n\n1. **Запрос:** Пользователь отправляет запрос на веб-сервер, который содержит URL страницы. \n2. **Обработка PHP:** Если страница содержит PHP код, веб-сервер передаёт её PHP интерпретатору. \n3. **Выполнение кода:** PHP интерпретатор анализирует код и выполняет его, обрабатывая данные","refusal":null}}],"usage":{"prompt_tokens":56,"completion_tokens":300,"total_tokens":356}}
+OpenRouter Parsed Response (gemma): Array
+(
+    [id] => gen-1743420807-DGnHu3I2XZISWOU1BtIh
+    [provider] => Lepton
+    [model] => google/gemma-2-9b-it
+    [object] => chat.completion
+    [created] => 1743420807
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [native_finish_reason] => length
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [content] => 
+
+PHP (Hypertext Preprocessor) - это широко используемый сценарийный язык программирования, который специализируется на создании динамических веб-страниц. 
+
+**Вот краткий обзор PHP:**
+
+* **Сценарийный язык:** PHP код исполняется серверной стороной, то есть он обрабатывается веб-сервером перед отправкой результата пользователю. 
+* **Динамические веб-страницы:** PHP позволяет генерировать контент веб-страниц динамически, основываясь на данных из базы данных, пользовательских запросах и других переменных. 
+* **Открытый исходный код:** PHP доступен бесплатно для использования, модификации и распространения. 
+* **Широкая поддержка:** PHP поддерживается многими веб-серверами, операционными системами и базами данных. 
+* **Большое сообщество:** PHP имеет огромное сообщество разработчиков, что означает наличие большого количества ресурсов, документации, библиотек и инструментов. 
+
+**Как работает PHP:**
+
+1. **Запрос:** Пользователь отправляет запрос на веб-сервер, который содержит URL страницы. 
+2. **Обработка PHP:** Если страница содержит PHP код, веб-сервер передаёт её PHP интерпретатору. 
+3. **Выполнение кода:** PHP интерпретатор анализирует код и выполняет его, обрабатывая данные
+                            [refusal] => 
+                        )
+
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 56
+            [completion_tokens] => 300
+            [total_tokens] => 356
+        )
+
+)
+
+YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"Привет! Чем могу помочь?"},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"43","completionTokens":"6","totalTokens":"49","completionTokensDetails":null},"modelVersion":"23.10.2024"}}
+
+io.net Raw Response (mistral): {"id":"0195ebfb-741d-25cc-ac21-d8f84114ae87","object":"chat.completion","created":1743420873,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" PHP (рекурсивный акроним для \"PHP: Hypertext Preprocessor\") — это популярный открытый и широко используемый серверный язык сценариев. Он в основном применяется для разработки веб-приложений и может быть встроен в HTML. PHP позволяет создавать динамичные веб-страницы и интерактивные веб-приложения, работает на серверной стороне и может взаимодействовать с базами данных, такими как MySQL, PostgreSQL и другими.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":38,"total_tokens":185,"completion_tokens":147,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0195ebfb-741d-25cc-ac21-d8f84114ae87
+    [object] => chat.completion
+    [created] => 1743420873
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  PHP (рекурсивный акроним для "PHP: Hypertext Preprocessor") — это популярный открытый и широко используемый серверный язык сценариев. Он в основном применяется для разработки веб-приложений и может быть встроен в HTML. PHP позволяет создавать динамичные веб-страницы и интерактивные веб-приложения, работает на серверной стороне и может взаимодействовать с базами данных, такими как MySQL, PostgreSQL и другими.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 38
+            [total_tokens] => 185
+            [completion_tokens] => 147
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0195ebfc-4345-801b-d93c-43d9cf4347f7","object":"chat.completion","created":1743420919,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Язык Go, также известный как Golang, — это статически типизированный компилируемый язык программирования, разработанный компанией Google. Он был создан в 2009 году Робертом Гризмером, Робом Пайком и Кеном Томпсоном и официально представлен публике в 2009 году.\n\nОсновные особенности языка Go включают:\n\n1. **Простота и минимализм**: Go был разработан с акцентом на простоту и минимализм, что делает его легким для изучения и использования.\n2. **Конкурентность**: Встроенная поддержка горутин (goroutines) и каналов (channels) упрощает работу с параллельными и конкурентными задачами.\n3. **Эффективность**: Go компилируется в машинный код, что обеспечивает высокую производительность.\n4. **Безопасность**: В языке отсутствуют указатели, что снижает вероятность ошибок, связанных с","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":35,"total_tokens":335,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0195ebfc-4345-801b-d93c-43d9cf4347f7
+    [object] => chat.completion
+    [created] => 1743420919
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Язык Go, также известный как Golang, — это статически типизированный компилируемый язык программирования, разработанный компанией Google. Он был создан в 2009 году Робертом Гризмером, Робом Пайком и Кеном Томпсоном и официально представлен публике в 2009 году.
+
+Основные особенности языка Go включают:
+
+1. **Простота и минимализм**: Go был разработан с акцентом на простоту и минимализм, что делает его легким для изучения и использования.
+2. **Конкурентность**: Встроенная поддержка горутин (goroutines) и каналов (channels) упрощает работу с параллельными и конкурентными задачами.
+3. **Эффективность**: Go компилируется в машинный код, что обеспечивает высокую производительность.
+4. **Безопасность**: В языке отсутствуют указатели, что снижает вероятность ошибок, связанных с
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 35
+            [total_tokens] => 335
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+

@@ -8,7 +8,7 @@
     right: 20px;
     width: 200px;
     padding: 10px 20px;
-    background-color: #fff;
+    background-color: #FFF;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     font-size: 16px;
@@ -34,7 +34,7 @@
     left: 20px;
     padding: 10px 15px;
     background-color: #2c3e50;
-    color: #fff;
+    color: #FFF;
     border: none;
     border-radius: 5px;
     font-size: 20px;
@@ -44,7 +44,7 @@
 }
 
 .menu-toggle:hover {
-    background-color: #3498db;
+    background-color: #007FED;
 }
 
 /* Выдвижное меню */
@@ -54,7 +54,7 @@
     left: -300px;
     width: 250px;
     height: 100%;
-    background-color: #fff;
+    background-color: #FFF;
     padding: 15px;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
     transition: left 0.3s ease-in-out;
@@ -108,8 +108,8 @@
 }
 
 .chat-item:hover {
-    background-color: #3498db;
-    color: #fff;
+    background-color: #007FED;
+    color: #FFF;
 }
 
 .chat-content {
@@ -188,8 +188,8 @@
 }
 
 #messages p.ai-message {
-    background-color: #3498db;
-    color: #fff;
+    background-color: #007FED;
+    color: #FFF;
     align-self: flex-start;
 }
 
@@ -237,7 +237,7 @@
     transform: translateX(-50%);
     width: 100%;
     max-width: 700px;
-    background-color: #fff;
+    background-color: #FFF;
     padding: 15px;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
@@ -253,12 +253,12 @@
     font-size: 16px;
     outline: none;
     transition: border-color 0.3s;
-    background-color: #fff;
+    background-color: #FFF;
     cursor: pointer;
 }
 
 #model-select:focus {
-    border-color: #3498db;
+    border-color: #007FED;
 }
 
 #user-input {
@@ -272,14 +272,14 @@
 }
 
 #user-input:focus {
-    border-color: #3498db;
+    border-color: #007FED;
 }
 
 /* Кнопки */
 button {
     padding: 12px 20px;
     background-color: #2c3e50;
-    color: #fff;
+    color: #FFF;
     border: none;
     border-radius: 5px;
     font-size: 16px;
@@ -288,7 +288,7 @@ button {
 }
 
 button:hover {
-    background-color: #3498db;
+    background-color: #007FED;
 }
 
 .logout-btn {
@@ -297,6 +297,19 @@ button:hover {
 
 .logout-btn:hover {
     background-color: red;
+}
+
+.send-btn {
+    padding: 5px 8px;
+}
+
+.send-btn span {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-top: -2px;
+    margin-right: -2px;
+    font-size: 24px;
 }
 
 /* Адаптивность */

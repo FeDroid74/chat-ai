@@ -8,8 +8,11 @@
 }
 
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Roboto', sans-serif;
-    background-color: #f4f7fa;
+    background-color: #f4f4f4;
     color: #2c3e50;
     min-height: 100vh;
     position: relative;

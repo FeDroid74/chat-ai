@@ -8,7 +8,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     const result = await response.json();
     alert(result.message || result.error);
     if (result.message) {
-        window.location.href = '/index.php';
+        window.location.href = '/app.php';
     }
 });
 

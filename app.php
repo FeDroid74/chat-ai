@@ -27,12 +27,12 @@
                     <option value="mistral">Mistral</option>
                     <option value="yandexgpt">YandexGPT</option>
                     <option value="deepseek">DeepSeek</option>
-                    <option value="qwen">Qwen QwQ</option>
+                    <option value="qwen">Qwen</option>
                     <option value="llama">Llama</option>
                     <option value="gemma">Gemma</option>
                 </select>
                 <input type="text" id="user-input" placeholder="Введите сообщение..." onkeypress="if(event.key === 'Enter') sendMessage();">
-                <button onclick="sendMessage()">Отправить</button>
+                <button class="send-btn" onclick="sendMessage()"><span>🡡</span></button>
             </div>
         </div>
     </div>

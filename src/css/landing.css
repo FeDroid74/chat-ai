@@ -1,0 +1,541 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #2d3748;
+}
+
+h1, h2 {
+    font-weight: 700;
+    color: #1a202c;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 74px;
+}
+
+h2 {
+    font-size: 54px;
+}
+
+p {
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+.header {
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    background: rgba(244, 244, 244, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    height: 60px;
+    margin: 0 auto;
+    padding: 0 20px;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #007FED;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.nav {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #4a5568;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #007FED;
+}
+
+.login-btn {
+    background-color: #007FED;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #004FED;
+    transform: scale(1.05);
+}
+
+/* Главный баннер */
+.hero {
+    padding: 200px 0;
+    text-align: center;
+}
+
+.hero .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 1030px;
+}
+
+.hero h1 {
+    line-height: 1.25;
+    margin-bottom: 40px;
+    margin-top: -40px;
+}
+
+.hero p {
+    font-size: 24px;
+    color: #4a5568;
+    margin-bottom: 40px;
+}
+
+.cta-btn {
+    background-color: #007FED;
+    color: #fff;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #004FED;
+    transform: scale(1.05); 
+}
+
+/* Возможности */
+.features {
+    padding: 100px 0;
+}
+
+.features .container {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.features h2 {
+    margin-bottom: 20px;
+}
+
+.features p {
+    font-size: 20px;
+    color: #4a5568;
+}
+
+.networks-carousel {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+    margin-bottom: 60px;
+    margin-top: 40px;
+}
+
+.networks-list {
+    display: flex;
+    gap: 20px;
+    cursor: grab;
+    user-select: none;
+    padding: 0 20px;
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+}
+
+.networks-list:active {
+    cursor: grabbing;
+}
+
+.network-item {
+    width: 250px;
+    height: 100px;
+    padding: 10px 40px;
+    margin-left: 22px;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.network-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: rgba(244, 244, 244);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(244, 244, 244);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #007FED;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.feature-card p {
+    font-size: 16px;
+    color: #4a5568;
+}
+
+/* Мокап */
+.mockup {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.mockup-laptop {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    padding-bottom: 60%; /* Соотношение сторон для экрана ноутбука */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mockup-laptop::before {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(180deg, #d1d5db, #e5e7eb);
+    border-radius: 0 0 20px 20px;
+    z-index: -1;
+}
+
+.mockup-laptop::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 10px;
+    background: #000;
+    border-radius: 0 0 5px 5px;
+}
+
+.mockup-screen {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 80%;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mockup-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Отзывы */
+.reviews {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.reviews h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.review-card {
+    background-color: #f4f4f4;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.review-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.review-card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.review-author {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #007FED;
+    margin-bottom: 10px;
+}
+
+.author-role {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Тарифы */
+.pricing {
+    padding: 100px 0;
+}
+
+.pricing h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.pricing-card {
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: box-shadow 0.3s;
+}
+
+.pricing-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-card h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #007FED;
+}
+
+.pricing-card ul {
+    list-style: none;
+    margin-bottom: 20px;
+    height: 80px;
+}
+
+.pricing-card ul li {
+    font-size: 16px;
+    font-weight: 400;
+    color: #4a5568;
+    margin-bottom: 10px;
+}
+
+.pricing-card .price {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #1a202c;
+}
+
+.pricing-btn {
+    background-color: #007FED;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.pricing-btn:hover {
+    background-color: #004FED;
+    transform: scale(1.05); 
+}
+
+/* Вопросы */
+.faq {
+    padding: 100px 0;
+}
+
+.faq h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-item {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.faq-item:hover {
+    background-color: #edf2f7;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-item h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: #007FED;
+}
+
+.faq-toggle {
+    background: none;
+    border: none;
+    color: #007FED;
+    transition: transform 0.3s;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    font-size: 16px;
+    color: #4a5568;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 20px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 10px 20px;
+}
+
+/* Подвал */
+.footer {
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
+}
+
+.footer p {
+    font-size: 14px;
+    color: #4a5568;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #007FED;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}

@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbname = 'chat-ai';
+$dbname = 'fechat';
 $username = 'root';
 $password = '';
 
