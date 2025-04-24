@@ -22,20 +22,23 @@
         <div class="chat-main">
             <div id="messages"></div>
             <div class="input-form">
-                <select id="model-select" onchange="updateModel()">
-                    <!-- <option value="mixtral">Mixtral</option> -->
-                    <option value="mistral">Mistral</option>
-                    <option value="yandexgpt">YandexGPT</option>
-                    <option value="deepseek">DeepSeek</option>
-                    <option value="qwen">Qwen</option>
-                    <option value="llama">Llama</option>
-                    <option value="gemma">Gemma</option>
-                </select>
-                <input type="text" id="user-input" placeholder="Введите сообщение..." onkeypress="if(event.key === 'Enter') sendMessage();">
-                <button class="send-btn" onclick="sendMessage()"><span>🡡</span></button>
+                <input type="text" id="user-input" placeholder="Чем я могу помочь?" onkeypress="if(event.key === 'Enter') sendMessage();">
+                <div class="input-control">
+                    <select id="model-select" onchange="updateModel()">
+                        <!-- <option value="mixtral">Mixtral</option> -->
+                        <option value="mistral">Mistral</option>
+                        <option value="yandexgpt">YandexGPT</option>
+                        <option value="deepseek">DeepSeek</option>
+                        <option value="qwen">Qwen</option>
+                        <option value="llama">Llama</option>
+                        <option value="gemma">Gemma</option>
+                    </select>
+                    <button class="send-btn" onclick="sendMessage()"><span>🡡</span></button>
+                </div>
             </div>
         </div>
     </div>
     <script type="module" src="/src/js/script.js"></script>
+    <script type="module" src="/src/js/arrow.js"></script>
 </body>
 </html>

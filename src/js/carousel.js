@@ -1,17 +1,15 @@
 const networksList = document.querySelector('.networks-list');
 const networkItems = document.querySelectorAll('.network-item[data-clone="original"]');
-let isDragging = false;
-let startX;
 let translateX = 0;
-let startTranslateX = 0;
 let totalWidth = 0;
+const speed = 2; // Возвращаем скорость к значению 0.5
+let lastTime = performance.now();
 
-// Клонируем элементы несколько раз для более плавной бесконечной прокрутки
+// Клонируем элементы для бесконечной прокрутки
 const cloneItems = () => {
     const clonesBefore = [];
     const clonesAfter = [];
-    // Создаем 3 набора клонов до и после оригинальных элементов
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 2; i++) { // Уменьшаем до 2 наборов клонов, так как будем динамически перемещать элементы
         networkItems.forEach(item => {
             const cloneBefore = item.cloneNode(true);
             const cloneAfter = item.cloneNode(true);
@@ -37,72 +35,33 @@ const calculateTotalWidth = () => {
 cloneItems();
 calculateTotalWidth();
 
-// Начальная позиция: смещаем карусель на середину клонов
-translateX = -totalWidth * 3; // Учитываем 3 набора клонов перед оригинальными элементами
+// Начальная позиция
+translateX = 0;
 networksList.style.transform = `translateX(${translateX}px)`;
 
-// Обработчики событий для перетаскивания
-networksList.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startX = e.pageX;
-    startTranslateX = translateX;
-    networksList.style.cursor = 'grabbing';
-});
+// Функция для автоматической прокрутки с динамическим перемещением элементов
+const animate = (currentTime) => {
+    const deltaTime = (currentTime - lastTime) / 1000; // Время в секундах между кадрами
+    lastTime = currentTime;
 
-networksList.addEventListener('mouseleave', () => {
-    isDragging = false;
-    networksList.style.cursor = 'grab';
-});
+    // Двигаем карусель влево
+    translateX -= speed * (deltaTime * 60); // Нормализуем скорость (60 кадров в секунду)
 
-networksList.addEventListener('mouseup', () => {
-    isDragging = false;
-    networksList.style.cursor = 'grab';
-});
-
-networksList.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX;
-    const walk = (x - startX) * 1.5; // Ускоряем прокрутку
-    translateX = startTranslateX + walk;
-
-    // Проверка границ для бесконечной прокрутки
-    if (translateX > -totalWidth * 2) {
-        translateX -= totalWidth * 3; // Перематываем на 3 набора назад
-        startTranslateX -= totalWidth * 3;
-    } else if (translateX < -totalWidth * 4) {
-        translateX += totalWidth * 3; // Перематываем на 3 набора вперед
-        startTranslateX += totalWidth * 3;
+    // Проверяем, если первый элемент полностью ушел за левую границу
+    const firstChild = networksList.firstChild;
+    const firstChildWidth = firstChild.offsetWidth + 20; // Учитываем gap
+    if (Math.abs(translateX) >= firstChildWidth) {
+        // Перемещаем первый элемент в конец
+        networksList.appendChild(firstChild);
+        // Корректируем translateX, чтобы компенсировать перемещение
+        translateX += firstChildWidth;
     }
 
     networksList.style.transform = `translateX(${translateX}px)`;
-});
+    requestAnimationFrame(animate);
+};
 
-// Поддержка сенсорных устройств
-networksList.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    startX = e.touches[0].pageX;
-    startTranslateX = translateX;
-});
-
-networksList.addEventListener('touchend', () => {
-    isDragging = false;
-});
-
-networksList.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    const x = e.touches[0].pageX;
-    const walk = (x - startX) * 1.5;
-    translateX = startTranslateX + walk;
-
-    // Проверка границ для бесконечной прокрутки
-    if (translateX > -totalWidth * 2) {
-        translateX -= totalWidth * 3;
-        startTranslateX -= totalWidth * 3;
-    } else if (translateX < -totalWidth * 4) {
-        translateX += totalWidth * 3;
-        startTranslateX += totalWidth * 3;
-    }
-
-    networksList.style.transform = `translateX(${translateX}px)`;
+// Запускаем анимацию после полной загрузки DOM
+document.addEventListener('DOMContentLoaded', () => {
+    requestAnimationFrame(animate);
 });

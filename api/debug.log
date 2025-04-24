@@ -1558,3 +1558,44 @@ io.net Parsed Response (mistral): Array
     [prompt_logprobs] => 
 )
 
+io.net Raw Response (mistral): {"id":"019661ad-b9a8-7174-2db1-a1dc5dca0afa","object":"chat.completion","created":1745395492,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Привет! Для того чтобы ответить на твой вопрос, мне нужно больше информации. Можешь уточнить, для какого контекста тебе нужно знать количество литров воды? Например, сколько литров воды для питья, для полива растений, для мытья машины и т.д.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":34,"total_tokens":132,"completion_tokens":98,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 019661ad-b9a8-7174-2db1-a1dc5dca0afa
+    [object] => chat.completion
+    [created] => 1745395492
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Привет! Для того чтобы ответить на твой вопрос, мне нужно больше информации. Можешь уточнить, для какого контекста тебе нужно знать количество литров воды? Например, сколько литров воды для питья, для полива растений, для мытья машины и т.д.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 34
+            [total_tokens] => 132
+            [completion_tokens] => 98
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+

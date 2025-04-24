@@ -194,11 +194,9 @@ a {
 .networks-list {
     display: flex;
     gap: 20px;
-    cursor: grab;
     user-select: none;
     padding: 0 20px;
-    white-space: nowrap;
-    transition: transform 0.3s ease;
+    transition: transform 0.05s linear, opacity 0.3s ease;
 }
 
 .networks-list:active {
@@ -212,7 +210,8 @@ a {
     margin-left: 22px;
     object-fit: contain;
     border-radius: 10px;
-    transition: transform 0.3s;
+    pointer-events: none;
+    user-select: none;
 }
 
 .network-item:hover {

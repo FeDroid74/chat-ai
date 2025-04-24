@@ -237,42 +237,64 @@
     transform: translateX(-50%);
     width: 100%;
     max-width: 700px;
-    background-color: #FFF;
+    background-color: #fff;
     padding: 15px;
+    border-radius: 5px; 
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
     display: flex;
+    flex-direction: column;
     gap: 10px;
     z-index: 2;
 }
 
-#model-select {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s;
-    background-color: #FFF;
-    cursor: pointer;
-}
-
-#model-select:focus {
-    border-color: #007FED;
-}
-
 #user-input {
     flex: 1;
-    padding: 12px;
-    border: 1px solid #ccc;
+    padding: 4px 4px 12px;
+    border: none;
     border-radius: 5px;
     font-size: 16px;
     outline: none;
-    transition: border-color 0.3s;
+    background-color: #FFF;
+    color: #2c3e50;
 }
 
 #user-input:focus {
-    border-color: #007FED;
+    border: none;
+}
+
+.input-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+#model-select {
+    width: 150px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    background-color: #2c3e50;
+    color: #FFF;
+    cursor: pointer;
+    -webkit-appearance: none; /* Убираем стандартный вид в Safari */
+    -moz-appearance: none; /* Убираем стандартный вид в Firefox */
+    appearance: none; /* Убираем стандартный вид */
+    padding-right: 30px;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Кастомная стрелка */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: background-image 0.3s ease;
+}
+
+#model-select.active {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 14l5-5 5 5z"/></svg>');
+}
+
+#model-select:focus {
+    border: none;
 }
 
 /* Кнопки */
@@ -300,20 +322,29 @@ button:hover {
 }
 
 .send-btn {
-    padding: 5px 8px;
+    float: right;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .send-btn span {
     display: block;
-    width: 32px;
-    height: 32px;
     margin-top: -2px;
-    margin-right: -2px;
+    margin-right: -1px;
+    width: 24px;
+    height: 32px;
     font-size: 24px;
 }
 
+.send-btn:hover {
+    background-color: #007FED;
+}
+
 /* Адаптивность */
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
     .container {
         margin: 20px;
         padding: 20px;
@@ -321,7 +352,8 @@ button:hover {
 
     .chat-layout {
         flex-direction: column;
-        padding-right: 0; /* Убираем отступ на маленьких экранах */
+        padding-right: 0;
+        margin: 0;
     }
 
     .sidebar-menu {
@@ -330,31 +362,86 @@ button:hover {
 
     #messages {
         padding: 10px;
+        margin-bottom: 80px;
     }
 
     .input-form {
-        width: 90%;
-        flex-direction: column;
+        width: calc(100% - 20px);
         bottom: 10px;
-        margin-right: 0; /* Убираем отступ на маленьких экранах */
+        margin-right: 0;
+        padding: 10px;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        border-radius: 10px;
     }
 
-    #model-select, #user-input, button {
-        width: 100%;
+    #user-input {
+        flex: 1;
+        padding: 8px 12px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    .input-control {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .select-wrapper {
+        width: 100px;
+    }
+
+    #model-select {
+        padding: 8px 25px 8px 10px;
+        font-size: 14px;
+    }
+
+    .select-arrow {
+        right: 8px;
+    }
+
+    .send-btn {
+        padding: 8px;
+        background-color: #ccc;
+        border-radius: 8px;
+    }
+
+    .send-btn:hover {
+        background-color: #007FED;
+    }
+
+    .send-btn span {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        margin: 0;
     }
 
     .user-info {
-        position: static;
-        margin: 10px auto;
-        text-align: center;
-        width: fit-content;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        margin: 0;
+        padding: 5px 10px;
+        width: auto;
+        font-size: 14px;
+    }
+
+    .logout-btn {
+        padding: 5px 10px;
+        font-size: 14px;
     }
 
     .menu-toggle {
-        top: 60px;
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 18px;
     }
 
     .chat-main {
-        margin-right: 0; /* Убираем отступ на маленьких экранах */
+        margin-right: 0;
     }
 }
