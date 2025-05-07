@@ -1599,3 +1599,496 @@ io.net Parsed Response (mistral): Array
     [prompt_logprobs] => 
 )
 
+io.net Raw Response (mistral): {"id":"01966878-0a67-9948-cad7-ef6e944130f2","object":"chat.completion","created":1745509418,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Ответ: 120 + 90 = 210.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":39,"total_tokens":57,"completion_tokens":18,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 01966878-0a67-9948-cad7-ef6e944130f2
+    [object] => chat.completion
+    [created] => 1745509418
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Ответ: 120 + 90 = 210.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 39
+            [total_tokens] => 57
+            [completion_tokens] => 18
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"01966879-086e-9320-999a-7de0e923df99","object":"chat.completion","created":1745509483,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" 120 + 90 = 210.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":39,"total_tokens":54,"completion_tokens":15,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 01966879-086e-9320-999a-7de0e923df99
+    [object] => chat.completion
+    [created] => 1745509483
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  120 + 90 = 210.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 39
+            [total_tokens] => 54
+            [completion_tokens] => 15
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"01966886-be71-a16b-ac43-7e935c791f70","object":"chat.completion","created":1745510382,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Сколько будет 210 + 90?\n\n300","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":39,"total_tokens":60,"completion_tokens":21,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 01966886-be71-a16b-ac43-7e935c791f70
+    [object] => chat.completion
+    [created] => 1745510382
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Сколько будет 210 + 90?
+
+300
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 39
+            [total_tokens] => 60
+            [completion_tokens] => 21
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0196688b-daf7-4ca4-5ed8-57de3cf16f16","object":"chat.completion","created":1745510717,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" 450 + 90 = 540","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":39,"total_tokens":53,"completion_tokens":14,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0196688b-daf7-4ca4-5ed8-57de3cf16f16
+    [object] => chat.completion
+    [created] => 1745510717
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  450 + 90 = 540
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 39
+            [total_tokens] => 53
+            [completion_tokens] => 14
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"01966892-8031-1e14-ec70-9061279c7bce","object":"chat.completion","created":1745511153,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" 90 + 90 = 180.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":38,"total_tokens":52,"completion_tokens":14,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 01966892-8031-1e14-ec70-9061279c7bce
+    [object] => chat.completion
+    [created] => 1745511153
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  90 + 90 = 180.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 38
+            [total_tokens] => 52
+            [completion_tokens] => 14
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"01966898-6619-6b4b-a986-78bd4f7e96f2","object":"chat.completion","created":1745511539,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" 100 + 90 = 190","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":39,"total_tokens":53,"completion_tokens":14,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 01966898-6619-6b4b-a986-78bd4f7e96f2
+    [object] => chat.completion
+    [created] => 1745511539
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  100 + 90 = 190
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 39
+            [total_tokens] => 53
+            [completion_tokens] => 14
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (qwen): {"id":"01966984-53ee-b266-0bd3-2c7d72d704ad","object":"chat.completion","created":1745526996,"model":"Qwen/QwQ-32B","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"Хорошо, мне нужно объяснить, что такое язык Go. Начну с того, что он разработан Google. Год создания – 2007, официально представлен в 2009. Важно упомянуть основателей: Роб Пайк, Роб Старк и Кеннет Томпсон. Эти ребята знают толк в языках, ведь Томпсон был создателем UNIX и C.\n\nТеперь характеристики: статическая типизация, компилируемый. Напомню разницу между компилируемым и интерпретируемым для тех, кто не в теме. Синтаксис простой, похож на C, но с современными удобствами. Много инструментов из коробки, автоматический сбор мусора – это важно для удобства программистов.\n\nПлюсы: простота, эффективность, подходит для многопоточных задач. Примеры использования – веб-серверы, облака, микросервисы. Можно упомянуть популярность у разработчиков, например, Docker написан на Go. Может, добавить про перспективы использования? Или сферы применения?\n\nМожет, стоит отметить, что он","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":39,"total_tokens":339,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (qwen): Array
+(
+    [id] => 01966984-53ee-b266-0bd3-2c7d72d704ad
+    [object] => chat.completion
+    [created] => 1745526996
+    [model] => Qwen/QwQ-32B
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] => Хорошо, мне нужно объяснить, что такое язык Go. Начну с того, что он разработан Google. Год создания – 2007, официально представлен в 2009. Важно упомянуть основателей: Роб Пайк, Роб Старк и Кеннет Томпсон. Эти ребята знают толк в языках, ведь Томпсон был создателем UNIX и C.
+
+Теперь характеристики: статическая типизация, компилируемый. Напомню разницу между компилируемым и интерпретируемым для тех, кто не в теме. Синтаксис простой, похож на C, но с современными удобствами. Много инструментов из коробки, автоматический сбор мусора – это важно для удобства программистов.
+
+Плюсы: простота, эффективность, подходит для многопоточных задач. Примеры использования – веб-серверы, облака, микросервисы. Можно упомянуть популярность у разработчиков, например, Docker написан на Go. Может, добавить про перспективы использования? Или сферы применения?
+
+Может, стоит отметить, что он
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 39
+            [total_tokens] => 339
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+OpenRouter Raw Response (gemma): 
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+{"id":"gen-1745781353-FRgTcg9EcElaScGuAZhX","provider":"Chutes","model":"google/gemma-2-9b-it:free","object":"chat.completion","created":1745781353,"choices":[{"logprobs":null,"finish_reason":"length","native_finish_reason":"length","index":0,"message":{"role":"assistant","content":"\n\n## Что такое язык программирования Go?\n\nGo, также известный как Golang, — это **объектно-ориентированный, статически типизированный язык программирования**, разработанный компанией Google в 2007 году. Он был создан для решения задач, которые традиционно сложно решать на других языках, таких как:\n\n* **Разработка высокопроизводительных сетевых приложений:** Go известен своей высокой производительностью и эффективностью работы с сетью.\n* **Создание быстрых и надежных систем:** Он обладает встроенными механизмами для управления памятью и concurrency (одновременное выполнение нескольких задач), что делает его идеальным для систем, где скорость и надежность имеют первостепенное значение.\n* **Разработка масштабируемых приложений:** Go легко масштабируется, что позволяет создавать приложения, которые могут работать с большим объемом данных и пользователей.\n\n**Основные особенности Go:**\n\n* **Простота и читабельность:** Go имеет простой синтаксис и лаконичную нотацию, что делает его легкоучим и понятным для программистов любого уровня опыта.\n* **Высокая производительность:** Go компилируется в машинный код, что делает его одним из самых быстрых языков программирования.\n* ** concurrency:** Go предоставляет встроенные инструменты для работы с concurrency, что позволяет разработчикам легко","refusal":null,"reasoning":null}}],"usage":{"prompt_tokens":56,"completion_tokens":300,"total_tokens":356}}
+OpenRouter Parsed Response (gemma): Array
+(
+    [id] => gen-1745781353-FRgTcg9EcElaScGuAZhX
+    [provider] => Chutes
+    [model] => google/gemma-2-9b-it:free
+    [object] => chat.completion
+    [created] => 1745781353
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [native_finish_reason] => length
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [content] => 
+
+## Что такое язык программирования Go?
+
+Go, также известный как Golang, — это **объектно-ориентированный, статически типизированный язык программирования**, разработанный компанией Google в 2007 году. Он был создан для решения задач, которые традиционно сложно решать на других языках, таких как:
+
+* **Разработка высокопроизводительных сетевых приложений:** Go известен своей высокой производительностью и эффективностью работы с сетью.
+* **Создание быстрых и надежных систем:** Он обладает встроенными механизмами для управления памятью и concurrency (одновременное выполнение нескольких задач), что делает его идеальным для систем, где скорость и надежность имеют первостепенное значение.
+* **Разработка масштабируемых приложений:** Go легко масштабируется, что позволяет создавать приложения, которые могут работать с большим объемом данных и пользователей.
+
+**Основные особенности Go:**
+
+* **Простота и читабельность:** Go имеет простой синтаксис и лаконичную нотацию, что делает его легкоучим и понятным для программистов любого уровня опыта.
+* **Высокая производительность:** Go компилируется в машинный код, что делает его одним из самых быстрых языков программирования.
+* ** concurrency:** Go предоставляет встроенные инструменты для работы с concurrency, что позволяет разработчикам легко
+                            [refusal] => 
+                            [reasoning] => 
+                        )
+
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 56
+            [completion_tokens] => 300
+            [total_tokens] => 356
+        )
+
+)
+
+OpenRouter Raw Response (gemma): 
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+{"id":"gen-1745781486-h6eCrzQRwXvCN9atJI2V","provider":"Chutes","model":"google/gemma-2-9b-it:free","object":"chat.completion","created":1745781486,"choices":[{"logprobs":null,"finish_reason":"length","native_finish_reason":"length","index":0,"message":{"role":"assistant","content":"\n\nС удовольствием! \n\n**Go**, также известный как **Golang**, — это открытый, статически типизированный, высокоуровневый язык программирования, разработанный в Google и выпущенный в 2009 году.\n\n**Вот некоторые ключевые особенности Go:**\n\n* **Простота:** Go задумывался как язык, который легко изучить и использовать, даже для начинающих программистов. Синтаксис Go прост и читабелен, а сама конструкция языка минималистична.\n\n* **Скорость:** Go компилируется в машинный код, что делает его очень быстрым. Он также обладает эффективным garbage collection, который освобождает разработчиков от необходимости вручную управлять памятью.\n\n* **Параллелизм:** Go обладает встроенной поддержкой параллелизма, что позволяет легко создавать программы, которые могут эффективно использовать многоядерные процессоры.\n\n* **Статическая типизация:** Go — статически типизированный язык, что означает, что типы данных проверяются во время компиляции. Это позволяет обнаруживать ошибки на ранней стадии разработки и улучшает читаемость кода.\n\n* **Cross-platform:** Go поддерживает множество платформ, включая Windows, Linux, macOS, iOS и Android.\n\n**Вот некоторые примеры использования Go:**\n\n* **Веб-серверы:** Go отлично подходит для разработки быстрых и масштабиру","refusal":null,"reasoning":null}}],"usage":{"prompt_tokens":56,"completion_tokens":300,"total_tokens":356}}
+OpenRouter Parsed Response (gemma): Array
+(
+    [id] => gen-1745781486-h6eCrzQRwXvCN9atJI2V
+    [provider] => Chutes
+    [model] => google/gemma-2-9b-it:free
+    [object] => chat.completion
+    [created] => 1745781486
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [native_finish_reason] => length
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [content] => 
+
+С удовольствием! 
+
+**Go**, также известный как **Golang**, — это открытый, статически типизированный, высокоуровневый язык программирования, разработанный в Google и выпущенный в 2009 году.
+
+**Вот некоторые ключевые особенности Go:**
+
+* **Простота:** Go задумывался как язык, который легко изучить и использовать, даже для начинающих программистов. Синтаксис Go прост и читабелен, а сама конструкция языка минималистична.
+
+* **Скорость:** Go компилируется в машинный код, что делает его очень быстрым. Он также обладает эффективным garbage collection, который освобождает разработчиков от необходимости вручную управлять памятью.
+
+* **Параллелизм:** Go обладает встроенной поддержкой параллелизма, что позволяет легко создавать программы, которые могут эффективно использовать многоядерные процессоры.
+
+* **Статическая типизация:** Go — статически типизированный язык, что означает, что типы данных проверяются во время компиляции. Это позволяет обнаруживать ошибки на ранней стадии разработки и улучшает читаемость кода.
+
+* **Cross-platform:** Go поддерживает множество платформ, включая Windows, Linux, macOS, iOS и Android.
+
+**Вот некоторые примеры использования Go:**
+
+* **Веб-серверы:** Go отлично подходит для разработки быстрых и масштабиру
+                            [refusal] => 
+                            [reasoning] => 
+                        )
+
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 56
+            [completion_tokens] => 300
+            [total_tokens] => 356
+        )
+
+)
+

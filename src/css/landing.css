@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* Общие стили */
 * {
@@ -114,24 +114,48 @@ a {
 
 /* Главный баннер */
 .hero {
-    padding: 200px 0;
-    text-align: center;
+    padding: 150px 0;
+    text-align: left;
 }
 
 .hero .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.hero-mockup {
+    width: 380px;
+    height: auto;
+    position: static;
+    z-index: 1;
+    transform: translateX(200px);
+    opacity: 0;
+    animation: slideIn 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .hero-content {
-    max-width: 1030px;
+    text-align: center;
+    max-width: 700px;
 }
 
 .hero h1 {
     line-height: 1.25;
     margin-bottom: 40px;
     margin-top: -40px;
+    font-size: 72px;
+    font-weight: 800;
 }
 
 .hero p {
@@ -155,7 +179,7 @@ a {
 
 .cta-btn:hover {
     background-color: #004FED;
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
 /* Возможности */
@@ -181,14 +205,9 @@ a {
 
 .networks-carousel {
     width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
     overflow: hidden;
-    margin-bottom: 60px;
-    margin-top: 40px;
+    position: relative;
+    margin: 40px auto 60px;
 }
 
 .networks-list {
@@ -196,22 +215,22 @@ a {
     gap: 20px;
     user-select: none;
     padding: 0 20px;
-    transition: transform 0.05s linear, opacity 0.3s ease;
-}
-
-.networks-list:active {
-    cursor: grabbing;
+    will-change: transform;
+    transform: translateX(0);
+    transition: none;
 }
 
 .network-item {
+    flex-shrink: 0;
     width: 250px;
     height: 100px;
     padding: 10px 40px;
-    margin-left: 22px;
+    margin-left: 0;
     object-fit: contain;
     border-radius: 10px;
     pointer-events: none;
     user-select: none;
+    transition: transform 0.3s ease;
 }
 
 .network-item:hover {
@@ -257,60 +276,14 @@ a {
 .mockup {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.mockup-laptop {
-    position: relative;
-    width: 100%;
-    max-width: 900px;
-    padding-bottom: 60%; /* Соотношение сторон для экрана ноутбука */
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.mockup-laptop::before {
-    content: '';
-    position: absolute;
-    bottom: -10%;
-    left: 0;
-    width: 100%;
-    height: 10%;
-    background: linear-gradient(180deg, #d1d5db, #e5e7eb);
-    border-radius: 0 0 20px 20px;
-    z-index: -1;
-}
-
-.mockup-laptop::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 10px;
-    background: #000;
-    border-radius: 0 0 5px 5px;
-}
-
-.mockup-screen {
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    height: 80%;
-    background: #000;
-    border-radius: 10px;
-    overflow: hidden;
+    padding: 100px 20px;
+    text-align: center;
 }
 
 .mockup-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
 }
 
 /* Отзывы */
@@ -352,6 +325,7 @@ a {
     font-size: 16px;
     margin-bottom: 20px;
     line-height: 1.5;
+    font-style: italic;
 }
 
 .review-author {
@@ -520,6 +494,10 @@ a {
     font-size: 14px;
     color: #4a5568;
     margin-bottom: 10px;
+}
+
+.footer p:last-child {
+    margin-bottom: 0px;
 }
 
 .footer-links {

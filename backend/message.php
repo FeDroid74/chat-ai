@@ -311,8 +311,8 @@ function handleMessageAction($action, $user_id, $input, $pdo, $models, $hfApiTok
         }
 
         // Сохраняем ответ ИИ
-        $stmt = $pdo->prepare("INSERT INTO messages (chat_id, user_id, message) VALUES (:chat_id, :user_id, :message)");
-        $stmt->execute(['chat_id' => $chat_id, 'user_id' => 0, 'message' => $reply]);
+        $stmt = $pdo->prepare("INSERT INTO messages (chat_id, user_id, message, model) VALUES (:chat_id, :user_id, :message, :model)");
+        $stmt->execute(['chat_id' => $chat_id, 'user_id' => 0, 'message' => $reply, 'model' => $displayName]);
         echo json_encode(['reply' => $reply, 'chat_id' => $chat_id, 'model' => $displayName]);
         exit;
     }

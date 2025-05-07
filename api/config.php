@@ -6,7 +6,7 @@ $yandexFolderId = 'b1gm2isg5drni42fle6b'; // Folder ID Yandex
 $yandexApiUrl = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion';
 $yandexOperationApiUrl = 'https://operation.api.cloud.yandex.net/operations/';
 $ioNetApiKey = 'io-v2-eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJvd25lciI6IjBlOTBmMWEzLTJmMzEtNDkwMy1hYTNiLWMxZjQyY2MyZDlkOSIsImV4cCI6NDg5NTc2MTE5Mn0.OPlYgcT87Mj2YI-I-UfrNsRWkKqWeSTHLbxZjaf3-bFk9svoAhX6ER5J1uSkCh9q12wGTzG2euLzdnlQ_3v1Dg'; // API-ключ io.net
-$openRouterApiKey = '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'; // Замени на свой API-ключ OpenRouter
+$openRouterApiKey = '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';
 
 // Массив доступных моделей
 $models = [

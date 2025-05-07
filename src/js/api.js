@@ -14,7 +14,11 @@ async function loadUserInfo() {
         const data = JSON.parse(text);
         const userInfoDiv = document.getElementById('user-info');
         if (data.username) {
-            userInfoDiv.innerHTML = `Привет, ${data.username}! <button onclick="logout()" class="logout-btn">Выйти</button>`;
+            userInfoDiv.innerHTML = `
+                Привет, ${data.username}! 
+                ${data.role === 1 ? '<a href="/admin.html">Панель администратора</a>' : ''}
+                <button onclick="logout()" class="logout-btn">Выйти</button>
+            `;
         } else {
             userInfoDiv.textContent = 'Не авторизован';
             window.location.href = '/login.html';
@@ -24,7 +28,6 @@ async function loadUserInfo() {
         throw error;
     }
 }
-
 async function loadChats() {
     const response = await fetch('/api/api.php', {
         method: 'POST',
@@ -99,7 +102,8 @@ async function loadHistory(chatId) {
         if (data.messages) {
             data.messages.forEach(msg => {
                 const className = msg.user_id === 0 ? 'ai-message' : 'user-message';
-                messagesDiv.innerHTML += `<p class="${className}"><b>${msg.user_id === 0 ? 'ИИ' : 'Вы'}:</b> ${msg.message}</p>`;
+                const sender = msg.user_id === 0 ? `ИИ${msg.model ? ` (${msg.model})` : ''}` : 'Вы';
+                messagesDiv.innerHTML += `<p class="${className}"><b>${sender}:</b> ${msg.message}</p>`;
             });
         }
         messagesDiv.scrollTop = messagesDiv.scrollHeight;

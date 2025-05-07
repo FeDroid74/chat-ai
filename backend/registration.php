@@ -63,15 +63,17 @@ try {
     // Генерация уникального токена для подтверждения email
     $email_verification_token = bin2hex(random_bytes(16));
     $email_verified = 0; // По умолчанию email не подтверждён
+    $role = 0; // По умолчанию пользователь — обычный (не администратор)
 
     // Сохраняем пользователя в базе данных
-    $stmt = $pdo->prepare("INSERT INTO users (username, email, password, email_verified, email_verification_token) VALUES (:username, :email, :password, :email_verified, :email_verification_token)");
+    $stmt = $pdo->prepare("INSERT INTO users (username, email, password, email_verified, email_verification_token, role) VALUES (:username, :email, :password, :email_verified, :email_verification_token, :role)");
     $stmt->execute([
         'username' => $username,
         'email' => $email,
         'password' => $password,
         'email_verified' => $email_verified,
-        'email_verification_token' => $email_verification_token
+        'email_verification_token' => $email_verification_token,
+        'role' => $role
     ]);
 
     // Отправка письма с подтверждением через PHPMailer

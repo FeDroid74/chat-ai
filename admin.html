@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель администратора</title>
+    <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    <div class="sidebar-menu" id="sidebar-menu">
+        <div class="sidebar-header">
+            <button onclick="toggleMenu()" class="close-menu"><span>🡠</span></button>
+        </div>
+        <div class="menu-items">
+            <button onclick="showSection('users-section')">Пользователи</button><br>
+            <button onclick="showSection('chats-section')">Чаты</button><br>
+            <button onclick="showSection('messages-section')">Сообщения</button>
+        </div>
+    </div>
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <div class="admin-container">
+        <h1>Панель администратора</h1>
+        <button onclick="logout()" class="logout-btn">Выйти</button>
+
+        <div class="admin-stats">
+            <div class="stat-block users">
+                <div class="icon">👥</div>
+                <div class="label">Пользователи</div>
+                <div class="count" id="stat-users">0</div>
+            </div>
+            <div class="stat-block chats">
+                <div class="icon">💬</div>
+                <div class="label">Чаты</div>
+                <div class="count" id="stat-chats">0</div>
+            </div>
+            <div class="stat-block messages">
+                <div class="icon">📨</div>
+                <div class="label">Сообщения</div>
+                <div class="count" id="stat-messages">0</div>
+            </div>
+        </div>
+
+        <!-- Пользователи -->
+        <section id="users-section">
+            <h2>Пользователи</h2>
+            <button class="add-btn" onclick="openCreateUserForm()">Добавить пользователя</button>
+            <table id="users-table">
+                <thead>
+                    <tr>
+                        <th>Имя пользователя</th>
+                        <th>Email</th>
+                        <th>Роль</th>
+                        <th>Создан</th>
+                        <th>Действия</th>
+                    </tr>
+                  </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <!-- Чаты -->
+        <section id="chats-section" style="display: none;">
+            <h2>Чаты</h2>
+            <button class="add-btn" onclick="openCreateChatForm()">Добавить чат</button>
+            <table id="chats-table">
+                <thead>
+                    <tr>
+                        <th>Пользователь</th>
+                        <th>Название</th>
+                        <th>Создан</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <!-- Сообщения -->
+        <section id="messages-section" style="display: none;">
+            <h2>Сообщения</h2>
+            <button class="add-btn" onclick="openCreateMessageForm()">Добавить сообщение</button>
+            <table id="messages-table">
+                <thead>
+                    <tr>
+                        <th>Чат</th>
+                        <th>Пользователь</th>
+                        <th>Сообщение</th>
+                        <th>Модель</th>
+                        <th>Создано</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <!-- Модальное окно -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <h2 id="modal-title"></h2>
+                <div id="modal-form"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/js/logout.js"></script>
+    <script type="module" src="/src/js/admin.js"></script>
+</body>
+</html>

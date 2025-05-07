@@ -27,7 +27,7 @@ function handleChatAction($action, $user_id, $input, $pdo) {
             echo json_encode(['error' => 'Укажите chat_id']);
             exit;
         }
-        $stmt = $pdo->prepare("SELECT user_id, message FROM messages WHERE chat_id = :chat_id ORDER BY created_at ASC");
+        $stmt = $pdo->prepare("SELECT user_id, message, model FROM messages WHERE chat_id = :chat_id ORDER BY created_at ASC");
         $stmt->execute(['chat_id' => $chat_id]);
         $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode(['messages' => $messages]);
