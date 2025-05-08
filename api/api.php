@@ -17,6 +17,8 @@ $user_id = $_SESSION['user_id'];
 $input = json_decode(file_get_contents('php://input'), true);
 $action = $input['action'] ?? 'send_message';
 
+$models = loadModels($pdo); // Загружаем модели из БД
+
 // Маршрутизация запросов
 if (in_array($action, ['get_user_info'])) {
     handleUserAction($action, $user_id, $pdo);

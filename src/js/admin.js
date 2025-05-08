@@ -15,6 +15,28 @@ async function postRequest(action, payload = {}) {
     }
 }
 
+function escapeHtml(str) {
+    if (typeof str !== 'string') return '';
+    return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;")
+        .replace(/\\/g, "&#092;")
+        .replace(/\n/g, "<br>");
+}
+
+function escapeJsString(str) {
+    if (typeof str !== 'string') return '';
+    return str
+        .replace(/\\/g, '\\\\')
+        .replace(/'/g, "\\'")
+        .replace(/"/g, '\\"')
+        .replace(/\n/g, '\\n')
+        .replace(/\r/g, '\\r');
+}
+
 function renderTable(dataList, selector, rowBuilder) {
     const tbody = document.querySelector(selector);
     tbody.innerHTML = '';
@@ -47,7 +69,7 @@ async function loadUsers() {
         <td>${user.id}</td>
         <td>${user.username}</td>
         <td>${user.email}</td>
-        <td>${user.role === 1 ? 'Админ' : 'Пользователь'}</td>
+        <td>${user.role === 1 ? 'Администратор' : 'Пользователь'}</td>
         <td>${user.created_at}</td>
         <td>
             <button onclick="openEditUserForm(${user.id}, '${user.username}', '${user.email}', ${user.role})">Редактировать</button>
@@ -84,7 +106,7 @@ function openCreateUserForm() {
         <label>Email: <input type="email" id="user-email"></label><br>
         <label>Пароль: <input type="password" id="user-password"></label><br>
         <label>Роль: <select id="user-role">
-            <option value="0">Пользователь</option><option value="1">Админ</option></select></label><br>
+            <option value="0">Пользователь</option><option value="1">Администратор</option></select></label><br>
         <button onclick="createUser()">Сохранить</button>
     `);
 }
@@ -96,7 +118,7 @@ function openEditUserForm(id, username, email, role) {
         <label>Email: <input type="email" id="user-email" value="${email}"></label><br>
         <label>Роль: <select id="user-role">
             <option value="0" ${role === 0 ? 'selected' : ''}>Пользователь</option>
-            <option value="1" ${role === 1 ? 'selected' : ''}>Админ</option></select></label><br>
+            <option value="1" ${role === 1 ? 'selected' : ''}>Администратор</option></select></label><br>
         <button onclick="updateUser()">Сохранить</button>
     `);
 }
@@ -136,18 +158,28 @@ function deleteChat(id) {
 }
 
 function openCreateChatForm() {
+    const userOptions = allUsers.map(u => `<option value="${u.id}">${escapeHtml(u.username)}</option>`).join('');
+
     openModal('Добавить чат', `
-        <label>ID пользователя: <input type="number" id="chat-user_id"></label><br>
+        <label>Пользователь:
+            <select id="chat-user_id">${userOptions}</select>
+        </label><br>
         <label>Название: <input type="text" id="chat-title"></label><br>
         <button onclick="createChat()">Сохранить</button>
     `);
 }
 
-function openEditChatForm(id, user_id, title) {
+function openEditChatForm(id, user_name, title) {
+    const userOptions = allUsers.map(u =>
+        `<option value="${u.id}" ${u.username === user_name ? 'selected' : ''}>${escapeHtml(u.username)}</option>`
+    ).join('');
+
     openModal('Редактировать чат', `
         <input type="hidden" id="chat-id" value="${id}">
-        <label>ID пользователя: <input type="number" id="chat-user_id" value="${user_id}"></label><br>
-        <label>Название: <input type="text" id="chat-title" value="${title}"></label><br>
+        <label>Пользователь:
+            <select id="chat-user_id">${userOptions}</select>
+        </label><br>
+        <label>Название: <input type="text" id="chat-title" value="${escapeJsString(title)}"></label><br>
         <button onclick="updateChat()">Сохранить</button>
     `);
 }
@@ -155,18 +187,43 @@ function openEditChatForm(id, user_id, title) {
 // Сообщения
 async function loadMessages() {
     const data = await postRequest('get_messages');
-    renderTable(data.messages, '#messages-table tbody', m => `
-        <td>${m.id}</td>
-        <td>${m.chat_id}</td>
-        <td>${m.user_id}</td>
-        <td>${m.message}</td>
-        <td>${m.model || 'Нет'}</td>
-        <td>${m.created_at}</td>
-        <td>
-            <button onclick="openEditMessageForm(${m.id}, ${m.chat_id}, ${m.user_id}, '${m.message}', '${m.model || ''}')">Редактировать</button>
-            <button onclick="deleteMessage(${m.id})">Удалить</button>
-        </td>
-    `);
+    const tbody = document.querySelector('#messages-table tbody');
+    tbody.innerHTML = '';
+
+    data.messages.forEach(m => {
+        const tr = document.createElement('tr');
+
+        tr.innerHTML = `
+            <td>${escapeHtml(m.chat_title)}</td>
+            <td>${escapeHtml(m.user_name || 'Нейросеть')}</td>
+            <td>${escapeHtml(m.message)}</td>
+            <td>${escapeHtml(m.model || 'Нет')}</td>
+            <td>${m.created_at}</td>
+            <td>
+                <button class="edit-btn">Редактировать</button>
+                <button class="delete-btn">Удалить</button>
+            </td>
+        `;
+
+        const editBtn = tr.querySelector('.edit-btn');
+        const deleteBtn = tr.querySelector('.delete-btn');
+
+        editBtn.addEventListener('click', () => {
+            openEditMessageForm(
+                m.id,
+                m.chat_title,
+                m.user_name || 'Нейросеть',
+                m.message,
+                m.model || ''
+            );
+        });
+
+        deleteBtn.addEventListener('click', () => {
+            deleteMessage(m.id);
+        });
+
+        tbody.appendChild(tr);
+    });
 }
 
 async function createMessage() {
@@ -192,26 +249,119 @@ function deleteMessage(id) {
     deleteEntity('delete_message', id, loadMessages);
 }
 
+// Модели
+const modelInput = key => document.getElementById(`model-${key}`).value;
+
+async function createModel() {
+    const name = modelInput('name');
+    const display_name = modelInput('display_name');
+    const type = modelInput('type');
+    const url = modelInput('url');
+    const model_name = modelInput('model_name');
+    const enabled = modelInput('enabled');
+    const data = await postRequest('create_model', { name, display_name, type, url, model_name, enabled });
+    data.success ? (closeModal(), location.reload()) : alert(data.error || 'Ошибка при создании');
+}
+
+async function updateModel() {
+    const id = modelInput('id');
+    const name = modelInput('name');
+    const display_name = modelInput('display_name');
+    const type = modelInput('type');
+    const url = modelInput('url');
+    const model_name = modelInput('model_name');
+    const enabled = modelInput('enabled');
+    const data = await postRequest('update_model', { id, name, display_name, type, url, model_name, enabled });
+    data.success ? (closeModal(), location.reload()) : alert(data.error || 'Ошибка при обновлении');
+}
+
+function deleteModel(id) {
+    deleteEntity('delete_model', id, () => location.reload());
+}
+
 
 // Модальные окна
 function openCreateMessageForm() {
+    const userOptions = allUsers.map(u => `<option value="${u.id}">${escapeHtml(u.username)}</option>`).join('');
+    const chatOptions = allChats.map(c => `<option value="${c.id}">${escapeHtml(c.title)}</option>`).join('');
+
     openModal('Добавить сообщение', `
-        <label>ID чата: <input type="number" id="message-chat_id"></label><br>
-        <label>ID пользователя: <input type="number" id="message-user_id"></label><br>
+        <label>Чат: 
+            <select id="message-chat_id">${chatOptions}</select>
+        </label><br>
+        <label>Пользователь: 
+            <select id="message-user_id">${userOptions}</select>
+        </label><br>
         <label>Сообщение: <textarea id="message-text"></textarea></label><br>
         <label>Модель: <input type="text" id="message-model"></label><br>
         <button onclick="createMessage()">Сохранить</button>
     `);
 }
 
-function openEditMessageForm(id, chat_id, user_id, message, model) {
+function openEditMessageForm(id, chat_title, user_name, message, model) {
+    const userOptions = allUsers.map(u => 
+        `<option value="${u.id}" ${u.username === user_name ? 'selected' : ''}>${escapeHtml(u.username)}</option>`
+    ).join('');
+
+    const chatOptions = allChats.map(c => 
+        `<option value="${c.id}" ${c.title === chat_title ? 'selected' : ''}>${escapeHtml(c.title)}</option>`
+    ).join('');
+
     openModal('Редактировать сообщение', `
         <input type="hidden" id="message-id" value="${id}">
-        <label>ID чата: <input type="number" id="message-chat_id" value="${chat_id}"></label><br>
-        <label>ID пользователя: <input type="number" id="message-user_id" value="${user_id}"></label><br>
-        <label>Сообщение: <textarea id="message-text">${message}</textarea></label><br>
-        <label>Модель: <input type="text" id="message-model" value="${model}"></label><br>
+        <label>Чат: 
+            <select id="message-chat_id">${chatOptions}</select>
+        </label><br>
+        <label>Пользователь: 
+            <select id="message-user_id">${userOptions}</select>
+        </label><br>
+        <label>Сообщение: <textarea id="message-text">${escapeJsString(message)}</textarea></label><br>
+        <label>Модель: <input type="text" id="message-model" value="${escapeJsString(model)}"></label><br>
         <button onclick="updateMessage()">Сохранить</button>
+    `);
+}
+
+function openCreateModelForm() {
+    openModal('Добавить модель', `
+        <label>Имя: <input type="text" id="model-name"></label><br>
+        <label>Отображаемое имя: <input type="text" id="model-display_name"></label><br>
+        <label>Тип: <select id="model-type">
+            <option value="huggingface">huggingface</option>
+            <option value="yandexgpt">yandexgpt</option>
+            <option value="ionet">ionet</option>
+            <option value="openrouter">openrouter</option>
+        </select></label><br>
+        <label>URL: <input type="text" id="model-url"></label><br>
+        <label>Название модели: <input type="text" id="model-model_name"></label><br>
+        <label>Включено: <select id="model-enabled">
+            <option value="1">Да</option>
+            <option value="0">Нет</option>
+        </select></label><br>
+        <button onclick="createModel()">Сохранить</button>
+    `);
+}
+
+function openEditModelForm(id) {
+    const model = allModels.find(m => m.id == id);
+    if (!model) return alert('Модель не найдена');
+
+    openModal('Редактировать модель', `
+        <input type="hidden" id="model-id" value="${model.id}">
+        <label>Имя: <input type="text" id="model-name" value="${escapeJsString(model.name)}"></label><br>
+        <label>Отображаемое имя: <input type="text" id="model-display_name" value="${escapeJsString(model.display_name)}"></label><br>
+        <label>Тип: <select id="model-type">
+            <option value="huggingface" ${model.type === 'huggingface' ? 'selected' : ''}>huggingface</option>
+            <option value="yandexgpt" ${model.type === 'yandexgpt' ? 'selected' : ''}>yandexgpt</option>
+            <option value="ionet" ${model.type === 'ionet' ? 'selected' : ''}>ionet</option>
+            <option value="openrouter" ${model.type === 'openrouter' ? 'selected' : ''}>openrouter</option>
+        </select></label><br>
+        <label>URL: <input type="text" id="model-url" value="${escapeJsString(model.url || '')}"></label><br>
+        <label>Название модели: <input type="text" id="model-model_name" value="${escapeJsString(model.model_name || '')}"></label><br>
+        <label>Включено: <select id="model-enabled">
+            <option value="1" ${model.enabled == 1 ? 'selected' : ''}>Да</option>
+            <option value="0" ${model.enabled == 0 ? 'selected' : ''}>Нет</option>
+        </select></label><br>
+        <button onclick="updateModel()">Сохранить</button>
     `);
 }
 
@@ -231,14 +381,24 @@ const userInput = key => document.getElementById(`user-${key}`).value;
 const chatInput = key => document.getElementById(`chat-${key}`).value;
 const msgInput = key => document.getElementById(`message-${key}`).value;
 
+let allUsers = [];
+let allChats = [];
+let allModels = [];
+
 window.onload = async () => {
     await checkAdminAccess();
 
-    const [usersData, chatsData, messagesData] = await Promise.all([
+    const [usersData, chatsData, messagesData, modelsData] = await Promise.all([
         postRequest('get_users'),
         postRequest('get_chats'),
         postRequest('get_messages'),
+        postRequest('get_models'),
     ]);
+    
+    allModels = modelsData.models;
+    document.getElementById('stat-models').textContent = allModels.length;
+    allUsers = usersData.users;
+    allChats = chatsData.chats;  
 
     if (usersData.error || chatsData.error || messagesData.error) {
         alert('Ошибка при загрузке данных');
@@ -253,7 +413,7 @@ window.onload = async () => {
     renderTable(usersData.users, '#users-table tbody', user => `
         <td>${user.username}</td>
         <td>${user.email}</td>
-        <td>${user.role === 1 ? 'Админ' : 'Пользователь'}</td>
+        <td>${user.role === 1 ? 'Администратор' : 'Пользователь'}</td>
         <td>${user.created_at}</td>
         <td>
             <button onclick="openEditUserForm(${user.id}, '${user.username}', '${user.email}', ${user.role})">Редактировать</button>
@@ -273,13 +433,26 @@ window.onload = async () => {
 
     renderTable(messagesData.messages, '#messages-table tbody', m => `
         <td>${m.chat_title}</td>
-        <td>${m.user_name}</td>
+        <td>${m.user_name || 'Нейросеть'}</td>
         <td>${m.message}</td>
         <td>${m.model || 'Нет'}</td>
         <td>${m.created_at}</td>
         <td>
             <button onclick="openEditMessageForm(${m.id}, '${m.chat_title}', '${m.user_name}', '${m.message}', '${m.model || ''}')">Редактировать</button>
             <button onclick="deleteMessage(${m.id})">Удалить</button>
+        </td>
+    `);
+
+    renderTable(modelsData.models, '#models-table tbody', model => `
+        <td>${escapeHtml(model.name)}</td>
+        <td>${escapeHtml(model.display_name)}</td>
+        <td>${escapeHtml(model.type)}</td>
+        <td>${escapeHtml(model.url || '')}</td>
+        <td>${escapeHtml(model.model_name || '')}</td>
+        <td>${model.enabled == 1 ? 'Да' : 'Нет'}</td>
+        <td>
+            <button onclick="openEditModelForm(${model.id})">Редактировать</button>
+            <button onclick="deleteModel(${model.id})">Удалить</button>
         </td>
     `);
 };
@@ -290,7 +463,11 @@ function toggleMenu() {
 }
 
 function showSection(id) {
-    ['users-section', 'chats-section', 'messages-section'].forEach(sec => {
+    if (id === 'models-section') {
+        alert('Изменения в данной таблице могут привести к поломке функционала на сайте. Не применяйте изменения без веб-специалиста!');
+    }
+
+    ['users-section', 'chats-section', 'messages-section', 'models-section'].forEach(sec => {
         document.getElementById(sec).style.display = sec === id ? 'block' : 'none';
     });
     toggleMenu();

@@ -64,13 +64,13 @@ switch ($action) {
         break;
 
     case 'get_messages':
-        respondQuery("
-            SELECT messages.id, chats.title AS chat_title, users.username AS user_name, messages.message, messages.model, messages.created_at
-            FROM messages
-            JOIN users ON users.id = messages.user_id
-            JOIN chats ON chats.id = messages.chat_id
-            ORDER BY messages.created_at DESC
-        ", [], 'messages');
+    respondQuery("
+        SELECT messages.id, chats.title AS chat_title, users.username AS user_name, messages.message, messages.model, messages.created_at
+        FROM messages
+        LEFT JOIN users ON users.id = messages.user_id
+        LEFT JOIN chats ON chats.id = messages.chat_id
+        ORDER BY messages.created_at DESC
+    ", [], 'messages');
         break;
 
     case 'create_message':
@@ -93,8 +93,37 @@ switch ($action) {
         handleRequest(['id'], fn($data) => $pdo->prepare("DELETE FROM messages WHERE id = :id")->execute($data));
         break;
 
+        case 'get_models':
+            respondQuery("SELECT * FROM models ORDER BY id DESC", [], 'models');
+            break;
+        
+        case 'create_model':
+            handleRequest(['name', 'display_name', 'type', 'url', 'model_name', 'enabled'], function ($data) use ($pdo) {
+                $stmt = $pdo->prepare("
+                    INSERT INTO models (name, display_name, type, url, model_name, enabled)
+                    VALUES (:name, :display_name, :type, :url, :model_name, :enabled)
+                ");
+                $stmt->execute($data);
+            });
+            break;
+        
+        case 'update_model':
+            handleRequest(['id', 'name', 'display_name', 'type', 'url', 'model_name', 'enabled'], function ($data) use ($pdo) {
+                $stmt = $pdo->prepare("
+                    UPDATE models SET name = :name, display_name = :display_name, type = :type,
+                        url = :url, model_name = :model_name, enabled = :enabled
+                    WHERE id = :id
+                ");
+                $stmt->execute($data);
+            });
+            break;
+        
+        case 'delete_model':
+            handleRequest(['id'], fn($data) => $pdo->prepare("DELETE FROM models WHERE id = :id")->execute($data));
+            break;
+            
     default:
-        exitWithError('Неизвестное действие');
+        exitWithError('Неизвестное действие');   
 }
 
 function handleRequest(array $required, callable $callback) {
@@ -115,7 +144,7 @@ function respondQuery($sql, $params, $key) {
     global $pdo;
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
-    echo json_encode([$key => $stmt->fetchAll(PDO::FETCH_ASSOC) ?: []]);
+    echo json_encode([$key => $stmt->fetchAll(PDO::FETCH_ASSOC) ?: []], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     exit;
 }
 

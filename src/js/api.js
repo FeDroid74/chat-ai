@@ -16,7 +16,7 @@ async function loadUserInfo() {
         if (data.username) {
             userInfoDiv.innerHTML = `
                 Привет, ${data.username}! 
-                ${data.role === 1 ? '<a href="/admin.html">Панель администратора</a>' : ''}
+                ${data.role === 1 ? '<a href="/admin.html" class="admin">Ⓐ</a>' : ''}
                 <button onclick="logout()" class="logout-btn">Выйти</button>
             `;
         } else {

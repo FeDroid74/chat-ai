@@ -18,6 +18,11 @@
     text-align: center;
 }
 
+.admin {
+    color: #007FED;
+    font-weight: 700;
+}
+
 /* Layout для чата */
 .chat-layout {
     display: flex;

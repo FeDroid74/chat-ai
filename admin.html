@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/src/css/style.css">
 </head>
 <body>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <a href="/app.php" class="return-btn"><span>🡠</span></a>
+    <button class="menu-toggle move" onclick="toggleMenu()"><span>☰</span></button>
 
     <div class="sidebar-menu" id="sidebar-menu">
         <div class="sidebar-header">
@@ -17,6 +18,7 @@
             <button onclick="showSection('users-section')">Пользователи</button><br>
             <button onclick="showSection('chats-section')">Чаты</button><br>
             <button onclick="showSection('messages-section')">Сообщения</button>
+            <button onclick="showSection('models-section')">Модели</button><br>
         </div>
     </div>
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
@@ -41,6 +43,11 @@
                 <div class="label">Сообщения</div>
                 <div class="count" id="stat-messages">0</div>
             </div>
+            <div class="stat-block models">
+                <div class="icon">🧠</div>
+                <div class="label">Модели</div>
+                <div class="count" id="stat-models">0</div>
+            </div>            
         </div>
 
         <!-- Пользователи -->
@@ -90,6 +97,26 @@
                         <th>Сообщение</th>
                         <th>Модель</th>
                         <th>Создано</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <!-- Модели -->
+        <section id="models-section" style="display: none;">
+            <h2>Модели</h2>
+            <button class="add-btn" onclick="openCreateModelForm()">Добавить модель</button>
+            <table id="models-table">
+                <thead>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Отображаемое имя</th>
+                        <th>Тип</th>
+                        <th>URL</th>
+                        <th>Название модели</th>
+                        <th>Включено</th>
                         <th>Действия</th>
                     </tr>
                 </thead>

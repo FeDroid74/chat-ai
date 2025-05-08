@@ -2092,3 +2092,107 @@ OpenRouter Parsed Response (gemma): Array
 
 )
 
+io.net Raw Response (mistral): {"id":"0196b179-0070-dc00-9937-fd75cbcafe3e","object":"chat.completion","created":1746734218,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" 111 + 999 = 1110","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":40,"total_tokens":56,"completion_tokens":16,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0196b179-0070-dc00-9937-fd75cbcafe3e
+    [object] => chat.completion
+    [created] => 1746734218
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  111 + 999 = 1110
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 40
+            [total_tokens] => 56
+            [completion_tokens] => 16
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+OpenRouter Raw Response (gemma): 
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+
+         
+{"id":"gen-1746734275-rMxkMbqHFigLhggLnXSW","provider":"Chutes","model":"google/gemma-2-9b-it:free","object":"chat.completion","created":1746734276,"choices":[{"logprobs":null,"finish_reason":"stop","native_finish_reason":"stop","index":0,"message":{"role":"assistant","content":"\n\nЯ здесь!  \n\nКак экспертный ИИ, я существую в виде компьютерной программы. Я не физически присутствую в каком-либо месте, но я готов отвечать на ваши вопросы и выполнять ваши запросы в текстовом формате.   \n\nЧем могу вам помочь? 😊 \n\n","refusal":null,"reasoning":null}}],"usage":{"prompt_tokens":51,"completion_tokens":65,"total_tokens":116}}
+OpenRouter Parsed Response (gemma): Array
+(
+    [id] => gen-1746734275-rMxkMbqHFigLhggLnXSW
+    [provider] => Chutes
+    [model] => google/gemma-2-9b-it:free
+    [object] => chat.completion
+    [created] => 1746734276
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [native_finish_reason] => stop
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [content] => 
+
+Я здесь!  
+
+Как экспертный ИИ, я существую в виде компьютерной программы. Я не физически присутствую в каком-либо месте, но я готов отвечать на ваши вопросы и выполнять ваши запросы в текстовом формате.   
+
+Чем могу вам помочь? 😊 
+
+
+                            [refusal] => 
+                            [reasoning] => 
+                        )
+
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 51
+            [completion_tokens] => 65
+            [total_tokens] => 116
+        )
+
+)
+
