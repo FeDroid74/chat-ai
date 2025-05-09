@@ -27,24 +27,33 @@ function handleChatAction($action, $user_id, $input, $pdo) {
             echo json_encode(['error' => 'Укажите chat_id']);
             exit;
         }
-        $stmt = $pdo->prepare("SELECT user_id, message, model FROM messages WHERE chat_id = :chat_id ORDER BY created_at ASC");
+
+        // Обновлённый запрос с JOIN к models, чтобы получить display_name
+        $stmt = $pdo->prepare("
+            SELECT 
+                m.user_id, 
+                m.message, 
+                mo.display_name AS model 
+            FROM messages m
+            LEFT JOIN models mo ON m.model_id = mo.id
+            WHERE m.chat_id = :chat_id
+            ORDER BY m.created_at ASC
+        ");
         $stmt->execute(['chat_id' => $chat_id]);
         $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode(['messages' => $messages]);
         exit;
     }
 
-    // Переименование чата
     if ($action === 'rename_chat') {
         $chat_id = $input['chat_id'] ?? 0;
         $new_title = trim($input['new_title'] ?? '');
-        
+
         if (!$chat_id || !$new_title) {
             echo json_encode(['error' => 'Укажите chat_id и новое название']);
             exit;
         }
 
-        // Проверка, принадлежит ли чат пользователю
         $stmt = $pdo->prepare("SELECT user_id FROM chats WHERE id = :chat_id");
         $stmt->execute(['chat_id' => $chat_id]);
         $chat = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -54,14 +63,12 @@ function handleChatAction($action, $user_id, $input, $pdo) {
             exit;
         }
 
-        // Обновление название чата
         $stmt = $pdo->prepare("UPDATE chats SET title = :title WHERE id = :chat_id");
         $stmt->execute(['title' => $new_title, 'chat_id' => $chat_id]);
         echo json_encode(['success' => true, 'new_title' => $new_title]);
         exit;
     }
 
-    // Удаление чата
     if ($action === 'delete_chat') {
         $chat_id = $input['chat_id'] ?? 0;
 
@@ -70,7 +77,6 @@ function handleChatAction($action, $user_id, $input, $pdo) {
             exit;
         }
 
-        // Проверка, принадлежит ли чат пользователю
         $stmt = $pdo->prepare("SELECT user_id FROM chats WHERE id = :chat_id");
         $stmt->execute(['chat_id' => $chat_id]);
         $chat = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -80,11 +86,9 @@ function handleChatAction($action, $user_id, $input, $pdo) {
             exit;
         }
 
-        // Удаление сообщения, связанные с чатом
         $stmt = $pdo->prepare("DELETE FROM messages WHERE chat_id = :chat_id");
         $stmt->execute(['chat_id' => $chat_id]);
 
-        // Удаление самого чат
         $stmt = $pdo->prepare("DELETE FROM chats WHERE id = :chat_id");
         $stmt->execute(['chat_id' => $chat_id]);
 
