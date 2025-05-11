@@ -234,7 +234,31 @@
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Форма ввода */
+/* Баннер */
+.banner {   
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    background-color: #FFF;
+    color: #2c3e50;
+    border-radius: 5px;
+    padding: 20px 30px;
+    max-width: 700px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+}
+
+.banner-title {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.banner-button:hover {
+    background-color: #007FED;
+}
+
 .input-form {
     position: fixed;
     bottom: 20px;
@@ -348,105 +372,126 @@ button:hover {
     background-color: #007FED;
 }
 
-/* Адаптивность */
-@media (max-width: 1200px) {
-    .container {
-        margin: 20px;
-        padding: 20px;
-    }
+/* Модальное окно */
+.tariff-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
 
-    .chat-layout {
-        flex-direction: column;
-        padding-right: 0;
-        margin: 0;
-    }
+.tariff-modal-overlay.active {
+    display: flex;
+}
 
-    .sidebar-menu {
-        width: 200px;
-    }
+.tariff-modal-content {
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
 
-    #messages {
-        padding: 10px;
-        margin-bottom: 80px;
-    }
+.tariff-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    transition: background-color color 0.2s;
+}
 
-    .input-form {
-        width: calc(100% - 20px);
-        bottom: 10px;
-        margin-right: 0;
-        padding: 10px;
-        flex-direction: row;
-        align-items: center;
-        gap: 8px;
-        border-radius: 10px;
-    }
+.tariff-modal-close:hover {
+    color: #fff;
+}
 
-    #user-input {
-        flex: 1;
-        padding: 8px 12px;
-        font-size: 14px;
-        border-radius: 8px;
-    }
+.tariff-title {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-align: center;
+}
 
-    .input-control {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
+.tariff-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 20px 0;
+    width: 100%;
+    max-width: 1200px;
+}
 
-    .select-wrapper {
-        width: 100px;
-    }
+.tariff-card {
+    flex: 0 0 300px;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px 25px;
+    transition: transform 0.3s;
+}
 
-    #model-select {
-        padding: 8px 25px 8px 10px;
-        font-size: 14px;
-    }
+.tariff-card:hover {
+    transform: translateY(-5px);
+}
 
-    .select-arrow {
-        right: 8px;
-    }
+.tariff-name {
+    font-size: 22px;
+    color: #007FED;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
 
-    .send-btn {
-        padding: 8px;
-        background-color: #ccc;
-        border-radius: 8px;
-    }
+.tariff-desc {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
 
-    .send-btn:hover {
-        background-color: #007FED;
-    }
+.tariff-price {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
 
-    .send-btn span {
-        width: 20px;
-        height: 20px;
-        font-size: 20px;
-        margin: 0;
-    }
+.tariff-btn {
+    background-color: #007FED;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-    .user-info {
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        margin: 0;
-        padding: 5px 10px;
-        width: auto;
-        font-size: 14px;
-    }
+.tariff-btn:hover {
+    background-color: #005bbd;
+}
 
-    .logout-btn {
-        padding: 5px 10px;
-        font-size: 14px;
-    }
-
-    .menu-toggle {
-        top: 10px;
-        left: 10px;
-        padding: 8px 12px;
-        font-size: 18px;
-    }
-
-    .chat-main {
-        margin-right: 0;
-    }
+.tariff-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }

@@ -19,4 +19,29 @@ function toggleMenu() {
     overlay.classList.toggle('active');
 }
 
-export { selectedModel, resetModelSelection, updateModel, toggleMenu };
+function openModal() {
+    document.getElementById('tariff-modal')?.classList.add('active');
+}
+
+function closeModal() {
+    document.getElementById('tariff-modal')?.classList.remove('active');
+    history.pushState("", document.title, window.location.pathname + window.location.search);
+}
+
+function handleHashNavigation() {
+    if (window.location.hash === "#subscribe") {
+        openModal();
+    } else {
+        closeModal();
+    }
+}
+
+export {
+    selectedModel,
+    resetModelSelection,
+    updateModel,
+    toggleMenu,
+    openModal,
+    closeModal,
+    handleHashNavigation
+};

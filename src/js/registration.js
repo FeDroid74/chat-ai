@@ -1,5 +1,3 @@
-// src/js/registration.js
-
 document.getElementById('registerForm').addEventListener('submit', async function (event) {
     event.preventDefault();
 

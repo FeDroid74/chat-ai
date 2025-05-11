@@ -1,5 +1,5 @@
 import { loadUserInfo, loadChats, loadHistory, currentChatId, createChat, sendMessage, renameChat, deleteChat } from './api.js';
-import { resetModelSelection, updateModel, toggleMenu } from './ui.js';
+import { resetModelSelection, updateModel, toggleMenu, openModal, closeModal, handleHashNavigation} from './ui.js';
 import { logout } from './logout.js';
 
 // Делаем функции глобальными для использования в HTML
@@ -10,6 +10,7 @@ window.sendMessage = sendMessage;
 window.updateModel = updateModel;
 window.renameChat = renameChat;
 window.deleteChat = deleteChat;
+window.closeModal = closeModal;
 
 window.onload = () => {
     resetModelSelection();
@@ -17,3 +18,5 @@ window.onload = () => {
     loadChats();
     if (currentChatId) loadHistory(currentChatId);
 };
+
+window.onhashchange = handleHashNavigation;

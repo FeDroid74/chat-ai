@@ -2,6 +2,7 @@
 require_once 'db.php';
 require_once '../api/config.php';
 require_once '../api/utils.php';
+require_once 'subscription.php';
 
 function handleMessageAction($action, $user_id, $input, $pdo, $models, $hfApiToken, $yandexOauthToken, $yandexApiUrl, $yandexOperationApiUrl, $yandexFolderId, $ioNetApiKey, $openRouterApiKey) {
     header('Content-Type: application/json');
@@ -27,6 +28,32 @@ function handleMessageAction($action, $user_id, $input, $pdo, $models, $hfApiTok
             $stmt = $pdo->prepare("INSERT INTO chats (user_id, title) VALUES (:user_id, :title)");
             $stmt->execute(['user_id' => $user_id, 'title' => 'Чат ' . date('Y-m-d H:i:s')]);
             $chat_id = $pdo->lastInsertId();
+        }
+
+        // Проверяем, есть ли у пользователя подписка
+        $subscription = getActiveSubscription($pdo, $user_id);
+        if (!$subscription) {
+            echo json_encode(['error' => 'Нет активной подписки']);
+            exit;
+        }
+
+        // Сброс лимита по дате
+        resetLimitIfNeeded($pdo, $subscription);
+
+        // Проверка лимита сообщений
+        if ($subscription['message_limit'] !== null && $subscription['messages_used'] >= $subscription['message_limit']) {
+            echo json_encode(['error' => 'Превышен дневной лимит сообщений. Пожалуйста, оформите подписку, чтобы сбросить лимит.']);
+            exit;
+        }
+
+        // Проверка доступа к модели
+        $modelIdStmt = $pdo->prepare("SELECT id FROM models WHERE name = :name");
+        $modelIdStmt->execute(['name' => $model]);
+        $modelId = $modelIdStmt->fetchColumn();
+
+        if (!$modelId || !isModelAllowed($pdo, $subscription['tariff_id'], $modelId)) {
+            echo json_encode(['error' => 'Выбранная модель недоступна в вашем тарифе']);
+            exit;
         }
 
         // Сохраняем сообщение пользователя
@@ -310,9 +337,11 @@ function handleMessageAction($action, $user_id, $input, $pdo, $models, $hfApiTok
             $reply = 'К сожалению, я не смог дать подробный ответ на ваш вопрос. Пожалуйста, уточните его или задайте другой вопрос, и я постараюсь помочь вам более детально!';
         }
 
+        incrementUsage($pdo, $subscription['id']);
+
         // Сохраняем ответ ИИ
-        $stmt = $pdo->prepare("INSERT INTO messages (chat_id, user_id, message, model) VALUES (:chat_id, :user_id, :message, :model)");
-        $stmt->execute(['chat_id' => $chat_id, 'user_id' => 0, 'message' => $reply, 'model' => $displayName]);
+        $stmt = $pdo->prepare("INSERT INTO messages (chat_id, user_id, message, model_id) VALUES (:chat_id, :user_id, :message, :model_id)");
+        $stmt->execute(['chat_id' => $chat_id, 'user_id' => 0, 'message' => $reply, 'model_id' => $modelId]);
         echo json_encode(['reply' => $reply, 'chat_id' => $chat_id, 'model' => $displayName]);
         exit;
     }

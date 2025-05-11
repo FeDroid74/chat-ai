@@ -2196,3 +2196,146 @@ OpenRouter Parsed Response (gemma): Array
 
 )
 
+io.net Raw Response (mistral): {"id":"0196bb6e-494e-f655-84dd-2f8497d70f88","object":"chat.completion","created":1746901275,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Конечно, расскажу! Море — это огромный водный простор, который покрывает большую часть поверхности Земли. Оно бывает разных цветов: от глубокого синего до светло-голубого, и даже зеленого, в зависимости от глубины и состояния воды.\n\nНа море есть волны, которые могут быть как спокойными и тихими, так и огромными и бурными. В море живут тысячи видов морских животных и растений, таких как рыбы, киты, дельфины, морские звезды и кораллы. Морская вода соленая, поэтому в ней можно легко плавать, не опускаясь на дно.\n\nЛюди любят отдыхать на море: купаться, загорать на пляжах, заниматься водными видами спорта, такими как серфинг или дайвинг. Море также играет важную роль в экономике и транспорте, так как по морям и океанам перевоз","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":39,"total_tokens":339,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0196bb6e-494e-f655-84dd-2f8497d70f88
+    [object] => chat.completion
+    [created] => 1746901275
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Конечно, расскажу! Море — это огромный водный простор, который покрывает большую часть поверхности Земли. Оно бывает разных цветов: от глубокого синего до светло-голубого, и даже зеленого, в зависимости от глубины и состояния воды.
+
+На море есть волны, которые могут быть как спокойными и тихими, так и огромными и бурными. В море живут тысячи видов морских животных и растений, таких как рыбы, киты, дельфины, морские звезды и кораллы. Морская вода соленая, поэтому в ней можно легко плавать, не опускаясь на дно.
+
+Люди любят отдыхать на море: купаться, загорать на пляжах, заниматься водными видами спорта, такими как серфинг или дайвинг. Море также играет важную роль в экономике и транспорте, так как по морям и океанам перевоз
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 39
+            [total_tokens] => 339
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0196bb71-e913-0afd-4072-27b0a1819da9","object":"chat.completion","created":1746901521,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Простите, но я не могу продолжить разговор с таким обращением. Давайте будем общаться уважительно. Если у вас есть вопросы о море, я с радостью отвечу. Море — это обширное водное пространство, солёное или частично солёное, которое часто соединяется с океаном и может быть ограничено сушей. Хотите узнать что-то конкретное?","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":39,"total_tokens":167,"completion_tokens":128,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0196bb71-e913-0afd-4072-27b0a1819da9
+    [object] => chat.completion
+    [created] => 1746901521
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Простите, но я не могу продолжить разговор с таким обращением. Давайте будем общаться уважительно. Если у вас есть вопросы о море, я с радостью отвечу. Море — это обширное водное пространство, солёное или частично солёное, которое часто соединяется с океаном и может быть ограничено сушей. Хотите узнать что-то конкретное?
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 39
+            [total_tokens] => 167
+            [completion_tokens] => 128
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0196bb9d-ad8f-d4de-1615-88f26608710b","object":"chat.completion","created":1746904381,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Для создания файла Excel на компьютере можно воспользоваться несколькими методами. Вот основные из них:\n\n1. **Использование Microsoft Excel:**\n   - **Windows:**\n     1. Откройте Microsoft Excel.\n     2. Нажмите на кнопку \"Создать книгу\" или \"Новая книга\" на стартовом экране.\n     3. Выберите шаблон или пустой документ.\n     4. Начните вводить данные в ячейки.\n     5. Сохраните файл, нажав на \"Файл\" -> \"Сохранить как\" и выберите место на диске и имя файла.\n\n   - **Mac:**\n     1. Откройте Microsoft Excel.\n     2. Нажмите на \"Файл\" в верхнем меню.\n     3. Выберите \"Создать\" или \"Новая книга\".\n     4. Выберите шаблон или пустой документ.\n     5. Начните вводить данные в ячейки.\n     6. Сохраните фа","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":39,"total_tokens":339,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0196bb9d-ad8f-d4de-1615-88f26608710b
+    [object] => chat.completion
+    [created] => 1746904381
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Для создания файла Excel на компьютере можно воспользоваться несколькими методами. Вот основные из них:
+
+1. **Использование Microsoft Excel:**
+   - **Windows:**
+     1. Откройте Microsoft Excel.
+     2. Нажмите на кнопку "Создать книгу" или "Новая книга" на стартовом экране.
+     3. Выберите шаблон или пустой документ.
+     4. Начните вводить данные в ячейки.
+     5. Сохраните файл, нажав на "Файл" -> "Сохранить как" и выберите место на диске и имя файла.
+
+   - **Mac:**
+     1. Откройте Microsoft Excel.
+     2. Нажмите на "Файл" в верхнем меню.
+     3. Выберите "Создать" или "Новая книга".
+     4. Выберите шаблон или пустой документ.
+     5. Начните вводить данные в ячейки.
+     6. Сохраните фа
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 39
+            [total_tokens] => 339
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+

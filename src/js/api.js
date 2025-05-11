@@ -15,7 +15,7 @@ async function loadUserInfo() {
         const userInfoDiv = document.getElementById('user-info');
         if (data.username) {
             userInfoDiv.innerHTML = `
-                Привет, ${data.username}! 
+                <span class="banner-title">Привет, ${data.username}!</span>
                 ${data.role === 1 ? '<a href="/admin.html" class="admin">Ⓐ</a>' : ''}
                 <button onclick="logout()" class="logout-btn">Выйти</button>
             `;
