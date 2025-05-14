@@ -77,6 +77,10 @@ a {
     height: 40px;
 }
 
+.logo span {
+    margin-left: 10px;
+}
+
 .nav {
     display: flex;
     gap: 40px;

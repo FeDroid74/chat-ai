@@ -99,34 +99,166 @@ switch ($action) {
         handleRequest(['id'], fn($data) => $pdo->prepare("DELETE FROM messages WHERE id = :id")->execute($data));
         break;
 
-        case 'get_models':
-            respondQuery("SELECT * FROM models ORDER BY id DESC", [], 'models');
-            break;
+    case 'get_models':
+        respondQuery("SELECT * FROM models ORDER BY id DESC", [], 'models');
+        break;
         
-        case 'create_model':
-            handleRequest(['name', 'display_name', 'type', 'url', 'model_name', 'enabled'], function ($data) use ($pdo) {
-                $stmt = $pdo->prepare("
-                    INSERT INTO models (name, display_name, type, url, model_name, enabled)
-                    VALUES (:name, :display_name, :type, :url, :model_name, :enabled)
-                ");
-                $stmt->execute($data);
-            });
-            break;
+    case 'create_model':
+        handleRequest(['name', 'display_name', 'type', 'url', 'model_name', 'enabled'], function ($data) use ($pdo) {
+            $stmt = $pdo->prepare("
+                INSERT INTO models (name, display_name, type, url, model_name, enabled)
+                VALUES (:name, :display_name, :type, :url, :model_name, :enabled)
+            ");
+            $stmt->execute($data);
+        });
+        break;
         
-        case 'update_model':
-            handleRequest(['id', 'name', 'display_name', 'type', 'url', 'model_name', 'enabled'], function ($data) use ($pdo) {
-                $stmt = $pdo->prepare("
-                    UPDATE models SET name = :name, display_name = :display_name, type = :type,
-                        url = :url, model_name = :model_name, enabled = :enabled
-                    WHERE id = :id
-                ");
-                $stmt->execute($data);
-            });
-            break;
+    case 'update_model':
+        handleRequest(['id', 'name', 'display_name', 'type', 'url', 'model_name', 'enabled'], function ($data) use ($pdo) {
+            $stmt = $pdo->prepare("
+                UPDATE models SET name = :name, display_name = :display_name, type = :type,
+                    url = :url, model_name = :model_name, enabled = :enabled
+                WHERE id = :id
+            ");
+            $stmt->execute($data);
+        });
+        break;
         
-        case 'delete_model':
-            handleRequest(['id'], fn($data) => $pdo->prepare("DELETE FROM models WHERE id = :id")->execute($data));
-            break;
+    case 'delete_model':
+        handleRequest(['id'], fn($data) => $pdo->prepare("DELETE FROM models WHERE id = :id")->execute($data));
+        break;
+
+    case 'get_tariffs':
+        respondQuery("SELECT id, name, price, duration_days, message_limit FROM tariffs ORDER BY id DESC", [], 'tariffs');
+        break;
+
+    case 'create_tariff':
+        handleRequest(['name', 'price'], function ($data) use ($pdo, $input) {
+            $data['duration_days'] = $input['duration_days'] ?? null;
+            $data['message_limit'] = $input['message_limit'] ?? null;
+            $stmt = $pdo->prepare("
+                INSERT INTO tariffs (name, price, duration_days, message_limit)
+                VALUES (:name, :price, :duration_days, :message_limit)
+            ");
+            $stmt->execute($data);
+        });
+        break;
+
+    case 'update_tariff':
+        handleRequest(['id', 'name', 'price'], function ($data) use ($pdo, $input) {
+            $data['duration_days'] = $input['duration_days'] ?? null;
+            $data['message_limit'] = $input['message_limit'] ?? null;
+            $stmt = $pdo->prepare("
+                UPDATE tariffs SET name = :name, price = :price, duration_days = :duration_days, message_limit = :message_limit
+                WHERE id = :id
+            ");
+            $stmt->execute($data);
+        });
+        break;
+
+    case 'delete_tariff':
+        handleRequest(['id'], fn($data) => $pdo->prepare("DELETE FROM tariffs WHERE id = :id")->execute($data));
+        break;
+
+    case 'get_subscriptions':
+        respondQuery("
+            SELECT 
+                subscriptions.id, 
+                users.username AS user_name, 
+                tariffs.name AS tariff_name, 
+                subscriptions.start_date, 
+                subscriptions.end_date, 
+                subscriptions.messages_used, 
+                subscriptions.last_reset_date,
+                subscriptions.user_id,
+                subscriptions.tariff_id
+            FROM subscriptions
+            JOIN users ON users.id = subscriptions.user_id
+            JOIN tariffs ON tariffs.id = subscriptions.tariff_id
+            ORDER BY subscriptions.start_date DESC
+        ", [], 'subscriptions');
+        break;
+
+    case 'create_subscription':
+        handleRequest(['user_id', 'tariff_id', 'start_date'], function ($data) use ($pdo, $input) {
+            $data['end_date'] = $input['end_date'] ?? null;
+            $data['messages_used'] = $input['messages_used'] ?? 0;
+            $data['last_reset_date'] = $input['last_reset_date'] ?? null;
+            $stmt = $pdo->prepare("
+                INSERT INTO subscriptions (user_id, tariff_id, start_date, end_date, messages_used, last_reset_date)
+                VALUES (:user_id, :tariff_id, :start_date, :end_date, :messages_used, :last_reset_date)
+            ");
+            $stmt->execute($data);
+        });
+        break;
+
+    case 'update_subscription':
+        handleRequest(['id', 'user_id', 'tariff_id', 'start_date'], function ($data) use ($pdo, $input) {
+            $data['end_date'] = $input['end_date'] ?? null;
+            $data['messages_used'] = $input['messages_used'] ?? 0;
+            $data['last_reset_date'] = $input['last_reset_date'] ?? null;
+            $stmt = $pdo->prepare("
+                UPDATE subscriptions SET 
+                    user_id = :user_id, 
+                    tariff_id = :tariff_id, 
+                    start_date = :start_date, 
+                    end_date = :end_date, 
+                    messages_used = :messages_used, 
+                    last_reset_date = :last_reset_date
+                WHERE id = :id
+            ");
+            $stmt->execute($data);
+        });
+        break;
+
+    case 'delete_subscription':
+        handleRequest(['id'], fn($data) => $pdo->prepare("DELETE FROM subscriptions WHERE id = :id")->execute($data));
+        break;
+
+    case 'get_tariff_model_access':
+        respondQuery("
+            SELECT 
+                tariff_model_access.tariff_id, 
+                tariff_model_access.model_id, 
+                tariffs.name AS tariff_name, 
+                models.display_name AS model_name
+            FROM tariff_model_access
+            JOIN tariffs ON tariffs.id = tariff_model_access.tariff_id
+            JOIN models ON models.id = tariff_model_access.model_id
+            ORDER BY tariffs.name, models.display_name
+        ", [], 'access');
+        break;
+
+    case 'create_tariff_model_access':
+        handleRequest(['tariff_id', 'model_id'], function ($data) use ($pdo) {
+            $stmt = $pdo->prepare("
+                INSERT INTO tariff_model_access (tariff_id, model_id)
+                VALUES (:tariff_id, :model_id)
+            ");
+            $stmt->execute($data);
+        });
+        break;
+
+    case 'update_tariff_model_access':
+        handleRequest(['old_tariff_id', 'old_model_id', 'tariff_id', 'model_id'], function ($data) use ($pdo) {
+            $stmt = $pdo->prepare("
+                UPDATE tariff_model_access 
+                SET tariff_id = :tariff_id, model_id = :model_id
+                WHERE tariff_id = :old_tariff_id AND model_id = :old_model_id
+            ");
+            $stmt->execute($data);
+        });
+        break;
+
+    case 'delete_tariff_model_access':
+        handleRequest(['tariff_id', 'model_id'], function ($data) use ($pdo) {
+            $stmt = $pdo->prepare("
+                DELETE FROM tariff_model_access 
+                WHERE tariff_id = :tariff_id AND model_id = :model_id
+            ");
+            $stmt->execute($data);
+        });
+        break;
 
     default:
         exitWithError('Неизвестное действие');   
@@ -137,14 +269,13 @@ function handleRequest(array $required, callable $callback) {
     $data = [];
     foreach ($required as $field) {
         $value = $input[$field] ?? null;
-        if (in_array($field, ['url', 'model_name']) && ($value === '' || $value === null)) {
+        if (in_array($field, ['url', 'model_name', 'duration_days', 'message_limit', 'end_date', 'last_reset_date']) && ($value === '' || $value === null)) {
             $data[$field] = null;
         } elseif ($value === '' || $value === null) {
             exitWithError("Поле {$field} обязательно");
         } else {
             $data[$field] = $value;
         }
-        $data[$field] = $input[$field];
     }
     $callback($data);
     echo json_encode(['success' => true]);

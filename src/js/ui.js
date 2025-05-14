@@ -36,6 +36,10 @@ function handleHashNavigation() {
     }
 }
 
+if (window.location.hash === "#subscribe") {
+    history.replaceState(null, null, window.location.pathname + window.location.search);
+}
+
 export {
     selectedModel,
     resetModelSelection,

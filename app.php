@@ -42,6 +42,7 @@
 
     <div class="banner">
         <div class="banner-title">Не хватает запросов?</div>
+        <div class="banner-title">Недоступна модель?</div>
         <button class="banner-button" onclick="location.hash = '#subscribe'">Обновить тариф</button>
     </div>
 
@@ -54,19 +55,19 @@
                     <h3 class="tariff-name">Бесплатный</h3>
                     <p class="tariff-desc">5 запросов в день<br>Доступ к базовым моделям</p>
                     <p class="tariff-price">0 ₽/мес</p>
-                    <button class="tariff-btn" disabled>Текущий</button>
+                    <div class="tariff-btn"><button class="tariff-btn" disabled>Текущий</button></div>
                 </div>
                 <div class="tariff-card">
                     <h3 class="tariff-name">Мини</h3>
                     <p class="tariff-desc">100 запросов в день<br>Доступ к улучшенным моделям<br>Оперативная поддержка</p>
                     <p class="tariff-price">490 ₽/мес</p>
-                    <button class="tariff-btn">Получить</button>
+                    <div class="tariff-btn"><button class="tariff-btn" data-tariff-id="2">Получить</button></div>
                 </div>
                 <div class="tariff-card">
                     <h3 class="tariff-name">Премиум</h3>
                     <p class="tariff-desc">Неограниченные запросы<br>Доступ к мощным моделям<br>Приоритетная поддержка</p>
                     <p class="tariff-price">990 ₽/мес</p>
-                    <button class="tariff-btn">Получить</button>
+                    <div class="tariff-btn"><button class="tariff-btn" data-tariff-id="3">Получить</button></div>
                 </div>
             </div>
         </div>
@@ -74,5 +75,6 @@
 
     <script type="module" src="/src/js/script.js"></script>
     <script type="module" src="/src/js/arrow.js"></script>
+    <script type="module" src="/src/js/payment.js"></script>
 </body>
 </html>

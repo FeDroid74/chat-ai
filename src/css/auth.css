@@ -79,12 +79,12 @@ button:hover {
 }
 
 .success-message {
-    color: green;
+    color: #007FED;
     font-size: 1em;
     margin-bottom: 15px;
     text-align: center;
     padding: 10px;
-    background-color: #e6ffe6;
+    background-color: #edf2f7;
     border-radius: 5px;
 }
 

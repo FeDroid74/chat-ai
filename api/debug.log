@@ -2339,3 +2339,371 @@ io.net Parsed Response (mistral): Array
     [prompt_logprobs] => 
 )
 
+io.net Raw Response (qwen): {"id":"0196c0b3-8cce-16cb-8e33-61a4d39e8173","object":"chat.completion","created":1746989709,"model":"Qwen/QwQ-32B","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"Okay, so the user is asking how to create a PowerPoint file on a computer. Let me think through the steps. First, I should mention the main software used for creating PowerPoint presentations, which is Microsoft PowerPoint, part of the Microsoft Office suite. But maybe there are other alternatives like Google Slides or LibreOffice Impress. But the user might be referring to the standard Microsoft version.\n\nAlright, starting with Microsoft PowerPoint. The first step would be opening the application. Depending on the OS, Windows or Mac, the steps might slightly differ. Let me outline both scenarios. \n\nFor Windows users: They can search for PowerPoint in the Start menu or use the desktop shortcut if present. On Mac, it's found in the Applications folder or via Spotlight. Once the program is open, the next step is to create a new presentation. In PowerPoint, there's usually a File > New option. Here, they can choose a blank presentation or a template. Templates can save time by providing themes and layouts. \n\nAfter creating the blank or template-based presentation, the user will need to add slides. The Home tab has an New Slide button where they can select slide layouts (title slide, content, etc.). Adding text, images, charts, etc., is part of the next steps. They should be instructed to save the file. The Save As dialog will have the .pptx format.\n\nWait, maybe there's another way via templates. Also, mentioning different sources for templates – built-in or online.","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":38,"total_tokens":338,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (qwen): Array
+(
+    [id] => 0196c0b3-8cce-16cb-8e33-61a4d39e8173
+    [object] => chat.completion
+    [created] => 1746989709
+    [model] => Qwen/QwQ-32B
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] => Okay, so the user is asking how to create a PowerPoint file on a computer. Let me think through the steps. First, I should mention the main software used for creating PowerPoint presentations, which is Microsoft PowerPoint, part of the Microsoft Office suite. But maybe there are other alternatives like Google Slides or LibreOffice Impress. But the user might be referring to the standard Microsoft version.
+
+Alright, starting with Microsoft PowerPoint. The first step would be opening the application. Depending on the OS, Windows or Mac, the steps might slightly differ. Let me outline both scenarios. 
+
+For Windows users: They can search for PowerPoint in the Start menu or use the desktop shortcut if present. On Mac, it's found in the Applications folder or via Spotlight. Once the program is open, the next step is to create a new presentation. In PowerPoint, there's usually a File > New option. Here, they can choose a blank presentation or a template. Templates can save time by providing themes and layouts. 
+
+After creating the blank or template-based presentation, the user will need to add slides. The Home tab has an New Slide button where they can select slide layouts (title slide, content, etc.). Adding text, images, charts, etc., is part of the next steps. They should be instructed to save the file. The Save As dialog will have the .pptx format.
+
+Wait, maybe there's another way via templates. Also, mentioning different sources for templates – built-in or online.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 38
+            [total_tokens] => 338
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (llama): {"id":"0196c0b3-ef68-7c8b-73ba-d2a9373fc58d","object":"chat.completion","created":1746989730,"model":"meta-llama/Llama-3.3-70B-Instruct","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"Чтобы создать файл PowerPoint на компьютере, вам необходимо выполнить следующие шаги:\n\n1. **Установите Microsoft PowerPoint**: Если у вас еще не установлена программа Microsoft PowerPoint, вам необходимо ее скачать и установить на свой компьютер. Эту программу часто включают в пакет Microsoft Office.\n\n2. **Запустите PowerPoint**: После установки откройте PowerPoint на своем компьютере. Это можно сделать, найдя приложение в меню \"Пуск\" (для пользователей Windows) или в папке \"Программы\" (для пользователей Mac), и кликнув на его иконке.\n\n3. **Выберите шаблон или создайте с нуля**: Когда программа откроется, вам будет предложено выбрать шаблон для своего презентации или начать работу с пустого слайда. Шаблоны могут помочь вам создать презентацию быстрее, поскольку они уже содержат определённую структуру и оформление.\n\n4. **Добавьте контент**: Начните добавлять контент на свои слайды. Вы можете добавлять текст, изображения, графики, таблицы, видеоролики и другие элементы, необходимые для вашей презентации.\n\n5. **Отформатируйте свой слайд**: Используйте различные инструменты форматирования, чтобы сделать свою презент","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":63,"total_tokens":363,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (llama): Array
+(
+    [id] => 0196c0b3-ef68-7c8b-73ba-d2a9373fc58d
+    [object] => chat.completion
+    [created] => 1746989730
+    [model] => meta-llama/Llama-3.3-70B-Instruct
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] => Чтобы создать файл PowerPoint на компьютере, вам необходимо выполнить следующие шаги:
+
+1. **Установите Microsoft PowerPoint**: Если у вас еще не установлена программа Microsoft PowerPoint, вам необходимо ее скачать и установить на свой компьютер. Эту программу часто включают в пакет Microsoft Office.
+
+2. **Запустите PowerPoint**: После установки откройте PowerPoint на своем компьютере. Это можно сделать, найдя приложение в меню "Пуск" (для пользователей Windows) или в папке "Программы" (для пользователей Mac), и кликнув на его иконке.
+
+3. **Выберите шаблон или создайте с нуля**: Когда программа откроется, вам будет предложено выбрать шаблон для своего презентации или начать работу с пустого слайда. Шаблоны могут помочь вам создать презентацию быстрее, поскольку они уже содержат определённую структуру и оформление.
+
+4. **Добавьте контент**: Начните добавлять контент на свои слайды. Вы можете добавлять текст, изображения, графики, таблицы, видеоролики и другие элементы, необходимые для вашей презентации.
+
+5. **Отформатируйте свой слайд**: Используйте различные инструменты форматирования, чтобы сделать свою презент
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 63
+            [total_tokens] => 363
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0196c115-90f3-25d0-9cbe-8bdff3c0005a","object":"chat.completion","created":1746996124,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Создать сайт-интернет магазин максимально просто и быстро можно с помощью готовых платформ и конструкторов сайтов. Вот несколько шагов, которые помогут вам в этом:\n\n1. **Выбор платформы**:\n   - **WooCommerce** (плагин для WordPress): Если у вас уже есть сайт на WordPress, вы можете установить плагин WooCommerce, который превратит ваш сайт в интернет-магазин.\n   - **Shopify**: Это пользующаяся популярностью платформа, которая позволяет создать интернет-магазин без необходимости технических знаний.\n   - **Wix**: Этот конструктор сайтов также предлагает инструменты для создания интернет-магазинов.\n\n2. **Регистрация домена и хостинга**:\n   - Если вы выбрали Shopify или Wix, домен и хостинг могут быть включены в ваш тарифный план.\n   - Если вы используете","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":49,"total_tokens":349,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0196c115-90f3-25d0-9cbe-8bdff3c0005a
+    [object] => chat.completion
+    [created] => 1746996124
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Создать сайт-интернет магазин максимально просто и быстро можно с помощью готовых платформ и конструкторов сайтов. Вот несколько шагов, которые помогут вам в этом:
+
+1. **Выбор платформы**:
+   - **WooCommerce** (плагин для WordPress): Если у вас уже есть сайт на WordPress, вы можете установить плагин WooCommerce, который превратит ваш сайт в интернет-магазин.
+   - **Shopify**: Это пользующаяся популярностью платформа, которая позволяет создать интернет-магазин без необходимости технических знаний.
+   - **Wix**: Этот конструктор сайтов также предлагает инструменты для создания интернет-магазинов.
+
+2. **Регистрация домена и хостинга**:
+   - Если вы выбрали Shopify или Wix, домен и хостинг могут быть включены в ваш тарифный план.
+   - Если вы используете
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 49
+            [total_tokens] => 349
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0196c115-c7c7-b7ac-cb7b-c0136a09017a","object":"chat.completion","created":1746996138,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Для создания сайта-интернет магазина максимально просто и быстро, вы можете воспользоваться одной из популярных платформ для создания сайтов. Вот пошаговая инструкция:\n\n1. **Выберите платформу для создания интернет-магазина**:\n   - **Shopify**: Отличная платформа для тех, кто хочет быстро запустить интернет-магазин без глубоких технических знаний.\n   - **WooCommerce**: Плагин для WordPress, который превращает обычный сайт на WordPress в интернет-магазин.\n   - **Wix**, **Squarespace**: Эти платформы также предлагают функциональность для создания интернет-магазинов.\n   - **Tilda**: Популярный конструктор сайтов в России, который также поддерживает создание интернет-магазинов.\n\n2. **Регистрация и выбор тарифного плана**:\n   - Зарегистрируйтесь на выбранной платформе.\n   - Вы","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":49,"total_tokens":349,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0196c115-c7c7-b7ac-cb7b-c0136a09017a
+    [object] => chat.completion
+    [created] => 1746996138
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Для создания сайта-интернет магазина максимально просто и быстро, вы можете воспользоваться одной из популярных платформ для создания сайтов. Вот пошаговая инструкция:
+
+1. **Выберите платформу для создания интернет-магазина**:
+   - **Shopify**: Отличная платформа для тех, кто хочет быстро запустить интернет-магазин без глубоких технических знаний.
+   - **WooCommerce**: Плагин для WordPress, который превращает обычный сайт на WordPress в интернет-магазин.
+   - **Wix**, **Squarespace**: Эти платформы также предлагают функциональность для создания интернет-магазинов.
+   - **Tilda**: Популярный конструктор сайтов в России, который также поддерживает создание интернет-магазинов.
+
+2. **Регистрация и выбор тарифного плана**:
+   - Зарегистрируйтесь на выбранной платформе.
+   - Вы
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 49
+            [total_tokens] => 349
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0196c8d1-d899-e3b6-c153-ab8567526c67","object":"chat.completion","created":1747125917,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Да, я здесь. Как я могу помочь?","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":28,"total_tokens":45,"completion_tokens":17,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0196c8d1-d899-e3b6-c153-ab8567526c67
+    [object] => chat.completion
+    [created] => 1747125917
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Да, я здесь. Как я могу помочь?
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 28
+            [total_tokens] => 45
+            [completion_tokens] => 17
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0196c8f7-e189-fe3d-a463-e7001e9c3ac3","object":"chat.completion","created":1747128409,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Привет! Как я могу помочь?","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":26,"total_tokens":39,"completion_tokens":13,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0196c8f7-e189-fe3d-a463-e7001e9c3ac3
+    [object] => chat.completion
+    [created] => 1747128409
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Привет! Как я могу помочь?
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 26
+            [total_tokens] => 39
+            [completion_tokens] => 13
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0196c8f8-0f91-0144-f2f7-a0f7ab9162bf","object":"chat.completion","created":1747128421,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Привет! Как я могу помочь?","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":26,"total_tokens":39,"completion_tokens":13,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0196c8f8-0f91-0144-f2f7-a0f7ab9162bf
+    [object] => chat.completion
+    [created] => 1747128421
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Привет! Как я могу помочь?
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 26
+            [total_tokens] => 39
+            [completion_tokens] => 13
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (qwen): {"id":"0196c8f9-2594-fc99-81f3-aec32da75fdd","object":"chat.completion","created":1747128491,"model":"Qwen/QwQ-32B","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":"Хорошо, пользователь приветствовал меня сообщением \"Привет\". Мне нужно ответить на русском языке. Стоит отреагировать доброжелательно и предложить помощь. Надо убедиться, что ответ соответствует формату, без лишних деталей. Простое и дружеское \"Привет!\" с последующим вопросом о том, как я могу помочь. Проверю грамматику и письменность. Всё нормально, можно отправлять.\n</think>\n\nПривет! Как我可以帮助你 today?","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":32,"total_tokens":172,"completion_tokens":140,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (qwen): Array
+(
+    [id] => 0196c8f9-2594-fc99-81f3-aec32da75fdd
+    [object] => chat.completion
+    [created] => 1747128491
+    [model] => Qwen/QwQ-32B
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] => Хорошо, пользователь приветствовал меня сообщением "Привет". Мне нужно ответить на русском языке. Стоит отреагировать доброжелательно и предложить помощь. Надо убедиться, что ответ соответствует формату, без лишних деталей. Простое и дружеское "Привет!" с последующим вопросом о том, как я могу помочь. Проверю грамматику и письменность. Всё нормально, можно отправлять.
+</think>
+
+Привет! Как我可以帮助你 today?
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 32
+            [total_tokens] => 172
+            [completion_tokens] => 140
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+

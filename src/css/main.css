@@ -171,6 +171,7 @@
 
 /* Стили для сообщений */
 #messages {
+    width: 1200px;
     flex: 1;
     padding: 20px;
     overflow-y: auto;
@@ -253,6 +254,7 @@
     font-size: 16px;
     font-weight: 400;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .banner-button:hover {
@@ -393,7 +395,7 @@ button:hover {
 
 .tariff-modal-content {
     background-color: #fff;
-    padding: 40px 20px;
+    padding: 220px 20px;
     border-radius: 0;
     width: 100vw;
     height: 100vh;
@@ -410,16 +412,13 @@ button:hover {
     position: absolute;
     top: 15px;
     right: 20px;
-    background: none;
+    padding: 10px 16px;
+    border-radius: 5px;
     border: none;
-    font-size: 24px;
-    color: #999;
+    font-size: 20px;
+    font-weight: 900;
     cursor: pointer;
-    transition: background-color color 0.2s;
-}
-
-.tariff-modal-close:hover {
-    color: #fff;
+    transition: background-color color 0.3s;
 }
 
 .tariff-title {
@@ -448,25 +447,23 @@ button:hover {
     border-radius: 16px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     padding: 30px 25px;
-    transition: transform 0.3s;
-}
-
-.tariff-card:hover {
-    transform: translateY(-5px);
 }
 
 .tariff-name {
-    font-size: 22px;
+    font-size: 24px;
     color: #007FED;
     margin-bottom: 10px;
     font-weight: 600;
+    text-align: center;
 }
 
 .tariff-desc {
-    font-size: 15px;
+    height: 72px;
+    font-size: 16px;
     color: #555;
     margin-bottom: 20px;
     line-height: 1.6;
+    text-align: center;
 }
 
 .tariff-price {
@@ -474,21 +471,12 @@ button:hover {
     font-weight: 700;
     margin-bottom: 20px;
     color: #2c3e50;
+    text-align: center;
 }
 
 .tariff-btn {
-    background-color: #007FED;
-    color: #fff;
-    padding: 12px 24px;
-    font-size: 16px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.tariff-btn:hover {
-    background-color: #005bbd;
+    display: flex;
+    justify-content: center;
 }
 
 .tariff-btn:disabled {

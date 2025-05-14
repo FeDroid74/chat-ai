@@ -76,8 +76,23 @@ try {
         'role' => $role
     ]);
 
+    // Получаем ID только что созданного пользователя
+    $userId = $pdo->lastInsertId();
+
+    // Получаем ID тарифа "Бесплатный" (предположим, он всегда id = 1)
+    $tariffId = 1;
+
+    // Вставляем начальную подписку
+    $stmt = $pdo->prepare("INSERT INTO subscriptions (user_id, tariff_id, start_date, messages_used, last_reset_date) VALUES (:user_id, :tariff_id, :start_date, 0, :last_reset)");
+    $stmt->execute([
+        'user_id' => $userId,
+        'tariff_id' => $tariffId,
+        'start_date' => date('Y-m-d H:i:s'),
+        'last_reset' => date('Y-m-d')
+    ]);
+
     // Отправка письма с подтверждением через PHPMailer
-    $verification_link = "http://localhost/backend/confirm_email.php?token=$email_verification_token";
+    $verification_link = "http://localhost:8000/backend/confirm_email.php?token=$email_verification_token";
     $subject = "Подтверждение регистрации";
     $message = "Здравствуйте, $username! Пожалуйста, подтвердите Ваш адрес электронной почты, перейдя по ссылке: <a href='$verification_link'>$verification_link</a>";
 
