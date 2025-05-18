@@ -25,8 +25,8 @@ function loadModels(PDO $pdo): array {
             $models[$model['name']]['url'] = $model['url'];
         }
 
-        if (!empty($model['model_name'])) {
-            $models[$model['name']]['model_name'] = $model['model_name'];
+        if (!empty($model['local_link'])) {
+            $models[$model['name']]['local_link'] = $model['local_link'];
         }
     }
 

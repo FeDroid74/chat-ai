@@ -1,14 +1,31 @@
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
+    
+    // Получаем элемент для сообщений
+    const messageDiv = document.getElementById('success-message');
+    
+    // Очищаем предыдущее сообщение и классы
+    messageDiv.textContent = '';
+    messageDiv.classList.remove('success-message', 'error-message');
+    
     const formData = new FormData(e.target);
     const response = await fetch('./backend/login.php', {
         method: 'POST',
         body: formData
     });
     const result = await response.json();
-    alert(result.message || result.error);
+    
     if (result.message) {
+        // Успешное сообщение
+        messageDiv.textContent = result.message;
+        messageDiv.classList.add('success-message');
+        messageDiv.style.display = 'block';
         window.location.href = '/app.php';
+    } else {
+        // Сообщение об ошибке
+        messageDiv.textContent = result.error || 'Произошла ошибка при входе';
+        messageDiv.classList.add('error-message');
+        messageDiv.style.display = 'block';
     }
 });
 
@@ -18,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (urlParams.get('verified') === 'true') {
         const successMessage = document.getElementById('success-message');
         successMessage.textContent = 'Электронная почта успешно подтверждена!';
+        successMessage.classList.add('success-message');
+        successMessage.classList.remove('error-message');
         successMessage.style.display = 'block';
     }
 });

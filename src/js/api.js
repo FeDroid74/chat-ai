@@ -15,7 +15,7 @@ async function loadUserInfo() {
         const userInfoDiv = document.getElementById('user-info');
         if (data.username) {
             userInfoDiv.innerHTML = `
-                <span class="banner-title">Привет, ${data.username}!</span>
+                <span class="banner-title">Привет, ${escapeHtml(data.username)}!</span>
                 ${data.role === 1 ? '<a href="/admin.html" class="admin">Ⓐ</a>' : ''}
                 <button onclick="logout()" class="logout-btn">Выйти</button>
             `;
@@ -103,7 +103,9 @@ async function loadHistory(chatId) {
             data.messages.forEach(msg => {
                 const className = msg.user_id === 0 ? 'ai-message' : 'user-message';
                 const sender = msg.user_id === 0 ? `ИИ${msg.model ? ` (${msg.model})` : ''}` : 'Вы';
-                messagesDiv.innerHTML += `<p class="${className}"><b>${sender}:</b> ${msg.message}</p>`;
+                const safeSender = escapeHtml(sender);
+                const safeMessage = escapeHtml(msg.message);
+                messagesDiv.innerHTML += `<p class="${className}"><b>${safeSender}:</b> ${safeMessage}</p>`;
             });
         }
         messagesDiv.scrollTop = messagesDiv.scrollHeight;
@@ -142,7 +144,7 @@ async function sendMessage() {
     if (!input) return;
 
     // Показываем сообщение пользователя
-    messagesDiv.innerHTML += `<p class="user-message"><b>Вы:</b> ${input}</p>`;
+    messagesDiv.innerHTML += `<p class="user-message"><b>Вы:</b> ${escapeHtml(input)}</p>`;
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
     // Добавляем индикатор загрузки
@@ -181,7 +183,7 @@ async function sendMessage() {
             // Добавляем ответ ИИ с эффектом печати
             const replyDiv = document.createElement('p');
             replyDiv.className = 'ai-message typing';
-            replyDiv.innerHTML = `<b>ИИ (${data.model}):</b> ${data.reply}`;
+            replyDiv.innerHTML = `<b>ИИ (${escapeHtml(data.model)}):</b> ${escapeHtml(data.reply)}`;
             messagesDiv.appendChild(replyDiv);
             currentChatId = data.chat_id;
             loadChats();

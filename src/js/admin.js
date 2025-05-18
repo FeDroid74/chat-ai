@@ -303,7 +303,7 @@ async function loadModels() {
         <td>${escapeHtml(model.display_name)}</td>
         <td>${escapeHtml(model.type)}</td>
         <td>${escapeHtml(model.url || '')}</td>
-        <td>${escapeHtml(model.model_name || '')}</td>
+        <td>${escapeHtml(model.local_link || '')}</td>
         <td>${model.enabled == 1 ? 'Да' : 'Нет'}</td>
         <td>
             <button onclick="openEditModelForm(${model.id})">Редактировать</button>
@@ -319,9 +319,9 @@ async function createModel() {
     const display_name = modelInput('display_name');
     const type = modelInput('type');
     const url = modelInput('url') || null;
-    const model_name = modelInput('model_name') || null;
+    const local_link = modelInput('local_link') || null;
     const enabled = modelInput('enabled');
-    const data = await postRequest('create_model', { name, display_name, type, url, model_name, enabled });
+    const data = await postRequest('create_model', { name, display_name, type, url, local_link, enabled });
     data.success ? (closeModal(), location.reload()) : alert(data.error || 'Ошибка при создании');
 }
 
@@ -331,9 +331,9 @@ async function updateModel() {
     const display_name = modelInput('display_name');
     const type = modelInput('type');
     const url = modelInput('url') || null;
-    const model_name = modelInput('model_name') || null;
+    const local_link = modelInput('local_link') || null;
     const enabled = modelInput('enabled');
-    const data = await postRequest('update_model', { id, name, display_name, type, url, model_name, enabled });
+    const data = await postRequest('update_model', { id, name, display_name, type, url, local_link, enabled });
     data.success ? (closeModal(), location.reload()) : alert(data.error || 'Ошибка при обновлении');
 }
 
@@ -352,7 +352,7 @@ function openCreateModelForm() {
             <option value="openrouter">openrouter</option>
         </select></label><br>
         <label>URL: <input type="text" id="model-url"></label><br>
-        <label>Название модели: <input type="text" id="model-model_name"></label><br>
+        <label>Локальная ссылка: <input type="text" id="model-local_link"></label><br>
         <label>Включено: <select id="model-enabled">
             <option value="1">Да</option>
             <option value="0">Нет</option>
@@ -375,7 +375,7 @@ function openEditModelForm(id) {
             <option value="openrouter" ${model.type === 'openrouter' ? 'selected' : ''}>openrouter</option>
         </select></label><br>
         <label>URL: <input type="text" id="model-url" value="${escapeJsString(model.url || '')}"></label><br>
-        <label>Название модели: <input type="text" id="model-model_name" value="${escapeJsString(model.model_name || '')}"></label><br>
+        <label>Локальная ссылка: <input type="text" id="model-local_link" value="${escapeJsString(model.local_link || '')}"></label><br>
         <label>Включено: <select id="model-enabled">
             <option value="1" ${model.enabled == 1 ? 'selected' : ''}>Да</option>
             <option value="0" ${model.enabled == 0 ? 'selected' : ''}>Нет</option>
@@ -533,9 +533,9 @@ async function loadTariffModelAccess() {
     allTariffModelAccess = data.access;
     renderTable(allTariffModelAccess, '#access-table tbody', access => `
         <td>${escapeHtml(access.tariff_name)}</td>
-        <td>${escapeHtml(access.model_name)}</td>
+        <td>${escapeHtml(access.local_link)}</td>
         <td>
-            <button onclick="openEditTariffModelAccessForm(${access.tariff_id}, ${access.model_id}, '${escapeJsString(access.tariff_name)}', '${escapeJsString(access.model_name)}')">Редактировать</button>
+            <button onclick="openEditTariffModelAccessForm(${access.tariff_id}, ${access.model_id}, '${escapeJsString(access.tariff_name)}', '${escapeJsString(access.local_link)}')">Редактировать</button>
             <button onclick="deleteTariffModelAccess(${access.tariff_id}, ${access.model_id})">Удалить</button>
         </td>
     `);
@@ -575,9 +575,9 @@ function openCreateTariffModelAccessForm() {
     `);
 }
 
-function openEditTariffModelAccessForm(old_tariff_id, old_model_id, tariff_name, model_name) {
+function openEditTariffModelAccessForm(old_tariff_id, old_model_id, tariff_name, local_link) {
     const tariffOptions = allTariffs.map(t => `<option value="${t.id}" ${t.name === tariff_name ? 'selected' : ''}>${escapeHtml(t.name)}</option>`).join('');
-    const modelOptions = allModels.map(m => `<option value="${m.id}" ${m.display_name === model_name ? 'selected' : ''}>${escapeHtml(m.display_name)}</option>`).join('');
+    const modelOptions = allModels.map(m => `<option value="${m.id}" ${m.display_name === local_link ? 'selected' : ''}>${escapeHtml(m.display_name)}</option>`).join('');
     openModal('Редактировать доступ', `
         <input type="hidden" id="access-old_tariff_id" value="${old_tariff_id}">
         <input type="hidden" id="access-old_model_id" value="${old_model_id}">
@@ -677,3 +677,5 @@ Object.assign(window, {
     toggleMenu,
     showSection
 });
+
+export { escapeHtml, escapeJsString };

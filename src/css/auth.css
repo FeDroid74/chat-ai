@@ -71,21 +71,24 @@ button:hover {
     background-color: #007FED;
 }
 
-.error {
-    color: red;
-    font-size: 0.9em;
-    margin-top: 5px;
-    display: block;
-}
-
 .success-message {
-    color: #007FED;
     font-size: 1em;
     margin-bottom: 15px;
     text-align: center;
     padding: 10px;
     background-color: #edf2f7;
     border-radius: 5px;
+    color: #007FED;
+}
+
+.error-message {
+    font-size: 1em;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 10px;
+    background-color: #fef1f1;
+    border-radius: 5px;
+    color: #d63031;
 }
 
 /* Адаптивность */

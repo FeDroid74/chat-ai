@@ -2707,3 +2707,126 @@ io.net Parsed Response (qwen): Array
     [prompt_logprobs] => 
 )
 
+io.net Raw Response (mistral): {"id":"0196d2fb-8f4b-dd77-2f9c-63ba0d734428","object":"chat.completion","created":1747296421,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Нет, я не работаю в традиционном смысле этого слова. Я здесь, чтобы помогать и предоставлять информацию. А как я могу помочь вам сегодня?","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":29,"total_tokens":83,"completion_tokens":54,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0196d2fb-8f4b-dd77-2f9c-63ba0d734428
+    [object] => chat.completion
+    [created] => 1747296421
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Нет, я не работаю в традиционном смысле этого слова. Я здесь, чтобы помогать и предоставлять информацию. А как я могу помочь вам сегодня?
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 29
+            [total_tokens] => 83
+            [completion_tokens] => 54
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0196d321-5613-25a4-58d5-a0466799c99d","object":"chat.completion","created":1747298898,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Привет! Как я могу помочь?","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":26,"total_tokens":39,"completion_tokens":13,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0196d321-5613-25a4-58d5-a0466799c99d
+    [object] => chat.completion
+    [created] => 1747298898
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Привет! Как я могу помочь?
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 26
+            [total_tokens] => 39
+            [completion_tokens] => 13
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0196e57e-b398-a6d8-63e8-9e334323c744","object":"chat.completion","created":1747607007,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Привет! Да, я здесь. Как я могу помочь?","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":32,"total_tokens":52,"completion_tokens":20,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0196e57e-b398-a6d8-63e8-9e334323c744
+    [object] => chat.completion
+    [created] => 1747607007
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Привет! Да, я здесь. Как я могу помочь?
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 32
+            [total_tokens] => 52
+            [completion_tokens] => 20
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+

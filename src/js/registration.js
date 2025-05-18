@@ -1,7 +1,14 @@
 document.getElementById('registerForm').addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    // Очищаем предыдущие ошибки
+    // Получаем элемент для сообщений
+    const messageDiv = document.getElementById('success-message');
+    
+    // Очищаем предыдущее сообщение и классы
+    messageDiv.textContent = '';
+    messageDiv.classList.remove('success-message', 'error-message');
+    
+    // Очищаем предыдущие ошибки в полях (на случай, если они остались)
     document.querySelectorAll('.error').forEach(error => error.textContent = '');
 
     // Получаем значения полей
@@ -10,36 +17,37 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     const password = document.getElementById('password').value.trim();
     const confirmPassword = document.getElementById('confirm_password').value.trim();
 
-    let hasError = false;
-
-    // Проверка имени пользователя (только буквы, цифры, подчеркивания, длина 3-20)
+    // Проверка имени пользователя
     const usernameRegex = /^[a-zA-Z0-9_]{3,20}$/;
     if (!usernameRegex.test(username)) {
-        document.getElementById('username-error').textContent = 'Имя пользователя должно содержать только буквы, цифры и подчеркивания, длина от 3 до 20 символов';
-        hasError = true;
+        messageDiv.textContent = 'Имя пользователя должно содержать только буквы, цифры и подчеркивания, длина от 3 до 20 символов';
+        messageDiv.classList.add('error-message');
+        messageDiv.style.display = 'block';
+        return;
     }
 
     // Проверка email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-        document.getElementById('email-error').textContent = 'Неверный формат email';
-        hasError = true;
+        messageDiv.textContent = 'Неверный формат email';
+        messageDiv.classList.add('error-message');
+        messageDiv.style.display = 'block';
+        return;
     }
 
-    // Проверка пароля (минимум 8 символов)
+    // Проверка пароля
     if (password.length < 8) {
-        document.getElementById('password-error').textContent = 'Пароль должен содержать минимум 8 символов';
-        hasError = true;
+        messageDiv.textContent = 'Пароль должен содержать минимум 8 символов';
+        messageDiv.classList.add('error-message');
+        messageDiv.style.display = 'block';
+        return;
     }
 
     // Проверка совпадения паролей
     if (password !== confirmPassword) {
-        document.getElementById('confirm-password-error').textContent = 'Пароли не совпадают';
-        hasError = true;
-    }
-
-    // Если есть ошибки, прекращаем выполнение
-    if (hasError) {
+        messageDiv.textContent = 'Пароли не совпадают';
+        messageDiv.classList.add('error-message');
+        messageDiv.style.display = 'block';
         return;
     }
 
@@ -59,12 +67,20 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         const result = await response.json();
 
         if (result.message) {
-            alert(result.message);
-            window.location.href = 'login.html'; // Перенаправляем на страницу входа после успешной регистрации
+            messageDiv.textContent = result.message;
+            messageDiv.classList.add('success-message');
+            messageDiv.style.display = 'block';
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 2000); // Задержка перед перенаправлением
         } else {
-            alert(result.error || 'Произошла ошибка при регистрации');
+            messageDiv.textContent = result.error || 'Произошла ошибка при регистрации';
+            messageDiv.classList.add('error-message');
+            messageDiv.style.display = 'block';
         }
     } catch (error) {
-        alert('Ошибка: ' + error.message);
+        messageDiv.textContent = 'Ошибка: ' + error.message;
+        messageDiv.classList.add('error-message');
+        messageDiv.style.display = 'block';
     }
 });

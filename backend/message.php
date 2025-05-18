@@ -9,8 +9,19 @@ function handleMessageAction($action, $user_id, $input, $pdo, $models, $hfApiTok
 
     if ($action === 'send_message') {
         $message = trim($input['message'] ?? '');
-        $chat_id = $input['chat_id'] ?? 0;
+        $user_id = filter_var($user_id, FILTER_VALIDATE_INT);
+        $chat_id = filter_var($input['chat_id'] ?? 0, FILTER_VALIDATE_INT);
         $model = $input['model'] ?? 'mixtral'; // По умолчанию Mixtral
+
+        if ($user_id === false) {
+        echo json_encode(['error' => 'Неверный формат пользователя']);
+        exit;
+        }
+        
+        if ($chat_id === false) {
+            echo json_encode(['error' => 'Неверный формат чата']);
+            exit;
+        }
 
         if (empty($message)) {
             echo json_encode(['error' => 'Сообщение пустое']);
@@ -224,7 +235,7 @@ function handleMessageAction($action, $user_id, $input, $pdo, $models, $hfApiTok
             // io.net API
             $formatted_message = "Отвечай на русском языке на вопрос. Вопрос: \"$message\"";
             $payload = [
-                'model' => $modelInfo['model_name'],
+                'model' => $modelInfo['local_link'],
                 'messages' => [
                     [
                         'role' => 'user',
@@ -278,7 +289,7 @@ function handleMessageAction($action, $user_id, $input, $pdo, $models, $hfApiTok
             // OpenRouter API
             $formatted_message = "Ты — экспертный ИИ. Отвечай подробно, логично и на русском языке, предоставляя развернутые объяснения и примеры, если это уместно. Вопрос: \"$message\"";
             $payload = [
-                'model' => $modelInfo['model_name'],
+                'model' => $modelInfo['local_link'],
                 'messages' => [
                     [
                         'role' => 'user',

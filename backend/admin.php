@@ -104,20 +104,20 @@ switch ($action) {
         break;
         
     case 'create_model':
-        handleRequest(['name', 'display_name', 'type', 'url', 'model_name', 'enabled'], function ($data) use ($pdo) {
+        handleRequest(['name', 'display_name', 'type', 'url', 'local_link', 'enabled'], function ($data) use ($pdo) {
             $stmt = $pdo->prepare("
-                INSERT INTO models (name, display_name, type, url, model_name, enabled)
-                VALUES (:name, :display_name, :type, :url, :model_name, :enabled)
+                INSERT INTO models (name, display_name, type, url, local_link, enabled)
+                VALUES (:name, :display_name, :type, :url, :local_link, :enabled)
             ");
             $stmt->execute($data);
         });
         break;
         
     case 'update_model':
-        handleRequest(['id', 'name', 'display_name', 'type', 'url', 'model_name', 'enabled'], function ($data) use ($pdo) {
+        handleRequest(['id', 'name', 'display_name', 'type', 'url', 'local_link', 'enabled'], function ($data) use ($pdo) {
             $stmt = $pdo->prepare("
                 UPDATE models SET name = :name, display_name = :display_name, type = :type,
-                    url = :url, model_name = :model_name, enabled = :enabled
+                    url = :url, local_link = :local_link, enabled = :enabled
                 WHERE id = :id
             ");
             $stmt->execute($data);
@@ -221,7 +221,7 @@ switch ($action) {
                 tariff_model_access.tariff_id, 
                 tariff_model_access.model_id, 
                 tariffs.name AS tariff_name, 
-                models.display_name AS model_name
+                models.display_name AS local_link
             FROM tariff_model_access
             JOIN tariffs ON tariffs.id = tariff_model_access.tariff_id
             JOIN models ON models.id = tariff_model_access.model_id
@@ -269,7 +269,7 @@ function handleRequest(array $required, callable $callback) {
     $data = [];
     foreach ($required as $field) {
         $value = $input[$field] ?? null;
-        if (in_array($field, ['url', 'model_name', 'duration_days', 'message_limit', 'end_date', 'last_reset_date']) && ($value === '' || $value === null)) {
+        if (in_array($field, ['url', 'local_link', 'duration_days', 'message_limit', 'end_date', 'last_reset_date']) && ($value === '' || $value === null)) {
             $data[$field] = null;
         } elseif ($value === '' || $value === null) {
             exitWithError("Поле {$field} обязательно");
