@@ -28,6 +28,7 @@ async function loadUserInfo() {
         throw error;
     }
 }
+
 async function loadChats() {
     const response = await fetch('/api/api.php', {
         method: 'POST',

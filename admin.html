@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="/src/css/style.css">
 </head>
 <body>
-    <a href="/app.php" class="return-btn"><span>🡠</span></a>
-    <button class="menu-toggle move" onclick="toggleMenu()"><span>☰</span></button>
+    <div class="user-info" id="user-info">
+        <span id="admin-username"></span>
+        <button onclick="logout()" class="logout-btn">Выйти</button>
+    </div>
+
+    <button class="menu-toggle" onclick="toggleMenu()"><span>☰</span></button>
 
     <div class="sidebar-menu" id="sidebar-menu">
         <div class="sidebar-header">
@@ -28,26 +32,25 @@
 
     <div class="admin-container">
         <h1>Панель администратора</h1>
-        <button onclick="logout()" class="logout-btn">Выйти</button>
 
         <div class="admin-stats">
             <div class="stat-block users">
-                <div class="icon">👥</div>
+                <div class="icon"><img src="/img/users.svg"></div>
                 <div class="label">Пользователи</div>
                 <div class="count" id="stat-users">0</div>
             </div>
             <div class="stat-block chats">
-                <div class="icon">💬</div>
+                <div class="icon"><img src="/img/chat.svg"></div>
                 <div class="label">Чаты</div>
                 <div class="count" id="stat-chats">0</div>
             </div>
             <div class="stat-block messages">
-                <div class="icon">📨</div>
+                <div class="icon"><img src="/img/message.svg"></div>
                 <div class="label">Сообщения</div>
                 <div class="count" id="stat-messages">0</div>
             </div>
             <div class="stat-block models">
-                <div class="icon">🧠</div>
+                <div class="icon"><img src="/img/brain.svg"></div>
                 <div class="label">Модели</div>
                 <div class="count" id="stat-models">0</div>
             </div>            

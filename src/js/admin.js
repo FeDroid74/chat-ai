@@ -598,6 +598,33 @@ function closeModal() {
     document.getElementById('modal').style.display = 'none';
 }
 
+// Отображение имени администратора
+async function loadAdminInfo() {
+    const response = await fetch('/api/api.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'get_user_info' })
+    });
+    const text = await response.text();
+    console.log('Raw response from loadUserInfo:', text);
+    try {
+        const data = JSON.parse(text);
+        const userInfoDiv = document.getElementById('user-info');
+        if (data.username) {
+            userInfoDiv.innerHTML = `
+                <span class="banner-title">Здравствуйте, ${escapeHtml(data.username)}!</span>
+                <button onclick="logout()" class="logout-btn">Выйти</button>
+            `;
+        } else {
+            userInfoDiv.textContent = 'Не авторизован';
+            window.location.href = '/login.html';
+        }
+    } catch (error) {
+        console.error('Ошибка парсинга JSON в loadUserInfo:', error, 'Raw response:', text);
+        throw error;
+    }
+}
+
 // Остальное
 const userInput = key => document.getElementById(`user-${key}`).value;
 const chatInput = key => document.getElementById(`chat-${key}`).value;
@@ -648,6 +675,7 @@ window.onload = async () => {
     await loadTariffs();
     await loadSubscriptions();
     await loadTariffModelAccess();
+    await loadAdminInfo();
 };
 
 function toggleMenu() {
@@ -677,5 +705,8 @@ Object.assign(window, {
     toggleMenu,
     showSection
 });
+
+import { logout } from './logout.js';
+window.logout = logout;
 
 export { escapeHtml, escapeJsString };

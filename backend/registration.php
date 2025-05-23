@@ -14,6 +14,23 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+$recaptchaSecret = '6LdmKgIqAAAAAJ4uT1BAo6AoU_zXi_LHdnCou82T';
+$recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
+
+if (empty($recaptchaResponse)) {
+    echo json_encode(['error' => 'Пожалуйста, подтвердите, что Вы не робот.']);
+    exit;
+}
+
+// Отправляем запрос на верификацию Google
+$verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$recaptchaSecret}&response={$recaptchaResponse}");
+$responseData = json_decode($verify);
+
+if (!$responseData->success) {
+    echo json_encode(['error' => 'Проверка капчи не пройдена. Попробуйте снова.']);
+    exit;
+}
+
 $username = trim($_POST['username'] ?? '');
 $email = trim($_POST['email'] ?? '');
 $password = trim($_POST['password'] ?? '');

@@ -51,12 +51,22 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         return;
     }
 
+    // Проверка reCAPTCHA
+    const recaptchaToken = grecaptcha.getResponse();
+    if (!recaptchaToken) {
+        messageDiv.textContent = 'Пожалуйста, подтвердите, что вы не робот.';
+        messageDiv.classList.add('error-message');
+        messageDiv.style.display = 'block';
+        return;
+    }
+
     // Формируем данные для отправки
     const formData = new FormData();
     formData.append('username', username);
     formData.append('email', email);
     formData.append('password', password);
     formData.append('confirm_password', confirmPassword);
+    formData.append('g-recaptcha-response', recaptchaToken);
 
     try {
         const response = await fetch('backend/registration.php', {

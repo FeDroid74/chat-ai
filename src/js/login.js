@@ -8,7 +8,17 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     messageDiv.textContent = '';
     messageDiv.classList.remove('success-message', 'error-message');
     
+    // Получение токена reCAPTCHA
+    const recaptchaToken = grecaptcha.getResponse();
+    if (!recaptchaToken) {
+        messageDiv.textContent = 'Пожалуйста, подтвердите, что вы не робот.';
+        messageDiv.classList.add('error-message');
+        messageDiv.style.display = 'block';
+        return;
+    }
+
     const formData = new FormData(e.target);
+    formData.append('g-recaptcha-response', recaptchaToken);
     const response = await fetch('./backend/login.php', {
         method: 'POST',
         body: formData
@@ -20,7 +30,13 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         messageDiv.textContent = result.message;
         messageDiv.classList.add('success-message');
         messageDiv.style.display = 'block';
-        window.location.href = '/app.php';
+        
+        // Перенаправление в зависимости от роли
+        if (result.role === 1) {
+            window.location.href = '/admin.html';
+        } else {
+            window.location.href = '/app.php';
+        }
     } else {
         // Сообщение об ошибке
         messageDiv.textContent = result.error || 'Произошла ошибка при входе';

@@ -17,8 +17,24 @@ if (empty($email) || empty($password)) {
     exit;
 }
 
+$recaptchaSecret = '6LdmKgIqAAAAAJ4uT1BAo6AoU_zXi_LHdnCou82T';
+$recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
+
+if (empty($recaptchaResponse)) {
+    echo json_encode(['error' => 'Пожалуйста, подтвердите, что Вы не робот.']);
+    exit;
+}
+
+$verifyResponse = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$recaptchaSecret}&response={$recaptchaResponse}");
+$responseData = json_decode($verifyResponse);
+
+if (!$responseData->success) {
+    echo json_encode(['error' => 'Проверка капчи не пройдена.']);
+    exit;
+}
+
 try {
-    $stmt = $pdo->prepare("SELECT id, password, email_verified FROM users WHERE email = :email");
+    $stmt = $pdo->prepare("SELECT id, password, email_verified, role FROM users WHERE email = :email");
     $stmt->execute(['email' => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -31,7 +47,7 @@ try {
 
         if ($user && $user['password'] === $password) {
             $_SESSION['user_id'] = $user['id'];
-            echo json_encode(['message' => 'Вход успешен!']);
+            echo json_encode(['message' => 'Вход успешен!', 'role' => $user['role']]);
         } else {
             echo json_encode(['error' => 'Неверный адрес электронной почты или пароль']);
         }

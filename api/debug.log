@@ -2830,3 +2830,64 @@ io.net Parsed Response (mistral): Array
     [prompt_logprobs] => 
 )
 
+cURL Error (io.net - mistral): Could not resolve host: api.intelligence.io.solutions
+cURL Error (IAM Token): Could not resolve host: iam.api.cloud.yandex.net
+io.net Raw Response (mistral): {"id":"0196e711-f129-72dc-a8aa-74bd04a15858","object":"chat.completion","created":1747633421,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Приготовление оладий — это просто и быстро! Вот пошаговый рецепт:\n\n### Ингредиенты:\n- 1 стакан муки\n- 1 стакан кефира (или молока)\n- 1 яйцо\n- 1 ч. ложка сахара\n- 0.5 ч. ложки соли\n- 0.5 ч. ложки соды\n- 1 ст. ложка растительного масла (для теста)\n- Растительное масло для жарки\n\n### Приготовление:\n1. **Подготовьте ингредиенты:** В миске смешайте муку и соблюдайте пропорции.\n2. **Соедините сухие ингредиенты:** Добавьте соль и сахар к муке. Перемешайте.\n3. **Добавьте кефир:** Влейте кефир в смесь муки, соли и сахара. Перемешайте до однородного состояния.\n4. **Добавьте яйцо:** Вбейте яйцо в тесто и хорошо пере","tool_calls":[]},"logprobs":null,"finish_reason":"length","stop_reason":null}],"usage":{"prompt_tokens":34,"total_tokens":334,"completion_tokens":300,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0196e711-f129-72dc-a8aa-74bd04a15858
+    [object] => chat.completion
+    [created] => 1747633421
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Приготовление оладий — это просто и быстро! Вот пошаговый рецепт:
+
+### Ингредиенты:
+- 1 стакан муки
+- 1 стакан кефира (или молока)
+- 1 яйцо
+- 1 ч. ложка сахара
+- 0.5 ч. ложки соли
+- 0.5 ч. ложки соды
+- 1 ст. ложка растительного масла (для теста)
+- Растительное масло для жарки
+
+### Приготовление:
+1. **Подготовьте ингредиенты:** В миске смешайте муку и соблюдайте пропорции.
+2. **Соедините сухие ингредиенты:** Добавьте соль и сахар к муке. Перемешайте.
+3. **Добавьте кефир:** Влейте кефир в смесь муки, соли и сахара. Перемешайте до однородного состояния.
+4. **Добавьте яйцо:** Вбейте яйцо в тесто и хорошо пере
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => length
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 34
+            [total_tokens] => 334
+            [completion_tokens] => 300
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"К сожалению, без дополнительного контекста сложно определить, что именно вы имеете в виду под «сигмаа». Возможно, вы имели в виду что-то из области математики, статистики или других наук. Уточните, пожалуйста, ваш вопрос.\n\nЕсли вы имели в виду понятие сигмы в статистике, то сигма (σ) — это греческая буква, которая обозначает стандартное отклонение в теории вероятностей и статистике. Стандартное отклонение показывает, насколько значения в наборе данных отклоняются от среднего значения. Оно является одним из основных инструментов для измерения разброса данных.\n\nЕсли у вас есть другой вопрос, пожалуйста, уточните его, и я постараюсь помочь вам."},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"45","completionTokens":"129","totalTokens":"174","completionTokensDetails":{"reasoningTokens":"0"}},"modelVersion":"25.03.2025"}}
+
