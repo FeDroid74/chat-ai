@@ -73,8 +73,8 @@
         </div>
     </div>
 
-    <script type="module" src="/src/js/script.js"></script>
-    <script type="module" src="/src/js/arrow.js"></script>
-    <script type="module" src="/src/js/payment.js"></script>
+    <script type="module" src="./src/js/script.js"></script>
+    <script type="module" src="./src/js/arrow.js"></script>
+    <script type="module" src="./src/js/payment.js"></script>
 </body>
 </html>
