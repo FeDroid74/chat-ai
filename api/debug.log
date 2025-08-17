@@ -2891,3 +2891,85 @@ io.net Parsed Response (mistral): Array
 
 YandexGPT Response: {"result":{"alternatives":[{"message":{"role":"assistant","text":"К сожалению, без дополнительного контекста сложно определить, что именно вы имеете в виду под «сигмаа». Возможно, вы имели в виду что-то из области математики, статистики или других наук. Уточните, пожалуйста, ваш вопрос.\n\nЕсли вы имели в виду понятие сигмы в статистике, то сигма (σ) — это греческая буква, которая обозначает стандартное отклонение в теории вероятностей и статистике. Стандартное отклонение показывает, насколько значения в наборе данных отклоняются от среднего значения. Оно является одним из основных инструментов для измерения разброса данных.\n\nЕсли у вас есть другой вопрос, пожалуйста, уточните его, и я постараюсь помочь вам."},"status":"ALTERNATIVE_STATUS_FINAL"}],"usage":{"inputTextTokens":"45","completionTokens":"129","totalTokens":"174","completionTokensDetails":{"reasoningTokens":"0"}},"modelVersion":"25.03.2025"}}
 
+io.net Raw Response (mistral): {"id":"01975474-d4be-9ef5-14d4-e7eb1a610e69","object":"chat.completion","created":1749468629,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" Население Москвы, по данным на 2023 год, составляет около 12,7 миллионов человек. Точное число может немного варьироваться в зависимости от последних официальных данных и миграционных процессов.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":31,"total_tokens":102,"completion_tokens":71,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 01975474-d4be-9ef5-14d4-e7eb1a610e69
+    [object] => chat.completion
+    [created] => 1749468629
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  Население Москвы, по данным на 2023 год, составляет около 12,7 миллионов человек. Точное число может немного варьироваться в зависимости от последних официальных данных и миграционных процессов.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 31
+            [total_tokens] => 102
+            [completion_tokens] => 71
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+
+io.net Raw Response (mistral): {"id":"0197547a-3bfe-7e0c-b1d9-433fecb0026d","object":"chat.completion","created":1749468982,"model":"mistralai/Mistral-Large-Instruct-2411","choices":[{"index":0,"message":{"role":"assistant","reasoning_content":null,"content":" По данным на 2023 год, численность населения Москвы составляет примерно 12,6 миллионов человек. Однако, эти цифры могут варьироваться в зависимости от источника и методов подсчета.","tool_calls":[]},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":31,"total_tokens":101,"completion_tokens":70,"prompt_tokens_details":null},"prompt_logprobs":null}
+io.net Parsed Response (mistral): Array
+(
+    [id] => 0197547a-3bfe-7e0c-b1d9-433fecb0026d
+    [object] => chat.completion
+    [created] => 1749468982
+    [model] => mistralai/Mistral-Large-Instruct-2411
+    [choices] => Array
+        (
+            [0] => Array
+                (
+                    [index] => 0
+                    [message] => Array
+                        (
+                            [role] => assistant
+                            [reasoning_content] => 
+                            [content] =>  По данным на 2023 год, численность населения Москвы составляет примерно 12,6 миллионов человек. Однако, эти цифры могут варьироваться в зависимости от источника и методов подсчета.
+                            [tool_calls] => Array
+                                (
+                                )
+
+                        )
+
+                    [logprobs] => 
+                    [finish_reason] => stop
+                    [stop_reason] => 
+                )
+
+        )
+
+    [usage] => Array
+        (
+            [prompt_tokens] => 31
+            [total_tokens] => 101
+            [completion_tokens] => 70
+            [prompt_tokens_details] => 
+        )
+
+    [prompt_logprobs] => 
+)
+

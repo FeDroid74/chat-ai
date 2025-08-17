@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Чат с ИИ</title>
-    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="./src/css/style.css">
 </head>
 <body>
     <div class="user-info" id="user-info">
